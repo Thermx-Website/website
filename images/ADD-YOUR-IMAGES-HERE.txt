@@ -1,0 +1,21 @@
+THERM-X WEBSITE IMAGE FOLDER
+
+Replace the image files using these exact filenames.
+
+Automatic slider images (recommended 1920 x 720 px):
+- slide-1.jpg
+- slide-2.jpg
+- slide-3.jpg
+
+Product card images (recommended 800 x 500 px):
+- product-1.jpg  Environmental Test Chambers
+- product-2.jpg  Thermal Shock Chambers
+- product-3.jpg  Altitude Test Chambers
+- product-4.jpg  Battery Test Chambers
+- product-5.jpg  Rain / Spray Chambers
+- product-6.jpg  Dust Test Chambers
+- product-7.jpg  Vibration Shaker Integration
+- product-8.jpg  UTM Integration Chambers
+- product-9.jpg  Corrosion Test Chambers
+
+Keep index.html and the images folder together.

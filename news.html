@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>News &amp; Updates | Therm-X Innovations</title>
+<meta name="description" content="Official company news, product updates, installation updates, and service announcements from Therm-X Innovations.">
+<link rel="icon" href="assets/images/favicon-x.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+body.news-page{background:radial-gradient(circle at 8% 12%,rgba(245,130,31,.13),transparent 25%),radial-gradient(circle at 94% 22%,rgba(40,91,190,.14),transparent 28%),linear-gradient(145deg,#f8fbff 0%,#edf4ff 52%,#fff3e8 100%)}
+.news-page .site-nav .container,.news-page footer .container{width:calc(100vw - 80px);max-width:none;margin-inline:40px}
+.products-hero{position:relative;overflow:hidden;padding:48px 0 44px;color:#fff;background:linear-gradient(125deg,#071a4d 0%,#113b8f 57%,#d9610e 100%)}
+.products-hero:before,.products-hero:after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.products-hero:before{width:390px;height:390px;right:-100px;top:-210px;background:rgba(255,156,72,.20)}
+.products-hero:after{width:310px;height:310px;left:-130px;bottom:-220px;background:rgba(75,129,237,.22)}
+.products-hero .container{position:relative;z-index:1;width:calc(100vw - 80px);max-width:1280px;margin-inline:auto;padding-right:120px}
+.products-hero .breadcrumbs{color:#c7d6f4;font-size:12px}
+.products-hero h1{max-width:860px;font-size:clamp(30px,3.8vw,48px);line-height:1.1;margin-top:6px}
+.products-hero h1 span{color:#ff9a49}
+.products-hero p{max-width:760px;color:#d7e1f5;font-size:14.5px;margin-top:11px}
+.admin-hero-btn{position:absolute;right:-24px;top:-30px;display:inline-flex;align-items:center;justify-content:center;min-width:94px;padding:10px 16px;border:1px solid rgba(255,255,255,.30);border-radius:0 0 0 16px;background:rgba(255,255,255,.10);color:rgba(255,255,255,.78);font-size:12px;font-weight:800;letter-spacing:.04em;cursor:pointer;backdrop-filter:blur(10px);box-shadow:0 10px 24px rgba(0,0,0,.10);opacity:.72;transition:opacity .22s ease,background .22s ease,color .22s ease,transform .22s ease}
+.admin-hero-btn:hover{opacity:1;transform:translateY(2px);background:rgba(255,255,255,.94);color:#0b2060}
+.news-main{padding:58px 0 92px}.news-main>.container{width:calc(100vw - 80px);max-width:1280px;margin-inline:auto}
+.news-shell{display:grid;gap:24px}
+
+.admin-panel{display:none}
+.admin-panel.is-open{display:block}
+.admin-card{position:relative;padding:24px;border-radius:28px;background:linear-gradient(145deg,#071a4d 0%,#103c91 60%,#d9610e 100%);box-shadow:0 26px 64px rgba(11,32,96,.18);overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+.admin-card:before{content:"";position:absolute;width:320px;height:320px;right:-150px;top:-160px;border-radius:50%;background:rgba(255,255,255,.07)}
+.admin-card:after{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,#ff9a49,#ffd0a7 34%,#6ea2ff 70%,#fff)}
+.admin-close{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:104px;border:1px solid rgba(26,65,142,.16);border-radius:13px;padding:11px 15px;background:linear-gradient(145deg,#edf4ff,#e4edff);color:#0b2060;font-size:12px;font-weight:850;letter-spacing:.02em;cursor:pointer;box-shadow:0 8px 18px rgba(11,32,96,.10);transition:.22s ease}
+.admin-close:hover{background:#0b2060;color:#fff;transform:translateY(-2px);box-shadow:0 11px 24px rgba(11,32,96,.20)}
+.admin-logout{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:104px;border:1px solid rgba(214,95,10,.18);border-radius:13px;padding:11px 15px;background:linear-gradient(145deg,#fff3e8,#ffe4cc);color:#b94d08;font-size:12px;font-weight:850;letter-spacing:.02em;cursor:pointer;box-shadow:0 8px 18px rgba(214,95,10,.10);transition:.22s ease}
+.admin-logout:hover{background:linear-gradient(135deg,#f5821f,#d9610e);color:#fff;transform:translateY(-2px);box-shadow:0 11px 24px rgba(245,130,31,.24)}
+.admin-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:stretch;height:670px}
+.admin-column{height:100%;min-height:0;padding:22px;border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(247,250,255,.98));display:flex;flex-direction:column;gap:16px;overflow:hidden;border:1px solid rgba(255,255,255,.72);box-shadow:0 14px 34px rgba(5,23,71,.12)}
+.admin-column:nth-child(2){height:100%;align-self:stretch}
+.public-news-section{display:block}
+body.news-admin-open .public-news-section{display:none}
+.admin-column-head{min-height:60px}
+.admin-column h3{font-size:22px;color:#0b2060;margin:0 0 5px}.admin-column p{font-size:13px;color:#5b6c88;line-height:1.62}
+.admin-column form{display:flex!important;flex-direction:column;gap:16px;min-height:0!important;flex:1;overflow-y:auto;padding-right:7px;padding-bottom:2px;scrollbar-width:thin;scrollbar-color:#f5821f #edf4ff}
+.admin-column form::-webkit-scrollbar{width:7px}.admin-column form::-webkit-scrollbar-track{background:#edf4ff;border-radius:999px}.admin-column form::-webkit-scrollbar-thumb{background:#f5821f;border-radius:999px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:grid;gap:8px}.field.full{grid-column:1/-1}.field label{color:#253654;font-size:12px;font-weight:800}
+.field input,.field select,.field textarea{width:100%;border:1px solid #d9e1ee;border-radius:14px;background:#fff;color:#172138;padding:13px 14px;font:inherit;font-size:13px;outline:none;transition:.22s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#3978e0;box-shadow:0 0 0 4px rgba(57,120,224,.10)}
+.field textarea{min-height:155px;resize:vertical}
+.upload-row{display:grid;grid-template-columns:160px 1fr;gap:14px;align-items:stretch}
+.upload-preview{height:136px;border-radius:18px;overflow:hidden;background:linear-gradient(145deg,#dce9ff,#ffe2c9);display:grid;place-items:center;color:#526581;font-size:12px;text-align:center;border:1px solid rgba(44,86,171,.12)}
+.upload-preview img{width:100%;height:100%;object-fit:cover}
+.upload-side{display:grid;align-content:start;gap:10px;padding:14px;border-radius:18px;background:linear-gradient(145deg,#f5f8ff,#fff6ee);border:1px dashed #bccce2}
+.upload-side strong{font-size:13px;color:#0b2060}.upload-side small{font-size:11.5px;color:#667894;line-height:1.55}
+.image-trigger{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:11px 14px;border-radius:12px;background:linear-gradient(135deg,#0b2060,#3978e0);color:#fff;font-size:12px;font-weight:900;cursor:pointer;overflow:hidden;max-width:max-content}.image-trigger input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.form-actions{position:sticky;bottom:-2px;z-index:5;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;margin-top:auto;padding:15px 2px 4px;background:linear-gradient(180deg,rgba(248,251,255,0),#f8fbff 24%,#f8fbff 100%);border-top:1px solid rgba(36,78,158,.10)}.form-note{font-size:11.7px;color:#6a7b95;max-width:390px;line-height:1.55}.admin-action-buttons{display:flex!important;align-items:center;justify-content:flex-end;gap:10px!important;flex-wrap:nowrap!important}.secondary-btn{border:1px solid rgba(32,78,168,.12);border-radius:13px;padding:11px 15px;background:#edf4ff;color:#0b2060;font-size:12px;font-weight:850;cursor:pointer;transition:.22s ease}.secondary-btn:hover{background:#dfeaff;transform:translateY(-2px)}#submit-news-btn{min-width:158px;border-radius:13px;padding:12px 18px;background:linear-gradient(135deg,#f5821f,#d9610e);box-shadow:0 10px 22px rgba(245,130,31,.28);font-size:12.5px;letter-spacing:.02em;transition:.22s ease}#submit-news-btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(245,130,31,.36)}
+.manage-list{display:grid;gap:12px;overflow:auto;min-height:0;flex:1;padding-right:4px;align-content:start}
+.manage-item{display:grid;grid-template-columns:82px 1fr;gap:14px;align-items:center;padding:12px;border-radius:18px;background:linear-gradient(145deg,#f5f8ff,#fff6ee);border:1px solid rgba(44,86,171,.11)}
+.manage-thumb{width:82px;height:70px;border-radius:14px;overflow:hidden;background:linear-gradient(145deg,#dce9ff,#ffe2c9)}.manage-thumb img{width:100%;height:100%;object-fit:cover}
+.manage-item h4{font-size:15px;line-height:1.4;color:#0b2060;margin:0 0 4px}.manage-meta{font-size:11px;color:#7b8aa2;font-weight:700;margin-bottom:8px}.manage-actions{display:flex;flex-wrap:wrap;gap:8px}.manage-actions button{border:0;border-radius:10px;padding:9px 12px;font-size:11px;font-weight:800;cursor:pointer}.edit-btn{background:#edf4ff;color:#0b2060}.delete-btn{background:#8b1d1d;color:#fff}.empty-manage{padding:26px;border-radius:18px;background:#f8fbff;border:1px dashed #cad6ea;text-align:center;color:#6a7b95;font-size:13px}
+.news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.news-card{height:470px;border-radius:24px;overflow:hidden;background:#fff;border:1px solid rgba(44,86,171,.13);box-shadow:0 20px 46px rgba(11,32,96,.10);display:flex;flex-direction:column;transition:transform .3s ease,box-shadow .3s ease}.news-card:hover{transform:translateY(-7px);box-shadow:0 29px 62px rgba(11,32,96,.16)}
+.news-card-image{height:200px;flex:0 0 200px;overflow:hidden;background:linear-gradient(145deg,#dce9ff,#ffe2c9)}.news-card-image img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}.news-card:hover .news-card-image img{transform:scale(1.06)}
+.news-card-body{padding:20px 21px 18px;display:flex;flex-direction:column;min-height:0;flex:1}.news-card-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:11px}.news-type{display:inline-flex;padding:7px 10px;border-radius:999px;background:#edf4ff;color:#0b2060;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.news-date{color:#7b8aa2;font-size:11px;font-weight:700}.news-card h3{font-size:20px;line-height:1.28;color:#0b2060;margin-bottom:10px;min-height:51px}.news-scroll-content{font-size:13.4px;line-height:1.68;color:#5b6c88;overflow-y:auto;padding-right:8px;white-space:pre-wrap;flex:1;scrollbar-width:thin;scrollbar-color:#f5821f #edf4ff}.news-scroll-content::-webkit-scrollbar{width:6px}.news-scroll-content::-webkit-scrollbar-track{background:#edf4ff;border-radius:99px}.news-scroll-content::-webkit-scrollbar-thumb{background:#f5821f;border-radius:99px}
+.news-empty{grid-column:1/-1;min-height:320px;padding:42px;border-radius:25px;display:grid;place-items:center;text-align:center;background:linear-gradient(145deg,rgba(225,237,255,.97),rgba(255,231,209,.96));border:1px solid rgba(52,91,170,.18);box-shadow:0 22px 52px rgba(11,32,96,.10)}.news-empty-icon{width:78px;height:78px;border-radius:24px;display:grid;place-items:center;margin:0 auto 18px;background:linear-gradient(145deg,#0b2060,#3978e0);color:#fff;font-size:28px;box-shadow:0 16px 34px rgba(11,32,96,.22)}.news-empty h3{font-size:27px;color:#0b2060;margin-bottom:8px}.news-empty p{max-width:620px;color:#5b6c88;font-size:14px}
+.modal-backdrop{position:fixed;inset:0;background:radial-gradient(circle at 18% 16%,rgba(57,120,224,.22),transparent 32%),radial-gradient(circle at 84% 82%,rgba(245,130,31,.20),transparent 30%),rgba(4,14,42,.72);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:24px;z-index:60}.modal-backdrop.is-open{display:flex;animation:adminBackdropIn .24s ease both}
+@keyframes adminBackdropIn{from{opacity:0}to{opacity:1}}
+.modal-card{width:min(470px,100%);border-radius:28px;overflow:hidden;background:#fff;border:1px solid rgba(255,255,255,.72);box-shadow:0 34px 90px rgba(3,17,58,.36);animation:adminModalIn .34s cubic-bezier(.2,.8,.2,1) both}
+@keyframes adminModalIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+.modal-brand{position:relative;display:grid;grid-template-columns:58px 1fr;gap:15px;align-items:center;padding:24px 26px;background:linear-gradient(135deg,#071a4d 0%,#123f97 62%,#d9610e 100%);color:#fff;overflow:hidden}
+.modal-brand:after{content:"";position:absolute;width:190px;height:190px;border-radius:50%;right:-86px;top:-106px;background:rgba(255,255,255,.10)}
+.modal-logo{position:relative;z-index:1;width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);box-shadow:0 12px 28px rgba(0,0,0,.18)}
+.modal-logo img{width:38px;height:38px;object-fit:contain}
+.modal-brand-copy{position:relative;z-index:1}.modal-brand-copy small{display:block;color:#ffc996;font-size:10.5px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;margin-bottom:4px}.modal-brand-copy h3{font-size:25px;line-height:1.15;color:#fff;margin:0}.modal-brand-copy p{color:#dce6f8;font-size:12.4px;line-height:1.55;margin:6px 0 0}
+.modal-content{padding:24px 26px 26px}.modal-label{display:block;color:#253654;font-size:12px;font-weight:850;margin-bottom:8px}.password-field{position:relative;display:flex;align-items:center}.password-field input{width:100%;border:1px solid #d7e1ee;border-radius:15px;padding:14px 76px 14px 16px;font:inherit;font-size:14px;outline:none;background:#f9fbff;color:#172138;transition:.22s}.password-field input:focus{border-color:#3978e0;background:#fff;box-shadow:0 0 0 4px rgba(57,120,224,.10)}.password-toggle{position:absolute;right:8px;border:0;border-radius:10px;padding:8px 10px;background:#edf4ff;color:#0b2060;font-size:11px;font-weight:900;cursor:pointer}.password-toggle:hover{background:#0b2060;color:#fff}
+.session-note{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:center;margin-top:13px;padding:11px 12px;border-radius:14px;background:linear-gradient(145deg,#eef5ff,#fff4e9);border:1px solid rgba(46,92,180,.10);color:#5b6c88;font-size:11.8px;line-height:1.48}.session-note i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#0b2060,#3978e0);color:#fff;font-style:normal;font-size:12px;font-weight:900}
+.modal-error{min-height:18px;color:#ba1a1a;font-size:12px;font-weight:750;margin-top:9px}.modal-actions{display:grid;grid-template-columns:1fr 1.25fr;gap:10px;margin-top:15px}.modal-actions button{border:0;border-radius:13px;padding:12px 16px;font-size:13px;font-weight:850;cursor:pointer;transition:.22s}.modal-cancel{background:#edf4ff;color:#0b2060}.modal-cancel:hover{background:#dfeafb}.modal-login{background:linear-gradient(135deg,#f5821f,#d65f0a);color:#fff;box-shadow:0 10px 24px rgba(245,130,31,.25)}.modal-login:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(245,130,31,.32)}.modal-login:disabled{opacity:.65;cursor:wait;transform:none}
+@media (max-width:1100px){.admin-grid{grid-template-columns:1fr}.admin-column{height:auto;min-height:620px}.news-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:840px){.news-page .site-nav .container,.products-hero .container,.news-main>.container,.news-page footer .container{width:calc(100vw - 44px);margin-inline:auto}.products-hero .container{padding-right:0;padding-top:58px}.admin-hero-btn{right:0;top:0}.news-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.upload-row{grid-template-columns:1fr}.admin-card{padding:16px}.admin-column{padding:20px;min-height:auto}.admin-column-head{padding-right:0}}
+
+/* Unified fixed heading-card size */
+.products-hero{height:230px!important;min-height:230px!important;padding:0!important;display:flex!important;align-items:center!important}
+@media(max-width:820px){.products-hero{height:205px!important;min-height:205px!important}}
+@media(max-width:480px){.products-hero{height:190px!important;min-height:190px!important}.admin-action-buttons{flex-wrap:wrap!important}.admin-action-buttons button{flex:1 1 120px}}
+
+
+/* Final unified heading alignment */
+.products-hero{
+  height:230px!important;
+  min-height:230px!important;
+  padding:0!important;
+  display:flex!important;
+  align-items:center!important;
+  position:relative!important;
+}
+.products-hero .container{
+  width:calc(100vw - 80px)!important;
+  max-width:1280px!important;
+  height:100%!important;
+  margin-inline:auto!important;
+  padding:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:flex-start!important;
+  position:relative!important;
+  z-index:1!important;
+}
+.products-hero .breadcrumbs{
+  margin:0!important;
+  font-size:12px!important;
+  line-height:1.4!important;
+}
+.products-hero h1{
+  max-width:900px!important;
+  margin:6px 0 0!important;
+  font-size:clamp(30px,3.8vw,48px)!important;
+  line-height:1.1!important;
+}
+.products-hero p{
+  max-width:790px!important;
+  margin:11px 0 0!important;
+  font-size:14.5px!important;
+  line-height:1.65!important;
+}
+@media(max-width:820px){
+  .products-hero{height:205px!important;min-height:205px!important}
+  .products-hero .container{width:calc(100vw - 44px)!important}
+}
+@media(max-width:480px){
+  .products-hero{height:190px!important;min-height:190px!important}
+  .products-hero .container{width:calc(100vw - 32px)!important}
+  .products-hero h1{font-size:clamp(27px,8vw,34px)!important}
+  .products-hero p{font-size:12.8px!important;line-height:1.55!important}
+}
+
+
+/* Admin control fixed to the full title-card corner */
+.news-page .products-hero .container{
+  position:static!important;
+}
+.news-page .products-hero .container > div:first-child{
+  width:calc(100vw - 80px)!important;
+  max-width:1280px!important;
+  margin-inline:auto!important;
+  position:relative!important;
+  z-index:2!important;
+}
+.news-page .admin-hero-btn{
+  position:absolute!important;
+  top:0!important;
+  right:0!important;
+  min-width:92px!important;
+  margin:0!important;
+  padding:10px 16px!important;
+  border-radius:0 0 0 16px!important;
+  border:1px solid rgba(255,255,255,.26)!important;
+  background:rgba(255,255,255,.10)!important;
+  color:rgba(255,255,255,.76)!important;
+  opacity:.62!important;
+  box-shadow:0 10px 24px rgba(0,0,0,.08)!important;
+  backdrop-filter:blur(10px)!important;
+  z-index:5!important;
+}
+.news-page .admin-hero-btn:hover{
+  opacity:1!important;
+  background:rgba(255,255,255,.94)!important;
+  color:#0b2060!important;
+  transform:none!important;
+}
+@media(max-width:820px){
+  .news-page .products-hero .container > div:first-child{width:calc(100vw - 44px)!important}
+}
+@media(max-width:480px){
+  .news-page .products-hero .container > div:first-child{width:calc(100vw - 32px)!important}
+  .news-page .admin-hero-btn{min-width:78px!important;padding:8px 12px!important;font-size:11px!important}
+}
+</style>
+</head>
+<body class="news-page">
+<nav class="site-nav"><div class="container nav-inner"><a class="brand" href="index.html"><img src="assets/images/logo.webp" alt="Therm-X Innovations"></a><button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button><ul class="nav-menu"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="products.html">Products</a></li><li><a href="services.html">Our Services</a></li><li><a class="active" href="news.html">News &amp; Updates</a></li><li><a href="contact.html">Contact</a></li></ul><div class="nav-actions"><a class="btn btn-outline brochure-download-trigger" href="#" data-brochure-download>Download Brochure</a><a class="btn btn-primary" href="contact.html#enquiry">Request a Quote</a></div></div></nav>
+<header class="products-hero"><div class="container"><div><div class="breadcrumbs"><a href="index.html">Home</a> / <span>News &amp; Updates</span></div><h1>Official Company News &amp; <span>Product Updates</span></h1><p>Published announcements appear below in fixed-size cards with scrollable content for a neat and consistent newsroom layout.</p></div><button class="admin-hero-btn" id="open-admin-btn" type="button">Admin</button></div></header>
+<main class="news-main"><div class="container news-shell">
+  <section class="admin-panel" id="admin-panel" aria-hidden="true">
+    <div class="admin-card">
+      <div class="admin-grid">
+        <div class="admin-column">
+          <div class="admin-column-head"><h3>News Details</h3><p>Create a new post or edit an existing news item with image, type, title, date, and content.</p></div>
+          <form id="admin-news-form">
+            <div class="upload-row">
+              <div class="upload-preview" id="image-preview">Image preview</div>
+              <div class="upload-side"><strong>Upload News Image</strong><small>Choose a landscape image for the news card. Large images are compressed automatically.</small><label class="image-trigger">Choose Image<input id="news-image" type="file" accept="image/*"></label></div>
+            </div>
+            <div class="form-grid">
+              <div class="field"><label for="news-type">News Type</label><select id="news-type" required><option value="">Select a type</option><option>Product Update</option><option>Installation Update</option><option>Service Announcement</option><option>Technical Insight</option><option>Testing Activity</option><option>Rental Update</option><option>Company News</option><option>Others</option></select></div>
+              <div class="field"><label for="news-date">Publish Date</label><input id="news-date" type="date" required></div>
+              <div class="field full"><label for="news-title">News Title</label><input id="news-title" type="text" required placeholder="Enter the news heading"></div>
+              <div class="field full"><label for="news-content">News Content</label><textarea id="news-content" required placeholder="Enter the complete news content here."></textarea></div>
+            </div>
+            <div class="form-actions"><div class="form-note" id="form-status">Publish new company news or select an existing post from the right column to edit it.</div><div class="admin-action-buttons"><button class="secondary-btn" id="cancel-edit-btn" type="button" style="display:none">Cancel Edit</button><button class="admin-logout" id="admin-logout-btn" type="button">↪ Logout</button><button class="admin-close" id="close-admin-btn" type="button">✕ Close</button><button class="btn btn-primary" id="submit-news-btn" type="submit">Publish News →</button></div></div>
+          </form>
+        </div>
+        <div class="admin-column">
+          <div class="admin-column-head"><h3>Posted News</h3><p>Manage all published posts. Use Edit to load a post into the left column or Delete to remove it.</p></div>
+          <div class="manage-list" id="manage-list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal public-news-section"><div class="news-grid" id="news-grid"></div></section>
+</div></main>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><img class="footer-logo" src="assets/images/logo.webp" alt="Therm-X Innovations"><p>Specialized manufacturer of environmental test chambers delivering reliable, precise, and application-focused product validation solutions.</p></div><div class="footer-col"><h3>Products</h3><ul><li><a href="products/environmental-test-chambers.html">Environmental Test Chambers</a></li><li><a href="products/thermal-shock-series.html">Thermal Shock Series</a></li><li><a href="products/altitude-series.html">Altitude Series</a></li><li><a href="products/battery-test-chamber.html">Battery Test Chamber</a></li><li><a href="products/rain-chambers.html">Rain Chambers</a></li></ul></div><div class="footer-col"><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="news.html">News &amp; Updates</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-col"><h3>Contact</h3><ul><li><a href="tel:+919916904077">+91 99169 04077</a></li><li><a href="tel:+918029904629">+91 080 29904629</a></li><li><a href="mailto:sales@thermxinnovations.com">sales@thermxinnovations.com</a></li><li>#41A/11, 2nd Cross, 2nd Phase, Peenya Industrial Area, Bengaluru – 560058</li></ul></div></div><div class="footer-bottom"><p>© 2026 Therm-X Innovations Pvt. Ltd. All rights reserved.</p><p>CIN: U28990KA2024PTC191086</p></div></div></footer>
+<div class="modal-backdrop" id="login-backdrop">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="admin-login-title">
+    <div class="modal-brand">
+      <div class="modal-logo"><img src="assets/images/favicon-x.png" alt="Therm-X X"></div>
+      <div class="modal-brand-copy"><small>Secure Company Portal</small><h3 id="admin-login-title">News Admin Access</h3><p>Sign in once to manage and publish official Therm-X news.</p></div>
+    </div>
+    <div class="modal-content">
+      <label class="modal-label" for="admin-password-input">Administrator Password</label>
+      <div class="password-field"><input id="admin-password-input" type="password" autocomplete="current-password" placeholder="Enter admin password"><button class="password-toggle" id="password-toggle-btn" type="button">Show</button></div>
+      <div class="session-note"><i>✓</i><span>After a successful login, this browser will remember admin access and will not ask for the password again.</span></div>
+      <div class="modal-error" id="login-error"></div>
+      <div class="modal-actions"><button class="modal-cancel" id="cancel-login-btn" type="button">Cancel</button><button class="modal-login" id="submit-login-btn" type="button">Secure Login →</button></div>
+    </div>
+  </div>
+</div>
+<script src="assets/js/main.js"></script>
+<script>
+(() => {
+  const POSTS_KEY='thermx_news_posts_v3';
+  const PASSWORD_KEY='thermx_news_admin_password_v3';
+  const AUTH_KEY='thermx_news_admin_remembered_v1';
+  const DEFAULT_HASH='976f55ddf7a00d7213384db126a98f2c941bc0b9465067d3856988f82cd262d4';
+  const grid=document.getElementById('news-grid');
+  const manageList=document.getElementById('manage-list');
+  const panel=document.getElementById('admin-panel');
+  const openBtn=document.getElementById('open-admin-btn');
+  const logoutBtn=document.getElementById('admin-logout-btn');
+  const closeBtn=document.getElementById('close-admin-btn');
+  const backdrop=document.getElementById('login-backdrop');
+  const passwordInput=document.getElementById('admin-password-input');
+  const errorBox=document.getElementById('login-error');
+  const loginBtn=document.getElementById('submit-login-btn');
+  const cancelBtn=document.getElementById('cancel-login-btn');
+  const passwordToggleBtn=document.getElementById('password-toggle-btn');
+  const form=document.getElementById('admin-news-form');
+  const imageInput=document.getElementById('news-image');
+  const preview=document.getElementById('image-preview');
+  const dateInput=document.getElementById('news-date');
+  const statusBox=document.getElementById('form-status');
+  const cancelEditBtn=document.getElementById('cancel-edit-btn');
+  const submitBtn=document.getElementById('submit-news-btn');
+  dateInput.value=new Date().toISOString().slice(0,10);
+  let previewData='';
+  let adminActive=false;
+  let editingId=null;
+  const getPosts=()=>{try{return JSON.parse(localStorage.getItem(POSTS_KEY)||'[]')}catch{return[]}};
+  const savePosts=posts=>localStorage.setItem(POSTS_KEY,JSON.stringify(posts));
+  const escapeHtml=str=>String(str).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  const formatDate=value=>{const date=new Date(value);return isNaN(date)?value:date.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'})};
+  const hashText=async text=>{const data=new TextEncoder().encode(text);const digest=await crypto.subtle.digest('SHA-256',data);return [...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,'0')).join('')};
+  function resetForm(){editingId=null;form.reset();dateInput.value=new Date().toISOString().slice(0,10);previewData='';preview.textContent='Image preview';statusBox.textContent='Publish new company news or select an existing post from the right column to edit it.';submitBtn.textContent='Publish News →';cancelEditBtn.style.display='none'}
+  function renderMain(){const posts=getPosts().sort((a,b)=>new Date(b.date)-new Date(a.date)||b.createdAt-a.createdAt);if(!posts.length){grid.innerHTML='<div class="news-empty"><div><div class="news-empty-icon">N</div><h3>No News Published Yet</h3><p>Company administrators can use the Admin button in the heading card to publish the first official update.</p></div></div>';return}grid.innerHTML=posts.map(post=>`<article class="news-card reveal visible"><div class="news-card-image"><img src="${post.image}" alt="${escapeHtml(post.title)}"></div><div class="news-card-body"><div class="news-card-meta"><span class="news-type">${escapeHtml(post.type)}</span><time class="news-date">${escapeHtml(formatDate(post.date))}</time></div><h3>${escapeHtml(post.title)}</h3><div class="news-scroll-content">${escapeHtml(post.content)}</div></div></article>`).join('');}
+  function renderManage(){const posts=getPosts().sort((a,b)=>new Date(b.date)-new Date(a.date)||b.createdAt-a.createdAt);if(!posts.length){manageList.innerHTML='<div class="empty-manage">No posted news yet. Publish the first update from the left column.</div>';return}manageList.innerHTML=posts.map(post=>`<div class="manage-item" data-id="${escapeHtml(post.id)}"><div class="manage-thumb"><img src="${post.image}" alt="${escapeHtml(post.title)}"></div><div><h4>${escapeHtml(post.title)}</h4><div class="manage-meta">${escapeHtml(post.type)} • ${escapeHtml(formatDate(post.date))}</div><div class="manage-actions"><button class="edit-btn" type="button">Edit</button><button class="delete-btn" type="button">Delete</button></div></div></div>`).join('')}
+  function renderAll(){renderMain();renderManage()}
+  const setAdmin=active=>{adminActive=active;document.body.classList.toggle('news-admin-open',active);panel.classList.toggle('is-open',active);panel.setAttribute('aria-hidden',String(!active));if(active){panel.scrollIntoView({behavior:'smooth',block:'start'})}else{resetForm()}}
+  const isRemembered=()=>localStorage.getItem(AUTH_KEY)==='true';
+  const openLogin=()=>{if(adminActive){panel.scrollIntoView({behavior:'smooth'});return}if(isRemembered()){setAdmin(true);return}backdrop.classList.add('is-open');passwordInput.type='password';passwordToggleBtn.textContent='Show';passwordInput.value='';errorBox.textContent='';setTimeout(()=>passwordInput.focus(),80)};
+  const closeLogin=()=>backdrop.classList.remove('is-open');
+  openBtn.addEventListener('click',openLogin);
+  logoutBtn.addEventListener('click',()=>{
+    localStorage.removeItem(AUTH_KEY);
+    setAdmin(false);
+    passwordInput.value='';
+    errorBox.textContent='';
+  });
+  closeBtn.addEventListener('click',()=>setAdmin(false));
+  cancelBtn.addEventListener('click',closeLogin);
+  passwordToggleBtn.addEventListener('click',()=>{const showing=passwordInput.type==='text';passwordInput.type=showing?'password':'text';passwordToggleBtn.textContent=showing?'Show':'Hide';passwordInput.focus()});
+  backdrop.addEventListener('click',e=>{if(e.target===backdrop)closeLogin()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&backdrop.classList.contains('is-open'))closeLogin()});
+  passwordInput.addEventListener('keydown',e=>{if(e.key==='Enter')loginBtn.click()});
+  loginBtn.addEventListener('click',async()=>{const value=passwordInput.value;if(!value){errorBox.textContent='Enter the admin password.';passwordInput.focus();return}loginBtn.disabled=true;loginBtn.textContent='Verifying…';const hash=await hashText(value);const expected=localStorage.getItem(PASSWORD_KEY)||DEFAULT_HASH;if(hash!==expected){errorBox.textContent='Incorrect password. Please try again.';loginBtn.disabled=false;loginBtn.textContent='Secure Login →';passwordInput.select();return}localStorage.setItem(AUTH_KEY,'true');closeLogin();loginBtn.disabled=false;loginBtn.textContent='Secure Login →';openBtn.textContent='Admin ✓';setAdmin(true)});
+  if(isRemembered())openBtn.textContent='Admin ✓';
+  async function compressImage(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=reject;reader.onload=()=>{const img=new Image();img.onerror=reject;img.onload=()=>{const maxW=1200,maxH=800,ratio=Math.min(maxW/img.width,maxH/img.height,1);const canvas=document.createElement('canvas');canvas.width=Math.round(img.width*ratio);canvas.height=Math.round(img.height*ratio);canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);resolve(canvas.toDataURL('image/jpeg',.78))};img.src=reader.result};reader.readAsDataURL(file)})}
+  imageInput.addEventListener('change',async()=>{const file=imageInput.files[0];if(!file)return;try{previewData=await compressImage(file);preview.innerHTML=`<img src="${previewData}" alt="Preview">`}catch{alert('Unable to read this image.')}});
+  form.addEventListener('submit',e=>{e.preventDefault();if(!adminActive)return;const title=document.getElementById('news-title').value.trim();const type=document.getElementById('news-type').value;const date=dateInput.value;const content=document.getElementById('news-content').value.trim();if(!previewData && !editingId){alert('Please select a news image.');return}const posts=getPosts();if(editingId){const idx=posts.findIndex(post=>post.id===editingId);if(idx===-1)return;posts[idx]={...posts[idx],title,type,date,content,image:previewData||posts[idx].image,updatedAt:Date.now()};statusBox.textContent='News updated successfully.'}else{posts.push({id:'news-'+Date.now(),title,type,date,content,image:previewData,createdAt:Date.now()});statusBox.textContent='News published successfully.'}savePosts(posts);renderAll();resetForm();panel.scrollIntoView({behavior:'smooth',block:'start'})});
+  cancelEditBtn.addEventListener('click',resetForm);
+  manageList.addEventListener('click',e=>{const item=e.target.closest('.manage-item');if(!item)return;const id=item.dataset.id;const posts=getPosts();const post=posts.find(p=>p.id===id);if(!post)return;if(e.target.closest('.delete-btn')){if(confirm('Delete this news post?')){savePosts(posts.filter(p=>p.id!==id));renderAll();if(editingId===id)resetForm()}return}if(e.target.closest('.edit-btn')){editingId=id;document.getElementById('news-title').value=post.title;document.getElementById('news-type').value=post.type;dateInput.value=post.date;document.getElementById('news-content').value=post.content;previewData=post.image;preview.innerHTML=`<img src="${post.image}" alt="Preview">`;submitBtn.textContent='Update News →';cancelEditBtn.style.display='inline-flex';statusBox.textContent='Editing selected news post. Update the fields and save changes.';window.scrollTo({top:panel.offsetTop-80,behavior:'smooth'})}});
+  renderAll();
+})();
+</script>
+</body></html>

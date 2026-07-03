@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Our Services | Therm-X Innovations</title>
+<meta content="Therm-X end-to-end environmental test chamber services: design, manufacturing, maintenance, repair, refurbishment, testing, rentals and fabrication support." name="description"/>
+<link href="assets/images/favicon-x.png" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<style>
+    body.services-page{
+      background:
+        radial-gradient(circle at 8% 10%,rgba(245,130,31,.14),transparent 25%),
+        radial-gradient(circle at 92% 24%,rgba(24,73,170,.16),transparent 29%),
+        linear-gradient(145deg,#f7faff 0%,#edf4ff 52%,#fff2e6 100%);
+    }
+    .services-page .site-nav .container,
+    .services-page footer .container{width:calc(100vw - 80px);max-width:none;margin-inline:40px}
+
+    /* Same heading banner size and design as the Products page. */
+    .products-hero{position:relative;overflow:hidden;padding:48px 0 44px;color:#fff;background:linear-gradient(125deg,#071a4d 0%,#113b8f 57%,#d9610e 100%)}
+    .products-hero:before,.products-hero:after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+    .products-hero:before{width:390px;height:390px;right:-100px;top:-210px;background:rgba(255,156,72,.20)}
+    .products-hero:after{width:310px;height:310px;left:-130px;bottom:-220px;background:rgba(75,129,237,.22)}
+    .products-hero .container{position:relative;z-index:1;width:calc(100vw - 80px);max-width:1280px;margin-inline:auto}
+    .products-hero .breadcrumbs{color:#c7d6f4;font-size:12px}
+    .products-hero h1{max-width:900px;font-size:clamp(30px,3.8vw,48px);line-height:1.1;margin-top:6px}
+    .products-hero h1 span{color:#ff9a49}
+    .products-hero p{max-width:780px;color:#d7e1f5;font-size:14.5px;margin-top:11px}
+
+    .services-main{padding:64px 0 92px}
+    .services-main>.container{width:calc(100vw - 80px);max-width:1320px;margin-inline:auto}
+
+    .service-intro-card{
+      display:grid;grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr);gap:28px;align-items:center;
+      min-height:300px;padding:30px;border-radius:26px;overflow:hidden;
+      background:linear-gradient(145deg,rgba(225,237,255,.97),rgba(255,231,209,.96));
+      border:1px solid rgba(52,91,170,.18);box-shadow:0 24px 58px rgba(11,32,96,.11),0 8px 24px rgba(245,130,31,.07);
+      position:relative;
+    }
+    .service-intro-card:before{content:"";position:absolute;inset:0 0 auto;height:6px;background:linear-gradient(90deg,#f5821f,#ffac62 38%,#3978e0 72%,#0b2060)}
+    .service-intro-copy{padding:10px 8px}
+    .service-intro-copy .eyebrow{margin-bottom:9px}
+    .service-intro-copy h2{font-size:clamp(29px,3.4vw,46px);line-height:1.14;color:#0b2060;margin-bottom:15px}
+    .service-intro-copy h2 span{color:#f5821f}
+    .service-intro-copy p{font-size:16px;color:#526581;line-height:1.75;max-width:740px}
+    .service-intro-image{height:240px;border-radius:20px;overflow:hidden;background:#d8e8ff;box-shadow:0 18px 38px rgba(11,32,96,.15)}
+    .service-intro-image img{width:100%;height:100%;object-fit:cover}
+
+    .service-dashboard{margin-top:34px;padding:28px;border-radius:26px;background:rgba(255,255,255,.72);backdrop-filter:blur(12px);border:1px solid rgba(35,75,155,.12);box-shadow:0 18px 44px rgba(11,32,96,.08)}
+    .service-dashboard-head{text-align:center;max-width:780px;margin:0 auto 25px}
+    .service-dashboard-head h2{font-size:clamp(28px,3.2vw,42px);line-height:1.15;color:#0b2060;margin-bottom:10px}
+    .service-dashboard-head h2 span{color:#f5821f}
+    .service-dashboard-head p{color:#5b6c88;font-size:14.5px}
+    .vertical-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+    .vertical-card{
+      display:grid;grid-template-columns:54px 1fr;gap:14px;align-items:center;min-height:100px;padding:17px 18px;border-radius:18px;
+      background:linear-gradient(145deg,#edf4ff,#ffe7d1);border:1px solid rgba(47,89,175,.14);transition:.28s;position:relative;overflow:hidden;
+    }
+    .vertical-card:after{content:"";position:absolute;right:-28px;top:-36px;width:90px;height:90px;border-radius:50%;background:rgba(245,130,31,.09)}
+    .vertical-card:hover{transform:translateY(-5px);box-shadow:0 16px 32px rgba(11,32,96,.13);border-color:rgba(245,130,31,.36)}
+    .vertical-icon{width:54px;height:54px;border-radius:17px;display:grid;place-items:center;color:#fff;font-size:20px;font-weight:900;background:linear-gradient(145deg,#0b2060,#1f69c5);box-shadow:0 9px 18px rgba(11,32,96,.23)}
+    .vertical-card:nth-child(even) .vertical-icon{background:linear-gradient(145deg,#f5821f,#d65f0a)}
+    .vertical-card b{display:block;color:#0b2060;font-size:14px;line-height:1.35;margin-bottom:4px}
+    .vertical-card span{display:block;color:#72819a;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+
+    .service-nav{position:sticky;top:88px;z-index:20;margin:32px 0 24px;padding:9px;display:flex;gap:8px;overflow-x:auto;border-radius:18px;background:rgba(7,26,77,.92);backdrop-filter:blur(12px);box-shadow:0 12px 30px rgba(7,26,77,.20);scrollbar-width:thin}
+    .service-nav a{flex:1 0 180px;display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:12px;color:#dce7fb;font-size:12px;font-weight:800;white-space:nowrap;transition:.22s}
+    .service-nav a i{width:29px;height:29px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.10);font-style:normal;color:#fff}
+    .service-nav a:hover,.service-nav a.active{background:linear-gradient(135deg,#f5821f,#d65f0a);color:#fff;box-shadow:0 8px 18px rgba(245,130,31,.26)}
+
+    .service-card-list{display:grid;gap:28px}
+    .service-detail-card{
+      display:grid;grid-template-columns:minmax(370px,.94fr) minmax(0,1.06fr);min-height:460px;border-radius:25px;overflow:hidden;
+      background:linear-gradient(145deg,rgba(226,238,255,.97),rgba(255,232,211,.96));
+      border:1px solid rgba(52,91,170,.18);box-shadow:0 24px 58px rgba(11,32,96,.11),0 8px 24px rgba(245,130,31,.07);
+      position:relative;opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.75,.2,1),box-shadow .3s ease;
+    }
+    .service-detail-card.visible{opacity:1;transform:none}
+    .service-detail-card:hover{box-shadow:0 31px 72px rgba(11,32,96,.16),0 12px 32px rgba(245,130,31,.11)}
+    .service-detail-card:before{content:"";position:absolute;inset:0 0 auto;height:6px;z-index:4;background:linear-gradient(90deg,#f5821f,#ffae67 37%,#3978e0 70%,#0b2060)}
+    .service-detail-card.reverse .service-media{order:2}
+    .service-detail-card.reverse .service-content{order:1}
+    .service-media{position:relative;min-height:100%;padding:24px;background:linear-gradient(145deg,#cddfff,#ffdbb9);display:grid;place-items:center;overflow:hidden}
+    .service-media:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 12%,rgba(255,255,255,.48),transparent 24%),linear-gradient(140deg,rgba(11,32,96,.08),transparent 52%,rgba(245,130,31,.12));pointer-events:none}
+    .service-media-frame{width:100%;aspect-ratio:4/3;border-radius:19px;overflow:hidden;background:#dce9fb;box-shadow:0 19px 44px rgba(11,32,96,.19);position:relative;z-index:1}
+    .service-media-frame img{width:100%;height:100%;object-fit:cover;transition:transform .65s cubic-bezier(.2,.75,.2,1)}
+    .service-detail-card:hover .service-media-frame img{transform:scale(1.04)}
+    .service-detail-card.reverse:hover .service-media-frame img{transform:scale(1.06)}
+    .service-number{position:absolute;z-index:2;left:40px;top:40px;width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(145deg,#0b2060,#3978e0);color:#fff;font-weight:900;font-size:18px;box-shadow:0 12px 24px rgba(11,32,96,.28)}
+    .service-detail-card.reverse .service-number{left:auto;right:40px}
+    .service-content{padding:38px 34px 32px;display:flex;flex-direction:column;justify-content:center}
+    .service-label{display:inline-flex;align-items:center;gap:10px;color:#f5821f;font-size:11.5px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+    .service-label:before{content:"";width:42px;height:3px;border-radius:999px;background:linear-gradient(90deg,#f5821f,#3978e0)}
+    .service-content h2{font-size:clamp(28px,3.1vw,43px);line-height:1.12;color:#0b2060;margin-bottom:14px}
+    .service-content h2 span{color:#f5821f}
+    .service-content>p{font-size:15px;line-height:1.72;color:#526581;font-weight:600;margin-bottom:15px}
+    .service-points{list-style:none;display:grid;gap:0;margin:0;padding:0}
+    .service-points li{display:grid;grid-template-columns:29px 1fr;gap:11px;align-items:start;padding:12px 0;border-top:1px solid rgba(26,61,126,.10);font-size:13.7px;line-height:1.5;color:#5b6c88}
+    .service-points li:first-child{border-top:0}
+    .service-points li i{width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#1477d4,#0a5cad);color:#fff;font-style:normal;font-weight:900;font-size:13px;box-shadow:0 6px 13px rgba(20,119,212,.22)}
+    .service-card-action{margin-top:18px;display:flex;gap:11px;flex-wrap:wrap}
+    .service-link{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:11px;background:#0b2060;color:#fff;font-size:12.5px;font-weight:800;transition:.22s}
+    .service-link:hover{background:#f5821f;transform:translateY(-2px)}
+
+    .service-cta{margin-top:34px;border-radius:26px;padding:31px 34px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;background:linear-gradient(125deg,#071a4d,#113b8f 58%,#d9610e);color:#fff;box-shadow:0 24px 58px rgba(11,32,96,.17)}
+    .service-cta span{display:inline-block;color:#ffc28d;font-size:11.5px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;margin-bottom:7px}
+    .service-cta h2{font-size:clamp(25px,3vw,39px);line-height:1.15;margin-bottom:8px}
+    .service-cta p{color:#d6e2f5;max-width:760px;font-size:14px}
+    .service-cta .btn{white-space:nowrap;background:#fff;color:#0b2060}
+
+    @media(max-width:1080px){
+      .service-intro-card{grid-template-columns:1fr}.service-intro-image{height:300px}
+      .vertical-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .service-detail-card,.service-detail-card.reverse{grid-template-columns:1fr}
+      .service-detail-card.reverse .service-media,.service-detail-card.reverse .service-content{order:initial}
+      .service-media{min-height:auto}.service-media-frame{max-width:760px}
+      .service-number,.service-detail-card.reverse .service-number{left:40px;right:auto}
+      .service-cta{grid-template-columns:1fr}
+    }
+    @media(max-width:760px){
+      .services-page .site-nav .container,.services-page footer .container,.products-hero .container,.services-main>.container{width:calc(100vw - 40px);margin-inline:20px}
+      .products-hero{padding:40px 0 36px}
+      .services-main{padding:46px 0 72px}
+      .service-intro-card,.service-dashboard{padding:21px;border-radius:21px}
+      .service-intro-image{height:230px}
+      .vertical-grid{grid-template-columns:1fr}
+      .service-nav{top:80px}
+      .service-detail-card{border-radius:21px}
+      .service-media{padding:18px}
+      .service-content{padding:28px 22px 24px}
+      .service-number,.service-detail-card.reverse .service-number{left:30px;top:30px;width:50px;height:50px;border-radius:15px}
+      .service-cta{padding:25px 22px}
+    }
+  
+
+    /* Compact viewport-friendly service cards */
+    .service-card-list{gap:22px}
+    .service-detail-card{
+      grid-template-columns:minmax(320px,.82fr) minmax(0,1.18fr);
+      min-height:382px;
+      scroll-margin-top:142px;
+    }
+    .service-media{padding:18px}
+    .service-media-frame{width:100%;max-width:440px;aspect-ratio:4/3;border-radius:17px}
+    .service-number,.service-detail-card.reverse .service-number{
+      top:30px;width:50px;height:50px;border-radius:15px;font-size:16px
+    }
+    .service-number{left:30px}
+    .service-detail-card.reverse .service-number{left:auto;right:30px}
+    .service-content{padding:23px 28px 21px}
+    .service-label{font-size:10.5px;margin-bottom:6px}
+    .service-label:before{width:34px}
+    .service-content h2{font-size:clamp(25px,2.6vw,35px);line-height:1.1;margin-bottom:9px}
+    .service-content>p{font-size:13.2px;line-height:1.52;margin-bottom:7px;font-weight:600}
+
+    /* Three connected arrow stages inside every service card */
+    .service-flow{
+      display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+      align-items:stretch;gap:0;margin:8px 0 10px;isolation:isolate
+    }
+    .service-flow span{
+      min-height:36px;display:flex;align-items:center;justify-content:center;text-align:center;
+      padding:7px 20px 7px 17px;color:#fff;font-size:10.5px;font-weight:900;
+      letter-spacing:.07em;text-transform:uppercase;line-height:1.15;
+      background:linear-gradient(135deg,#0b2060,#266fc8);
+      clip-path:polygon(0 0,86% 0,100% 50%,86% 100%,0 100%,12% 50%);
+      margin-left:-8px;filter:drop-shadow(0 7px 10px rgba(11,32,96,.16));
+      transition:transform .25s ease,filter .25s ease
+    }
+    .service-flow span:first-child{
+      margin-left:0;clip-path:polygon(0 0,86% 0,100% 50%,86% 100%,0 100%);
+      background:linear-gradient(135deg,#071a4d,#174f9f)
+    }
+    .service-flow span:nth-child(2){background:linear-gradient(135deg,#1769c2,#408be0)}
+    .service-flow span:nth-child(3){background:linear-gradient(135deg,#f5821f,#d65f0a)}
+    .service-detail-card:hover .service-flow span:nth-child(1){transform:translateX(2px)}
+    .service-detail-card:hover .service-flow span:nth-child(2){transform:translateX(4px)}
+    .service-detail-card:hover .service-flow span:nth-child(3){transform:translateX(6px)}
+
+    .service-points{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:15px}
+    .service-points li{grid-template-columns:24px 1fr;gap:8px;padding:7px 0;font-size:12.2px;line-height:1.4}
+    .service-points li i{width:23px;height:23px;font-size:12px}
+    .service-card-action{margin-top:10px}
+    .service-link{padding:9px 14px;font-size:11.8px}
+
+    /* Larger image presentation for the reversed 2nd and 4th service cards only */
+    @media(min-width:1081px){
+      #service-support .service-media,
+      #testing-services .service-media{padding:12px 14px}
+      #service-support .service-media-frame,
+      #testing-services .service-media-frame{
+        width:100%;max-width:590px;height:350px;aspect-ratio:auto
+      }
+    }
+
+    @media(max-width:1080px){
+      .service-detail-card,.service-detail-card.reverse{grid-template-columns:1fr;min-height:0}
+      .service-media-frame{max-width:640px}
+      .service-detail-card.reverse .service-number{left:30px;right:auto}
+    }
+    @media(max-width:760px){
+      .service-content{padding:23px 20px 21px}
+      .service-points{grid-template-columns:1fr}
+      .service-flow span{font-size:9.5px;padding-inline:14px;min-height:34px}
+      .service-media-frame{max-width:100%}
+    }
+    @media(max-width:430px){
+      .service-flow{grid-template-columns:1fr;gap:5px}
+      .service-flow span,.service-flow span:first-child{
+        margin-left:0;clip-path:polygon(0 0,94% 0,100% 50%,94% 100%,0 100%);min-height:32px
+      }
+    }
+
+
+    /* Official service-support details from the live Therm-X website. */
+    .service-official-more{margin-top:10px;padding:12px 13px;border-radius:14px;background:linear-gradient(135deg,rgba(255,255,255,.60),rgba(232,241,255,.72));border:1px solid rgba(21,70,155,.12)}
+    .service-official-more h3{font-size:13px;line-height:1.2;color:#0b2060;margin:0 0 9px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+    .service-official-more-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+    .service-official-more-grid>div{display:grid;grid-template-columns:26px 1fr;gap:7px;align-items:center;min-height:38px;padding:7px 8px;border-radius:10px;background:rgba(255,255,255,.74);border:1px solid rgba(11,32,96,.08);font-size:11.3px;line-height:1.32;color:#526581;font-weight:700}
+    .service-official-more-grid b{width:25px;height:25px;border-radius:8px;display:grid;place-items:center;background:linear-gradient(145deg,#f5821f,#d65f0a);color:#fff;font-size:9px}
+    @media(max-width:760px){.service-official-more-grid{grid-template-columns:1fr}}
+
+    /* Click-to-reveal Service Support details. */
+    .service-support-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .service-know-more-btn{border:0;cursor:pointer;font-family:inherit;background:linear-gradient(135deg,#0b2060,#174f9f);color:#fff;box-shadow:0 8px 18px rgba(11,32,96,.18)}
+    .service-know-more-btn:hover{color:#fff;transform:translateY(-1px)}
+    .service-know-more-btn i{width:21px;height:21px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.16);font-style:normal;font-size:17px;line-height:1;transition:transform .32s ease,background .32s ease}
+    .service-know-more-btn[aria-expanded="true"]{background:linear-gradient(135deg,#f5821f,#d65f0a)}
+    .service-know-more-btn[aria-expanded="true"] i{transform:rotate(45deg);background:rgba(255,255,255,.22)}
+    .service-official-more-collapsible{display:grid;grid-template-rows:0fr;opacity:0;overflow:hidden;margin-top:0;padding-block:0;border-color:transparent;transform:translateY(-8px);transition:grid-template-rows .48s cubic-bezier(.22,1,.36,1),opacity .32s ease,transform .48s cubic-bezier(.22,1,.36,1),margin-top .42s ease,padding .42s ease,border-color .42s ease}
+    .service-official-more-collapsible>*{min-height:0}
+    .service-official-more-collapsible.is-open{grid-template-rows:1fr;opacity:1;transform:none;margin-top:10px;padding:12px 13px;border-color:rgba(21,70,155,.12)}
+    @media(max-width:520px){.service-support-actions{align-items:stretch}.service-support-actions .service-link{width:100%;justify-content:center}}
+
+    /* Keep every service card at one identical desktop height. */
+    @media(min-width:1081px){
+      .service-detail-card{
+        height:430px;
+        min-height:430px;
+        overflow:hidden;
+      }
+      #service-support{
+        height:430px;
+        min-height:430px;
+        max-height:430px;
+        transition:opacity .7s ease,transform .7s cubic-bezier(.2,.75,.2,1),box-shadow .3s ease,max-height .58s cubic-bezier(.22,1,.36,1);
+      }
+      #service-support.is-expanded{
+        height:auto;
+        max-height:760px;
+      }
+    }
+    #service-support .service-content{align-self:stretch}
+    #service-support .service-official-more-collapsible{flex:0 0 auto}
+    #service-support:not(.is-expanded) .service-official-more-collapsible{display:none}
+    #service-support.is-expanded .service-official-more-collapsible{display:grid}
+    @media(max-width:1080px){
+      .service-detail-card,#service-support{height:auto;max-height:none;min-height:0;overflow:visible}
+    }
+
+    /* Fixed desktop text and image sizing for every service card. */
+    @media(min-width:1081px){
+      .service-detail-card{
+        grid-template-columns:41% 59%;
+      }
+      .service-media-frame{
+        width:390px;
+        height:292px;
+        max-width:390px;
+        aspect-ratio:auto;
+        flex:0 0 390px;
+      }
+      .service-media-frame img{
+        width:390px;
+        height:292px;
+        object-fit:cover;
+        transform:none !important;
+      }
+      .service-content h2{
+        font-size:32px;
+        line-height:1.1;
+      }
+      .service-content>p{
+        font-size:13.2px;
+        line-height:1.52;
+      }
+      .service-flow span{
+        font-size:10.5px;
+        min-height:36px;
+      }
+      .service-points li{
+        font-size:12.2px;
+        line-height:1.4;
+      }
+    }
+    @media(max-width:1080px){
+      .service-media-frame{
+        width:100%;
+        height:auto;
+        max-width:640px;
+        aspect-ratio:4/3;
+      }
+      .service-media-frame img{
+        width:100%;
+        height:100%;
+      }
+    }
+
+    /* Keep every service image panel image-only: no number or text overlays. */
+    .service-number{display:none !important}
+
+
+    /* Keep the larger 2nd and 4th images fixed, with the same outer gap used by cards 1, 3 and 5. */
+    @media(min-width:1081px){
+      #service-support .service-media,
+      #testing-services .service-media{
+        padding:18px;
+        min-height:430px;
+        align-items:center;
+        justify-items:stretch;
+      }
+      #service-support .service-media-frame,
+      #testing-services .service-media-frame{
+        width:100%;
+        height:394px;
+        max-width:none;
+        min-height:394px;
+        aspect-ratio:auto;
+        border-radius:17px;
+        box-shadow:0 19px 44px rgba(11,32,96,.19);
+        flex:none;
+      }
+      #service-support .service-media-frame img,
+      #testing-services .service-media-frame img{
+        width:100%;
+        height:394px;
+        min-height:394px;
+        object-fit:cover;
+        object-position:center;
+        transform:scale(1);
+        transition:transform .65s cubic-bezier(.2,.75,.2,1);
+        will-change:transform;
+      }
+    }
+
+
+    /* Uniform image gap for all five service cards and hover zoom. */
+    @media(min-width:1081px){
+      .service-detail-card .service-media{
+        padding:18px;
+        min-height:430px;
+        align-items:center;
+        justify-items:stretch;
+      }
+      .service-detail-card .service-media-frame{
+        width:100%;
+        height:394px;
+        min-height:394px;
+        max-width:none;
+        aspect-ratio:auto;
+        border-radius:17px;
+        box-shadow:0 19px 44px rgba(11,32,96,.19);
+        flex:none;
+      }
+      .service-detail-card .service-media-frame img{
+        width:100%;
+        height:100%;
+        min-height:394px;
+        object-fit:cover;
+        object-position:center;
+        transform:scale(1) !important;
+        transition:transform .65s cubic-bezier(.2,.75,.2,1) !important;
+        will-change:transform;
+      }
+      .service-detail-card:hover .service-media-frame img{
+        transform:scale(1.065) !important;
+      }
+    }
+    @media(max-width:1080px){
+      .service-detail-card .service-media-frame img{
+        transform:scale(1);
+        transition:transform .65s cubic-bezier(.2,.75,.2,1);
+        will-change:transform;
+      }
+      .service-detail-card:hover .service-media-frame img{
+        transform:scale(1.05);
+      }
+    }
+
+
+    /* Ensure reversed cards 2 and 4 zoom exactly like the other cards. */
+    #service-support:hover .service-media-frame img,
+    #testing-services:hover .service-media-frame img{
+      transform:scale(1.065) !important;
+    }
+
+
+/* Unified fixed heading-card size */
+.products-hero{height:230px!important;min-height:230px!important;padding:0!important;display:flex!important;align-items:center!important}
+@media(max-width:820px){.products-hero{height:205px!important;min-height:205px!important}}
+@media(max-width:480px){.products-hero{height:190px!important;min-height:190px!important}}
+
+
+/* Final unified heading alignment */
+.products-hero{
+  height:230px!important;
+  min-height:230px!important;
+  padding:0!important;
+  display:flex!important;
+  align-items:center!important;
+  position:relative!important;
+}
+.products-hero .container{
+  width:calc(100vw - 80px)!important;
+  max-width:1280px!important;
+  height:100%!important;
+  margin-inline:auto!important;
+  padding:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:flex-start!important;
+  position:relative!important;
+  z-index:1!important;
+}
+.products-hero .breadcrumbs{
+  margin:0!important;
+  font-size:12px!important;
+  line-height:1.4!important;
+}
+.products-hero h1{
+  max-width:900px!important;
+  margin:6px 0 0!important;
+  font-size:clamp(30px,3.8vw,48px)!important;
+  line-height:1.1!important;
+}
+.products-hero p{
+  max-width:790px!important;
+  margin:11px 0 0!important;
+  font-size:14.5px!important;
+  line-height:1.65!important;
+}
+@media(max-width:820px){
+  .products-hero{height:205px!important;min-height:205px!important}
+  .products-hero .container{width:calc(100vw - 44px)!important}
+}
+@media(max-width:480px){
+  .products-hero{height:190px!important;min-height:190px!important}
+  .products-hero .container{width:calc(100vw - 32px)!important}
+  .products-hero h1{font-size:clamp(27px,8vw,34px)!important}
+  .products-hero p{font-size:12.8px!important;line-height:1.55!important}
+}
+</style>
+</head>
+<body class="services-page">
+<nav class="site-nav">
+<div class="container nav-inner">
+<a class="brand" href="index.html"><img alt="Therm-X Innovations" src="assets/images/logo.webp"/></a>
+<button aria-expanded="false" aria-label="Open menu" class="menu-toggle">☰</button>
+<ul class="nav-menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="products.html">Products</a></li>
+<li><a class="active" href="services.html">Our Services</a></li>
+<li><a href="news.html">News &amp; Updates</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<a class="btn btn-outline brochure-download-trigger" href="#" data-brochure-download>Download Brochure</a>
+<a class="btn btn-primary" href="contact.html#enquiry">Request a Quote</a>
+</div>
+</div>
+</nav>
+<header class="products-hero">
+<div class="container">
+<div class="breadcrumbs"><a href="index.html">Home</a> / <span>Our Services</span></div>
+<h1>Our <span>Services</span></h1>
+<p>We provide end-to-end services that support our customers throughout the complete lifecycle of environmental testing systems—from concept and manufacturing to long-term operation and upgrades.</p>
+</div>
+</header>
+<main class="services-main">
+<div class="container">
+<section class="service-intro-card reveal">
+<div class="service-intro-copy">
+<span class="eyebrow">END TO END SERVICES FOR ALL</span>
+<h2>Complete Lifecycle Support for <span>Environmental Testing Systems</span></h2>
+<p>We provide end-to-end services that support our customers throughout the complete lifecycle of environmental testing systems—from concept and manufacturing to long-term operation and upgrades.</p>
+</div>
+<div class="service-intro-image"><img alt="Therm-X business verticals" src="assets/images/services-verticals.webp"/></div>
+</section>
+<section class="service-dashboard reveal">
+<div class="service-dashboard-head">
+<span class="eyebrow">Business Verticals</span>
+<h2>End-to-End Capabilities Under <span>One Technical Team</span></h2>
+<p>Manufacturer – Environmental Chamber, Refurbishment, Maintenance, Repair / Service, Rentals, and Fabrication.</p>
+</div>
+<div class="vertical-grid">
+<article class="vertical-card"><div class="vertical-icon">01</div><div><b>Manufacturer – Environmental Chamber</b><span>New Equipment</span></div></article>
+<article class="vertical-card"><div class="vertical-icon">02</div><div><b>Refurbishment</b><span>Life Extension</span></div></article>
+<article class="vertical-card"><div class="vertical-icon">03</div><div><b>Maintenance</b><span>Preventive Care</span></div></article>
+<article class="vertical-card"><div class="vertical-icon">04</div><div><b>Repair / Service</b><span>Technical Support</span></div></article>
+<article class="vertical-card"><div class="vertical-icon">05</div><div><b>Rentals</b><span>Flexible Access</span></div></article>
+<article class="vertical-card"><div class="vertical-icon">06</div><div><b>Fabrication</b><span>Custom Build</span></div></article>
+</div>
+</section>
+<nav aria-label="Services navigation" class="service-nav">
+<a class="active" href="#design-manufacturing"><i>01</i>Design &amp; Manufacturing</a>
+<a href="#service-support"><i>02</i>Service Support</a>
+<a href="#refurbishment"><i>03</i>Refurbishment</a>
+<a href="#testing-services"><i>04</i>Testing Services</a>
+<a href="#rental-solutions"><i>05</i>Rental Solutions</a>
+</nav>
+<div class="service-card-list">
+<article class="service-detail-card reveal" id="design-manufacturing">
+<div class="service-media">
+<div class="service-media-frame"><img alt="Design and manufacturing of environmental test chambers" src="assets/images/product-environmental.webp"/></div>
+</div>
+<div class="service-content">
+<span class="service-label">Design &amp; Manufacturing</span>
+<h2>Design &amp; <span>Manufacturing</span></h2>
+<p>We design and manufacture environmental test chambers and thermal systems with a strong focus on engineering accuracy, reliability, safety, and compliance.</p><div aria-label="Service process" class="service-flow"><span>Design</span><span>Integrate</span><span>Validate</span></div>
+<ul class="service-points"><li><i>›</i><span>Standard and custom-built environmental test chambers</span></li><li><i>›</i><span>In-house refrigeration, electrical, controls, and mechanical integration</span></li><li><i>›</i><span>Compliance with relevant IEC, ASTM, ISO, and customer-specific standards</span></li><li><i>›</i><span>Factory testing and validation prior to dispatch</span></li></ul>
+<div class="service-card-action"><a class="service-link" href="products.html">View Products →</a></div>
+</div>
+</article>
+<article class="service-detail-card reverse reveal" id="service-support">
+<div class="service-media">
+<div class="service-media-frame"><img alt="Responsive service support for environmental test chambers" src="assets/images/service-support.webp"/></div>
+</div>
+<div class="service-content">
+<span class="service-label">Responsive Service Support</span>
+<h2>Responsive Service Support You Can <span>Depend On</span></h2>
+<p>Our dedicated technical team provides installation, preventive maintenance, breakdown support, calibration coordination, retrofits, and AMC services to ensure maximum uptime and reliable chamber performance.</p><div aria-label="Service process" class="service-flow"><span>Install</span><span>Maintain</span><span>Restore</span></div>
+<ul class="service-points"><li><i>›</i><span>Installation, commissioning, and site acceptance testing (SAT)</span></li><li><i>›</i><span>Remote and on-site technical assistance</span></li><li><i>›</i><span>Performance verification and compliance support</span></li><li><i>›</i><span>Planned and emergency service coverage</span></li></ul>
+<div class="service-card-action service-support-actions"><button aria-controls="service-support-more" aria-expanded="false" class="service-link service-know-more-btn" type="button"><span>Know More</span><i aria-hidden="true">+</i></button><a class="service-link" href="contact.html#enquiry">Request Support →</a></div>
+<div aria-hidden="true" class="service-official-more service-official-more-collapsible" id="service-support-more"><h3>Service Support Capabilities</h3><div class="service-official-more-grid"><div><b>01</b><span>Preventive AMC</span></div><div><b>02</b><span>Calibration services</span></div><div><b>03</b><span>Genuine spare parts supply</span></div><div><b>04</b><span>Refrigeration system upgrades and repairs</span></div><div><b>05</b><span>Electrical panel upgrades and repairs</span></div><div><b>06</b><span>Equipment refurbishment and life extension services</span></div></div></div>
+</div>
+</article>
+<article class="service-detail-card reveal" id="refurbishment">
+<div class="service-media">
+<div class="service-media-frame"><img alt="Environmental test chamber refurbishment and upgradation" src="assets/images/service-refurbishment-official.webp"/></div>
+</div>
+<div class="service-content">
+<span class="service-label">Refurbishment &amp; Upgradation</span>
+<h2>Refurbishment &amp; <span>Upgradation</span></h2>
+<p>Therm-X Innovations Private Limited offers refurbishment and retrofit solutions for environmental test chambers, helping customers modernize aging equipment, improve operational reliability, and extend equipment life with cost-effective upgrades.</p><div aria-label="Service process" class="service-flow"><span>Assess</span><span>Retrofit</span><span>Upgrade</span></div>
+<ul class="service-points"><li><i>›</i><span>Refrigeration system retrofits and upgrades</span></li><li><i>›</i><span>Control system modernization (PLC/HMI upgrades)</span></li><li><i>›</i><span>Energy-efficiency improvements</span></li><li><i>›</i><span>Compliance updates to meet revised standards</span></li></ul>
+<div class="service-card-action"><a class="service-link" href="contact.html#enquiry">Discuss an Upgrade →</a></div>
+</div>
+</article>
+<article class="service-detail-card reverse reveal" id="testing-services">
+<div class="service-media">
+<div class="service-media-frame"><img alt="Environmental testing services" src="assets/images/service-testing-clean.webp"/></div>
+</div>
+<div class="service-content">
+<span class="service-label">Testing Services</span>
+<h2>Testing <span>Services</span></h2>
+<p>We support customers with reliable environmental testing services using advanced environmental test chambers, enabling product validation, reliability testing, and qualification without capital investment in testing equipment. As a trusted testing partner, we deliver accurate, dependable, and application-focused testing solutions</p><div aria-label="Service process" class="service-flow"><span>Configure</span><span>Test</span><span>Report</span></div>
+<ul class="service-points"><li><i>›</i><span>Temperature and humidity testing</span></li><li><i>›</i><span>Thermal cycling and thermal shock testing</span></li><li><i>›</i><span>Dust, rain, and corrosion testing</span></li><li><i>›</i><span>Battery and application-specific testing</span></li></ul>
+<div class="service-card-action"><a class="service-link" href="contact.html#enquiry">Share Test Requirement →</a></div>
+</div>
+</article>
+<article class="service-detail-card reveal" id="rental-solutions">
+<div class="service-media">
+<div class="service-media-frame"><img alt="Flexible environmental chamber rental solutions" src="assets/images/service-rental.webp"/></div>
+</div>
+<div class="service-content">
+<span class="service-label">Flexible Rental Solutions</span>
+<h2>Flexible Rental Solutions for <span>Immediate Testing Needs</span></h2><div aria-label="Service process" class="service-flow"><span>Select Plan</span><span>Deploy</span><span>Support</span></div>
+<ul class="service-points"><li><i>›</i><span>Hourly, Daily, Weekly &amp; Monthly Rental Options – Flexible plans tailored to your project duration and budget.</span></li><li><i>›</i><span>No Capital Investment Required – Access advanced testing equipment without purchasing costs.</span></li><li><i>›</i><span>Maintenance-Free Operation – All preventive maintenance and service support are handled by us.</span></li><li><i>›</i><span>Technical Support Throughout Rental Period – Expert assistance whenever required.</span></li><li><i>›</i><span>Ideal for Short-Term &amp; Long-Term Projects – Suitable for R&amp;D, validation, qualification, and production testing.</span></li><li><i>›</i><span>Ready-to-Use Testing Systems – Minimize setup time and start testing immediately.</span></li></ul>
+<div class="service-card-action"><a class="service-link" href="contact.html#enquiry">Check Availability →</a></div>
+</div>
+</article>
+</div>
+<section class="service-cta reveal">
+<div>
+<span>Therm-X Technical Support</span>
+<h2>Need Manufacturing, Maintenance, Refurbishment, Testing, or Rental Support?</h2>
+<p>Share the chamber model, project requirement, service issue, upgrade scope, or rental duration. Our technical team will guide you to the correct service route.</p>
+</div>
+<a class="btn" href="contact.html#enquiry">Request Service Support →</a>
+</section>
+</div>
+</main>
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand"><img alt="Therm-X Innovations" class="footer-logo" src="assets/images/logo.webp"/><p>Specialized manufacturer of environmental test chambers delivering reliable, precise, and application-focused product validation solutions.</p></div>
+<div class="footer-col"><h3>Products</h3><ul><li><a href="products/environmental-test-chambers.html">Environmental Test Chambers</a></li><li><a href="products/thermal-shock-series.html">Thermal Shock Series</a></li><li><a href="products/altitude-series.html">Altitude Series</a></li><li><a href="products/battery-test-chamber.html">Battery Test Chamber</a></li><li><a href="products/rain-chambers.html">Rain Chambers</a></li></ul></div>
+<div class="footer-col"><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="news.html">News &amp; Updates</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+<div class="footer-col"><h3>Contact</h3><ul><li><a href="tel:+919916904077">+91 99169 04077</a></li><li><a href="tel:+918029904629">+91 080 29904629</a></li><li><a href="mailto:sales@thermxinnovations.com">sales@thermxinnovations.com</a></li><li>#41A/11, 2nd Cross, 2nd Phase, Peenya Industrial Area, Bengaluru – 560058</li></ul></div>
+</div>
+<div class="footer-bottom"><p>© 2026 Therm-X Innovations Pvt. Ltd. All rights reserved.</p><p>CIN: U28990KA2024PTC191086</p></div>
+</div>
+</footer>
+
+<script>
+(() => {
+  const section = document.getElementById('service-support');
+  const button = section?.querySelector('.service-know-more-btn');
+  const panel = document.getElementById('service-support-more');
+  if (!section || !button || !panel) return;
+
+  let openedAtScroll = 0;
+  let scrollReady = false;
+  let armTimer = null;
+
+  const closePanel = () => {
+    panel.classList.remove('is-open');
+    section.classList.remove('is-expanded');
+    panel.setAttribute('aria-hidden', 'true');
+    button.setAttribute('aria-expanded', 'false');
+    scrollReady = false;
+    if (armTimer) window.clearTimeout(armTimer);
+  };
+
+  const openPanel = () => {
+    section.classList.add('is-expanded');
+    panel.classList.add('is-open');
+    panel.setAttribute('aria-hidden', 'false');
+    button.setAttribute('aria-expanded', 'true');
+    openedAtScroll = window.scrollY;
+    scrollReady = false;
+    if (armTimer) window.clearTimeout(armTimer);
+    armTimer = window.setTimeout(() => { scrollReady = true; }, 350);
+  };
+
+  button.addEventListener('click', () => {
+    if (panel.classList.contains('is-open')) closePanel();
+    else openPanel();
+  });
+
+  window.addEventListener('scroll', () => {
+    if (!scrollReady || !panel.classList.contains('is-open')) return;
+    if (Math.abs(window.scrollY - openedAtScroll) > 24) closePanel();
+  }, { passive: true });
+})();
+</script>
+<script src="assets/js/main.js"></script>
+<script>
+(() => {
+  const links=[...document.querySelectorAll('.service-nav a')];
+  const sections=links.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const setActive=id=>links.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+id));
+  const observer=new IntersectionObserver(entries=>{
+    const visible=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+    if(visible)setActive(visible.target.id);
+  },{rootMargin:'-22% 0px -55% 0px',threshold:[.12,.3,.55]});
+  sections.forEach(section=>observer.observe(section));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact | Therm-X Innovations</title>
+<meta name="description" content="Contact Therm-X Innovations for environmental test chambers, service support, refurbishment, testing, rentals, and application-specific requirements.">
+<link rel="icon" href="assets/images/favicon-x.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+body.contact-page{background:radial-gradient(circle at 8% 12%,rgba(245,130,31,.14),transparent 25%),radial-gradient(circle at 94% 22%,rgba(34,91,190,.15),transparent 28%),linear-gradient(145deg,#f8fbff 0%,#edf4ff 52%,#fff3e8 100%)}
+.contact-page .site-nav .container,.contact-page footer .container{width:calc(100vw - 80px);max-width:none;margin-inline:40px}
+.products-hero{position:relative;overflow:hidden;height:230px;min-height:230px;padding:48px 0 44px;box-sizing:border-box;color:#fff;background:linear-gradient(125deg,#071a4d 0%,#113b8f 57%,#d9610e 100%)}
+.products-hero:before,.products-hero:after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.products-hero:before{width:390px;height:390px;right:-100px;top:-210px;background:rgba(255,156,72,.20)}
+.products-hero:after{width:310px;height:310px;left:-130px;bottom:-220px;background:rgba(75,129,237,.22)}
+.products-hero .container{position:relative;z-index:1;width:calc(100vw - 80px);max-width:1280px;margin-inline:auto;display:flex;flex-direction:column;justify-content:flex-start;height:100%}
+.products-hero .breadcrumbs{color:#c7d6f4;font-size:12px;margin-top:2px}
+.products-hero h1{max-width:900px;font-size:clamp(30px,3.8vw,48px);line-height:1.1;margin-top:10px}
+.products-hero h1 span{color:#ff9a49}
+.products-hero p{max-width:790px;color:#d7e1f5;font-size:14.5px;margin-top:12px;line-height:1.7}
+.contact-main{padding:58px 0 92px}
+.contact-main>.container{width:calc(100vw - 80px);max-width:1280px;margin-inline:auto;display:grid;gap:28px}
+.contact-dashboard{display:grid;grid-template-columns:1fr 1fr;min-height:750px;border-radius:30px;overflow:hidden;border:1px solid rgba(44,86,171,.14);box-shadow:0 30px 74px rgba(11,32,96,.14),0 10px 28px rgba(245,130,31,.08);background:#fff}
+.contact-side{min-width:0;padding:34px;display:flex;flex-direction:column}
+.contact-info-side{position:relative;color:#fff;background:linear-gradient(150deg,#061843 0%,#0d2f77 53%,#d45f0c 100%)}
+.contact-info-side:before{content:"";position:absolute;width:360px;height:360px;border-radius:50%;right:-170px;top:-180px;background:rgba(255,255,255,.08)}
+.contact-info-side:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;left:-150px;bottom:-160px;background:rgba(255,255,255,.06)}
+.contact-info-side>*{position:relative;z-index:1}
+.panel-kicker{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+.contact-info-side .panel-kicker{color:#ffd0a4}.contact-form-side .panel-kicker{color:#f5821f}
+.panel-kicker:before{content:"";width:34px;height:3px;border-radius:999px;background:currentColor}
+.panel-title{font-size:clamp(30px,3.1vw,42px);line-height:1.12;margin:0 0 10px}.contact-info-side .panel-title{color:#fff}.contact-form-side .panel-title{color:#0b2060}
+.panel-copy{font-size:14px;line-height:1.72;margin:0}.contact-info-side .panel-copy{color:#dbe6f7}.contact-form-side .panel-copy{color:#5b6c88}
+.contact-list{display:grid;grid-template-columns:1fr;gap:12px;margin-top:24px}
+.contact-tile{min-height:112px;padding:16px 18px;border-radius:19px;background:rgba(255,255,255,.095);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(10px);display:flex;flex-direction:column;justify-content:center;transition:transform .25s ease,background .25s ease}
+.contact-tile:hover{transform:translateY(-4px);background:rgba(255,255,255,.13)}
+.contact-tile-top{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.contact-icon{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.14);font-size:16px;font-weight:900;flex:0 0 auto}
+.contact-tile h3{font-size:14px;color:#fff;margin:0}.contact-tile a,.contact-tile p{color:#dbe6f7;font-size:12.8px;line-height:1.62;margin:0}.contact-tile a{display:block}
+.contact-footer-note{margin-top:auto;padding:17px 18px;border-radius:20px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.13)}
+.contact-footer-note strong{display:block;color:#fff;font-size:13px;margin-bottom:6px}.contact-footer-note span{display:block;color:#dbe6f7;font-size:12.4px;line-height:1.62}
+.contact-form-side{background:linear-gradient(160deg,rgba(255,255,255,.98),rgba(247,250,255,.96));border-left:1px solid rgba(44,86,171,.08)}
+.contact-form{display:flex;flex-direction:column;flex:1;min-height:0;margin-top:24px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field{display:grid;gap:7px}.field.full{grid-column:1/-1}
+.field label{color:#243451;font-size:12px;font-weight:800}
+.field input,.field select,.field textarea{width:100%;border:1px solid #d8e1ee;border-radius:14px;background:#fff;color:#172138;padding:13px 14px;font:inherit;font-size:13px;outline:none;transition:border-color .22s ease,box-shadow .22s ease,transform .22s ease}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:#b9c9df}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#3978e0;box-shadow:0 0 0 4px rgba(57,120,224,.10)}
+.message-shell{position:relative}
+.message-shell textarea{display:block;min-height:205px;resize:none;padding-bottom:74px}
+.attachment-dock{position:absolute;left:12px;right:12px;bottom:12px;min-height:48px;padding:8px 9px;border-radius:13px;background:linear-gradient(145deg,rgba(246,249,255,.98),rgba(255,247,239,.98));border:1px solid #d7e1ee;box-shadow:0 10px 24px rgba(11,32,96,.08);display:flex;align-items:center;gap:10px;overflow:hidden}
+.attach-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:7px;flex:0 0 auto;padding:9px 13px;border-radius:10px;background:linear-gradient(135deg,#0b2060,#3978e0);color:#fff;font-size:11.5px;font-weight:900;cursor:pointer;overflow:hidden;box-shadow:0 8px 18px rgba(11,32,96,.16)}
+.attach-btn:before{content:"＋";font-size:15px;line-height:1}.attach-btn input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.attachment-status{min-width:0;flex:1;color:#6b7c95;font-size:11.5px;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.attachment-status.has-file{color:#f5821f;font-weight:800}
+.form-actions{margin-top:auto;padding-top:18px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.form-note{font-size:11.8px;color:#6a7b95;line-height:1.58;max-width:430px}
+.submit-btn{min-width:168px}
+.contact-map-card{padding:25px;border-radius:28px;background:linear-gradient(145deg,rgba(225,237,255,.97),rgba(255,231,209,.96));border:1px solid rgba(52,91,170,.18);box-shadow:0 20px 48px rgba(11,32,96,.10)}
+.contact-map-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:18px}
+.contact-map-head h2{font-size:clamp(28px,3vw,40px);line-height:1.14;color:#0b2060}.contact-map-head h2 span{color:#f5821f}
+.contact-map-head p{max-width:650px;color:#5b6c88;font-size:13.8px;line-height:1.68}
+.map-frame{width:100%;height:390px;border:0;border-radius:20px;display:block;box-shadow:0 16px 34px rgba(11,32,96,.12)}
+@media (max-width:1100px){.contact-dashboard{grid-template-columns:1fr;min-height:auto}.contact-form-side{border-left:0;border-top:1px solid rgba(44,86,171,.08)}.contact-side{min-height:auto}.contact-list{grid-template-columns:1fr}}
+@media (max-width:840px){.contact-page .site-nav .container,.products-hero .container,.contact-main>.container,.contact-page footer .container{width:calc(100vw - 44px);margin-inline:auto}.products-hero{height:190px;min-height:190px;padding:36px 0 30px}.contact-side,.contact-map-card{padding:22px}.form-grid,.contact-list{grid-template-columns:1fr}.contact-tile{min-height:auto}.contact-map-head{flex-direction:column;align-items:flex-start}.form-actions{align-items:flex-start;flex-direction:column}.submit-btn{width:100%}.map-frame{height:320px}.attachment-dock{align-items:flex-start;flex-direction:column}.message-shell textarea{padding-bottom:104px}}
+@media (min-width:841px) and (max-width:1100px){.products-hero{height:205px;min-height:205px}}
+</style>
+</head>
+<body class="contact-page">
+<nav class="site-nav"><div class="container nav-inner"><a class="brand" href="index.html"><img src="assets/images/logo.webp" alt="Therm-X Innovations"></a><button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button><ul class="nav-menu"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="products.html">Products</a></li><li><a href="services.html">Our Services</a></li><li><a href="news.html">News &amp; Updates</a></li><li><a class="active" href="contact.html">Contact</a></li></ul><div class="nav-actions"><a class="btn btn-outline brochure-download-trigger" href="#" data-brochure-download>Download Brochure</a><a class="btn btn-primary" href="#contact-dashboard">Request a Quote</a></div></div></nav>
+<header class="products-hero"><div class="container"><div class="breadcrumbs"><a href="index.html">Home</a> / <span>Contact</span></div><h1>Connect with <span>Therm-X Innovations</span></h1><p>Share your product requirement, service request, testing scope, or rental enquiry. Add supporting files directly inside the description area for faster review.</p></div></header>
+<main class="contact-main"><div class="container">
+<section class="contact-dashboard reveal" id="contact-dashboard">
+  <article class="contact-side contact-info-side">
+    <span class="panel-kicker">Contact Details</span>
+    <h2 class="panel-title">Speak with Our Team</h2>
+    <p class="panel-copy">Reach Therm-X Innovations for environmental test chambers, technical support, refurbishment, testing services, and rental requirements.</p>
+    <div class="contact-list">
+      <div class="contact-tile"><div class="contact-tile-top"><div class="contact-icon">✆</div><h3>Phone</h3></div><a href="tel:+919916904077">+91 99169 04077</a><a href="tel:+918029904629">+91 080 29904629</a></div>
+      <div class="contact-tile"><div class="contact-tile-top"><div class="contact-icon">✉</div><h3>Email</h3></div><a href="mailto:sales@thermxinnovations.com">sales@thermxinnovations.com</a><p>For quotations, brochures, and service coordination.</p></div>
+      <div class="contact-tile"><div class="contact-tile-top"><div class="contact-icon">⌂</div><h3>Address</h3></div><p>#41A/11, 2nd Cross, 2nd Phase,<br>Peenya Industrial Area,<br>Bengaluru – 560058</p></div>
+      <div class="contact-tile"><div class="contact-tile-top"><div class="contact-icon">◎</div><h3>Support Areas</h3></div><p>New chambers, AMC, repair, refurbishment, testing, and rentals.</p></div>
+    </div>
+    <div class="contact-footer-note"><strong>For a faster response</strong><span>Add specifications, drawings, chamber photographs, issue images, or test documents using the attachment control inside the Description box.</span></div>
+  </article>
+  <article class="contact-side contact-form-side">
+    <span class="panel-kicker">Your Details</span>
+    <h2 class="panel-title">Send Your Requirement</h2>
+    <p class="panel-copy">Complete the form below and describe your requirement clearly. Supporting files can be added from inside the Description field.</p>
+    <form class="contact-form" id="contact-enquiry-form">
+      <div class="form-grid">
+        <div class="field"><label for="contact-name">Full Name</label><input id="contact-name" name="Name" required placeholder="Your full name"></div>
+        <div class="field"><label for="contact-company">Company / Organization</label><input id="contact-company" name="Company" placeholder="Your company name"></div>
+        <div class="field"><label for="contact-email">Email Address</label><input id="contact-email" name="Email" type="email" required placeholder="name@example.com"></div>
+        <div class="field"><label for="contact-phone">Phone Number</label><input id="contact-phone" name="Telephone" type="tel" required placeholder="+91 98765 43210"></div>
+        <div class="field full"><label for="contact-type">Requirement Type</label><select id="contact-type" name="Requirement Type" required><option value="">Select a requirement type</option><option>Environmental Test Chambers</option><option>Thermal Shock Series</option><option>Battery Test Chamber</option><option>Rain Chambers</option><option>Dust Chambers</option><option>Service / AMC</option><option>Refurbishment / Upgradation</option><option>Testing Services</option><option>Rental Solutions</option><option>Other</option></select></div>
+        <div class="field full"><label for="contact-description">Description</label><div class="message-shell"><textarea id="contact-description" name="Description" required placeholder="Describe the chamber, service issue, test requirement, or rental need in detail."></textarea><div class="attachment-dock"><label class="attach-btn">Add Files<input id="contact-files" type="file" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.webp"></label><div class="attachment-status" id="attachment-status">No files added</div></div></div></div>
+      </div>
+      <div class="form-actions"><div class="form-note">Submitting opens your default email application with the entered details. Attach the selected files in the email before sending if your browser does not attach them automatically.</div><button class="btn btn-primary submit-btn" type="submit">Submit Enquiry →</button></div>
+    </form>
+  </article>
+</section>
+<section class="contact-map-card reveal"><div class="contact-map-head"><div><span class="eyebrow">Visit Us</span><h2>Our <span>Peenya Facility</span></h2></div><p>Located in Peenya Industrial Area, Bengaluru, for product discussions, technical review, service coordination, and business meetings.</p></div><iframe class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=41A%2F11%2C%202nd%20Cross%2C%202nd%20Phase%2C%20Peenya%20Industrial%20Area%2C%20Bengaluru%20560058&output=embed" title="Therm-X Innovations location"></iframe></section>
+</div></main>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><img class="footer-logo" src="assets/images/logo.webp" alt="Therm-X Innovations"><p>Specialized manufacturer of environmental test chambers delivering reliable, precise, and application-focused product validation solutions.</p></div><div class="footer-col"><h3>Products</h3><ul><li><a href="products/environmental-test-chambers.html">Environmental Test Chambers</a></li><li><a href="products/thermal-shock-series.html">Thermal Shock Series</a></li><li><a href="products/altitude-series.html">Altitude Series</a></li><li><a href="products/battery-test-chamber.html">Battery Test Chamber</a></li><li><a href="products/rain-chambers.html">Rain Chambers</a></li></ul></div><div class="footer-col"><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="news.html">News &amp; Updates</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-col"><h3>Contact</h3><ul><li><a href="tel:+919916904077">+91 99169 04077</a></li><li><a href="tel:+918029904629">+91 080 29904629</a></li><li><a href="mailto:sales@thermxinnovations.com">sales@thermxinnovations.com</a></li><li>#41A/11, 2nd Cross, 2nd Phase, Peenya Industrial Area, Bengaluru – 560058</li></ul></div></div><div class="footer-bottom"><p>© 2026 Therm-X Innovations Pvt. Ltd. All rights reserved.</p><p>CIN: U28990KA2024PTC191086</p></div></div></footer>
+<script src="assets/js/main.js"></script>
+<script>
+(() => {
+  const form=document.getElementById('contact-enquiry-form');
+  const filesInput=document.getElementById('contact-files');
+  const status=document.getElementById('attachment-status');
+  filesInput.addEventListener('change',()=>{
+    const files=[...filesInput.files];
+    if(!files.length){status.textContent='No files added';status.classList.remove('has-file');return}
+    status.textContent=files.length===1?files[0].name:`${files.length} files selected`;
+    status.classList.add('has-file');
+  });
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const fd=new FormData(form);
+    const files=[...filesInput.files];
+    const lines=[
+      `Name: ${fd.get('Name')||''}`,
+      `Company: ${fd.get('Company')||''}`,
+      `Email: ${fd.get('Email')||''}`,
+      `Phone: ${fd.get('Telephone')||''}`,
+      `Requirement Type: ${fd.get('Requirement Type')||''}`,
+      `Description: ${fd.get('Description')||''}`,
+      `Selected Files: ${files.length?files.map(file=>file.name).join(', '):'No files selected'}`
+    ];
+    const subject=encodeURIComponent('Website enquiry - '+(fd.get('Requirement Type')||'Therm-X Innovations'));
+    const body=encodeURIComponent(lines.join('
+
+')+'
+
+Please attach the selected files before sending this email if they are not attached automatically.');
+    window.location.href=`mailto:sales@thermxinnovations.com?subject=${subject}&body=${body}`;
+  });
+})();
+</script>
+</body>
+</html>

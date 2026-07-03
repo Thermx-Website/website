@@ -1,0 +1,30 @@
+HOMEPAGE IMAGE FILES
+====================
+
+The homepage currently shows CSS placeholders only.
+
+LOGO (transparent PNG recommended)
+- logo-home.png
+To add your real images, place them in this folder using these exact names:
+
+LANDSCAPE SLIDER (recommended 1920 x 720 px)
+- slide-1.jpg
+- slide-2.jpg
+- slide-3.jpg
+
+PRODUCT CARDS (recommended 800 x 560 px)
+- product-1.jpg
+- product-2.jpg
+- product-3.jpg
+- product-4.jpg
+- product-5.jpg
+- product-6.jpg
+- product-7.jpg
+- product-8.jpg
+- product-9.jpg
+
+ABOUT / FACILITY SECTION (recommended 1200 x 850 px)
+- about-home.jpg
+
+No HTML or CSS change is required. Once an image with the correct filename is placed here,
+the corresponding placeholder automatically disappears and the image appears.

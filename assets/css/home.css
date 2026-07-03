@@ -1,0 +1,153 @@
+
+/* ============================================================
+   HOMEPAGE ONLY — 3D SLIDER + NINE UNIQUE PRODUCT CARD DESIGNS
+   Replace files inside assets/images/home/ to reveal real images.
+   ============================================================ */
+.home-page .image-slot{position:relative;overflow:hidden;background:#eaf0f8;isolation:isolate}
+.home-page .image-slot>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:3;transition:transform .65s ease,filter .65s ease}
+.home-page .image-slot.has-image .placeholder-copy{opacity:0;visibility:hidden}
+.home-page .placeholder-copy{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;color:#f6f9ff;transition:.25s}
+.home-page .placeholder-copy:before{content:'';width:72px;height:52px;margin-bottom:15px;border:2px solid currentColor;border-radius:10px;opacity:.9;background:linear-gradient(145deg,transparent 48%,currentColor 49% 52%,transparent 53%),linear-gradient(35deg,transparent 45%,currentColor 46% 50%,transparent 51%);clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+.home-page .placeholder-copy:after{content:'';position:absolute;width:13px;height:13px;border-radius:50%;background:currentColor;transform:translate(20px,-48px)}
+.home-page .placeholder-copy strong{font-size:clamp(16px,2vw,25px);letter-spacing:.1em;line-height:1.25}
+.home-page .placeholder-copy small{font-size:12px;opacity:.78;margin-top:7px}
+.home-page .placeholder-copy code{font:600 11px/1.4 Inter,sans-serif;margin-top:9px;padding:5px 10px;border-radius:99px;background:rgba(0,0,0,.22);color:inherit}
+.home-page .placeholder-index{position:absolute;top:24px;left:28px;font-weight:900;font-size:38px;opacity:.25}
+.home-page .placeholder-copy.compact{padding:16px;color:#dbe7ff}
+.home-page .placeholder-copy.compact:before{width:50px;height:36px;margin-bottom:9px}
+.home-page .placeholder-copy.compact:after{width:9px;height:9px;transform:translate(14px,-33px)}
+.home-page .placeholder-copy.compact strong{font-size:12px;letter-spacing:.08em}
+.home-page .placeholder-copy.compact small,.home-page .placeholder-copy.compact code{font-size:9px}
+
+/* Automatic 3D landscape slider */
+.home-page .home-carousel{padding:34px 0 50px;background:
+ radial-gradient(circle at 18% 15%,rgba(245,130,31,.24),transparent 28%),
+ radial-gradient(circle at 88% 82%,rgba(67,128,255,.22),transparent 27%),
+ linear-gradient(135deg,#06133c,#0b2368 48%,#123d8d);position:relative}
+.home-page .home-carousel:before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,#000,transparent)}
+.home-page .carousel-intro{position:relative;z-index:2;text-align:center;color:#fff;margin-bottom:20px}
+.home-page .carousel-kicker{display:block;color:#ff9b45;text-transform:uppercase;letter-spacing:.19em;font-size:10.5px;font-weight:900}
+.home-page .carousel-intro p{font-size:13px;color:#aebfe1;margin-top:4px}
+.home-page .carousel-stage{height:clamp(300px,38vw,510px);perspective:1850px;transform-style:preserve-3d}
+.home-page .carousel-slide{inset:0 7%;border-radius:24px;border:1px solid rgba(255,255,255,.16);background:#071a50;box-shadow:0 32px 80px rgba(0,0,0,.48),0 0 0 1px rgba(255,255,255,.05) inset;transition:transform 1.05s cubic-bezier(.18,.82,.18,1),opacity .8s,filter .8s;transform-origin:center center}
+.home-page .carousel-slide:before{content:'';position:absolute;inset:0;z-index:6;pointer-events:none;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.15),inset 0 -80px 80px rgba(0,0,0,.16)}
+.home-page .carousel-slide.active:after{content:'';position:absolute;z-index:8;left:0;bottom:0;height:4px;background:linear-gradient(90deg,#f5821f,#ffd2a5);animation:homeSlideProgress 5s linear forwards}
+@keyframes homeSlideProgress{from{width:0}to{width:100%}}
+.home-page .carousel-slide.active{transform:translate3d(0,0,80px) rotateY(0deg) scale(1);filter:none}
+.home-page .carousel-slide.prev{transform:translate3d(-57%,7px,-290px) rotateY(38deg) scale(.79);filter:brightness(.5) saturate(.75);opacity:.54}
+.home-page .carousel-slide.next{transform:translate3d(57%,7px,-290px) rotateY(-38deg) scale(.79);filter:brightness(.5) saturate(.75);opacity:.54}
+.home-page .carousel-slide.hidden{transform:translate3d(0,18px,-620px) rotateY(70deg) scale(.58);opacity:0}
+.home-page .carousel-slide a,.home-page .slide-surface{display:block;width:100%;height:100%}
+.home-page .slide-surface{border-radius:22px;animation:slideSurfaceFloat 4.6s ease-in-out infinite;transform-style:preserve-3d}
+@keyframes slideSurfaceFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.home-page .slide-surface--one{background:linear-gradient(135deg,#102e79,#071744)}
+.home-page .slide-surface--two{background:linear-gradient(135deg,#6f2b05,#e16d12 55%,#0b2060)}
+.home-page .slide-surface--three{background:linear-gradient(135deg,#071d4e,#0b5b79 52%,#f5821f)}
+.home-page .slide-surface:before,.home-page .slide-surface:after{content:'';position:absolute;border:1px solid rgba(255,255,255,.12);border-radius:50%;z-index:1}
+.home-page .slide-surface:before{width:340px;height:340px;right:-90px;top:-120px}
+.home-page .slide-surface:after{width:210px;height:210px;left:-55px;bottom:-80px}
+.home-page .carousel-controls{position:relative;z-index:10;margin-top:23px}
+.home-page .carousel-arrow{backdrop-filter:blur(10px);box-shadow:0 8px 22px rgba(0,0,0,.2)}
+.home-page .carousel-dot{height:8px;width:8px}.home-page .carousel-dot.active{width:44px}
+
+/* Nine-card aligned grid */
+.home-page .home-products{background:linear-gradient(180deg,#fff 0,#f5f8fc 100%)}
+.home-page .unique-products-grid{align-items:stretch;grid-auto-rows:1fr;gap:28px}
+.home-page .unique-products-grid .product-card{min-height:485px;position:relative;transform-style:preserve-3d;border:0;overflow:hidden}
+.home-page .unique-products-grid .product-card:hover{transform:translateY(-10px) rotateX(1deg) rotateY(-1deg);box-shadow:0 28px 64px rgba(11,32,96,.19)}
+.home-page .unique-products-grid .product-card h3{font-size:18px}
+.home-page .unique-products-grid .product-card p{font-size:13.2px;line-height:1.65}
+.home-page .unique-products-grid .read-more{width:max-content;border-radius:99px;padding:9px 14px;transition:.25s}
+.home-page .unique-products-grid .read-more:hover{gap:12px;transform:translateX(2px)}
+
+/* 01 — Classic editorial */
+.home-page .product-card--alpha{background:#fff;border:1px solid #dfe7f2!important}
+.home-page .product-card--alpha .card-media{height:225px;background:linear-gradient(135deg,#0b2060,#1f4eaa)}
+.home-page .product-card--alpha .card-media:after{content:'CLASSIC';position:absolute;right:14px;bottom:12px;color:#fff;font-size:9px;letter-spacing:.17em;font-weight:900;z-index:4;background:rgba(0,0,0,.25);padding:5px 9px;border-radius:99px}
+.home-page .product-card--alpha .product-body{padding:25px}.home-page .product-card--alpha .read-more{background:#fff1e5}
+
+/* 02 — Number-led magazine */
+.home-page .product-card--beta{background:#fffaf5;border:1px solid #ffd6b0!important;padding:22px;gap:18px}
+.home-page .beta-heading{display:flex;align-items:center;gap:15px}.home-page .beta-number{width:58px;height:58px;display:grid;place-items:center;border-radius:17px;background:linear-gradient(135deg,#f5821f,#c85405);color:#fff;font-size:24px;font-weight:900;box-shadow:0 10px 22px rgba(245,130,31,.28)}
+.home-page .beta-heading h3{margin:2px 0 0}.home-page .beta-media{height:185px;border-radius:58px 12px 58px 12px;background:linear-gradient(135deg,#16397d,#071a50)}
+.home-page .beta-footer{display:flex;flex-direction:column;flex:1}.home-page .beta-footer .read-more{margin-top:auto;background:#f5821f;color:#fff}
+
+/* 03 — Full visual overlay */
+.home-page .product-card--gamma{background:#071b50;color:#fff}
+.home-page .gamma-visual{height:300px;background:linear-gradient(135deg,#0b2060,#3564bd);position:relative}
+.home-page .gamma-visual:after{content:'';position:absolute;inset:35% 0 0;z-index:4;background:linear-gradient(transparent,rgba(4,14,43,.95))}
+.home-page .gamma-overlay{position:absolute;z-index:5;left:24px;right:24px;bottom:20px}.home-page .gamma-overlay span{font-size:10px;color:#f89b4e;letter-spacing:.15em;font-weight:900}.home-page .gamma-overlay h3{color:#fff;margin-top:5px;font-size:22px}
+.home-page .gamma-body{padding:22px 24px;display:flex;flex-direction:column;flex:1}.home-page .gamma-body p{color:#b9c7e2}.home-page .gamma-body .read-more{margin-top:auto;background:rgba(255,255,255,.1);color:#ffa85f}
+
+/* 04 — Vertical rail */
+.home-page .product-card--delta{display:grid;grid-template-columns:67px 1fr;background:#fff;border:1px solid #dbe3ef!important}
+.home-page .delta-rail{background:linear-gradient(180deg,#f5821f,#b74600);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:25px 8px}.home-page .delta-rail span{font-size:26px;font-weight:900}.home-page .delta-rail small{writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:.3em;font-weight:900}
+.home-page .delta-main{display:flex;flex-direction:column}.home-page .delta-media{height:220px;background:linear-gradient(135deg,#163b89,#091a4d)}.home-page .delta-copy{padding:24px;display:flex;flex-direction:column;flex:1}.home-page .delta-copy .read-more{margin-top:auto;background:#eaf1ff}
+
+/* 05 — Framed technical card */
+.home-page .product-card--epsilon{background:#f4f7fb;padding:23px;border:1px solid #dfe6f0!important}
+.home-page .epsilon-title{position:relative;padding-right:75px}.home-page .epsilon-chip{position:absolute;right:0;top:0;background:#0b2060;color:#fff;padding:6px 9px;border-radius:5px;font-size:9px;font-weight:900}
+.home-page .epsilon-frame{margin:18px 0;padding:9px;border:1px solid #cad5e6;background:#fff;box-shadow:8px 8px 0 #f5821f}.home-page .epsilon-media{height:190px;background:linear-gradient(135deg,#071b50,#14529d)}
+.home-page .epsilon-copy{display:flex;flex-direction:column;min-height:135px}.home-page .epsilon-copy .read-more{margin-top:auto;background:#0b2060;color:#fff}
+
+/* 06 — Circular orbit design */
+.home-page .product-card--zeta{background:#fff;border:1px solid #e6d9cc!important;text-align:center}
+.home-page .zeta-banner{background:linear-gradient(120deg,#0b2060 0 73%,#f5821f 73%);padding:21px;color:#fff;text-align:left}.home-page .zeta-banner span{font-size:10px;color:#ffc28e;font-weight:900;letter-spacing:.14em}.home-page .zeta-banner h3{color:#fff;margin:4px 0 0}
+.home-page .zeta-orbit{width:235px;height:235px;border-radius:50%;margin:20px auto 8px;padding:13px;border:1px dashed #f5821f;position:relative}.home-page .zeta-orbit:before,.home-page .zeta-orbit:after{content:'';position:absolute;width:12px;height:12px;border-radius:50%;background:#f5821f}.home-page .zeta-orbit:before{left:13px;top:35px}.home-page .zeta-orbit:after{right:8px;bottom:48px}
+.home-page .zeta-media{width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,#0e2a71,#07153e)}.home-page .zeta-copy{padding:0 24px 24px;display:flex;flex-direction:column;flex:1;align-items:center}.home-page .zeta-copy .read-more{margin-top:auto;background:#fff1e5}
+
+/* 07 — Content-first / image-bottom */
+.home-page .product-card--eta{background:#fff;border:1px solid #dce4ef!important}
+.home-page .eta-copy{padding:26px;display:flex;flex-direction:column;min-height:260px}.home-page .eta-copy:before{content:'CONTENT FIRST';font-size:9px;color:#9aa8bd;letter-spacing:.2em;font-weight:900;margin-bottom:15px}.home-page .eta-copy .read-more{margin-top:auto;background:#f5821f;color:#fff}
+.home-page .eta-media{height:225px;margin:0 15px 15px;border-radius:12px;background:linear-gradient(145deg,#0b2060,#2872a4);clip-path:polygon(0 8%,100% 0,100% 100%,0 100%)}
+
+/* 08 — Split vertical card */
+.home-page .product-card--theta{background:#eef3fb;border:1px solid #d8e1ef!important;padding:14px}
+.home-page .theta-layout{display:grid;grid-template-columns:42% 58%;height:100%;min-height:455px;border-radius:12px;overflow:hidden;background:#fff}
+.home-page .theta-media{height:100%;background:linear-gradient(180deg,#071b50,#1a55a5)}.home-page .theta-media .placeholder-copy.vertical{writing-mode:vertical-rl;transform:rotate(180deg)}.home-page .theta-media .placeholder-copy:before,.home-page .theta-media .placeholder-copy:after{display:none}
+.home-page .theta-copy{padding:24px 20px;display:flex;flex-direction:column}.home-page .theta-copy h3{font-size:17px}.home-page .theta-copy .read-more{margin-top:auto;background:#e9f0ff}
+
+/* 09 — Dark premium card */
+.home-page .product-card--iota{background:linear-gradient(145deg,#06142e,#0b2865);border:1px solid rgba(255,255,255,.1)!important;color:#fff;padding:22px}
+.home-page .iota-glow{position:absolute;width:220px;height:220px;border-radius:50%;background:#f5821f;filter:blur(90px);opacity:.17;right:-70px;top:-90px}
+.home-page .iota-top{display:grid;grid-template-columns:54px 1fr;gap:12px;height:220px;position:relative;z-index:2}.home-page .iota-index{display:grid;place-items:center;background:#f5821f;color:#fff;font-size:24px;font-weight:900;border-radius:10px;writing-mode:vertical-rl}.home-page .iota-media{border-radius:10px;background:linear-gradient(135deg,#133d89,#071437)}
+.home-page .iota-copy{position:relative;z-index:2;padding-top:20px;display:flex;flex-direction:column;flex:1}.home-page .iota-copy h3{color:#fff}.home-page .iota-copy p{color:#aebddd}.home-page .iota-copy .read-more{margin-top:auto;background:rgba(245,130,31,.14);color:#ff9d4b;border:1px solid rgba(245,130,31,.35)}
+
+/* About image placeholder */
+.home-page .about-placeholder{height:420px;border-radius:15px;box-shadow:var(--shadow);background:linear-gradient(135deg,#071b50,#154d9d)}
+.home-page .about-placeholder:before{content:'';position:absolute;inset:18px;border:1px dashed rgba(255,255,255,.25);border-radius:10px;z-index:1}
+
+@media(max-width:1050px){
+ .home-page .unique-products-grid .product-card{min-height:470px}
+ .home-page .theta-layout{min-height:440px}
+}
+@media(max-width:700px){
+ .home-page .carousel-intro{margin-bottom:14px}
+ .home-page .carousel-stage{height:245px}
+ .home-page .carousel-slide{inset:0 3%;border-radius:17px}
+ .home-page .carousel-slide.active{transform:translate3d(0,0,35px) scale(1)}
+ .home-page .carousel-slide.prev{transform:translate3d(-68%,5px,-190px) rotateY(35deg) scale(.73)}
+ .home-page .carousel-slide.next{transform:translate3d(68%,5px,-190px) rotateY(-35deg) scale(.73)}
+ .home-page .placeholder-copy strong{font-size:14px}.home-page .placeholder-copy code{display:none}
+ .home-page .unique-products-grid .product-card{min-height:0}
+ .home-page .theta-layout{grid-template-columns:1fr;min-height:0}.home-page .theta-media{height:210px}.home-page .theta-media .placeholder-copy.vertical{writing-mode:horizontal-tb;transform:none}
+ .home-page .product-card--delta{grid-template-columns:52px 1fr}
+ .home-page .about-placeholder{height:300px}
+}
+@media(max-width:440px){
+ .home-page .carousel-stage{height:195px}.home-page .carousel-intro p{display:none}
+ .home-page .carousel-slide.prev{transform:translate3d(-72%,4px,-150px) rotateY(32deg) scale(.7)}
+ .home-page .carousel-slide.next{transform:translate3d(72%,4px,-150px) rotateY(-32deg) scale(.7)}
+ .home-page .placeholder-copy:before{width:48px;height:35px}.home-page .placeholder-copy:after{width:8px;height:8px;transform:translate(13px,-33px)}
+ .home-page .placeholder-copy small{font-size:9px}
+}
+
+
+/* Homepage logo placeholders */
+.home-page .brand{display:block}
+.home-page .home-logo-slot{width:210px;height:54px;border-radius:8px;background:linear-gradient(135deg,#eaf0f8,#dce6f5);border:1px dashed #9db0cb}
+.home-page .home-footer-logo-slot{width:210px;height:60px;border-radius:8px;background:#fff;border:1px dashed #8da1bf}
+.home-page .logo-placeholder-copy{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:10px;color:#0b2060;z-index:2}
+.home-page .logo-placeholder-copy strong{font-size:18px;letter-spacing:.05em}.home-page .logo-placeholder-copy small{font-size:9px;letter-spacing:.14em;color:#f5821f;font-weight:900}
+.home-page .image-slot.has-image .logo-placeholder-copy{opacity:0;visibility:hidden}
+@media(max-width:700px){.home-page .home-logo-slot{width:165px;height:48px}}
