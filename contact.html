@@ -56,8 +56,15 @@ body.contact-page{background:radial-gradient(circle at 8% 12%,rgba(245,130,31,.1
 .attachment-dock{position:absolute;left:12px;right:12px;bottom:12px;min-height:48px;padding:8px 9px;border-radius:13px;background:linear-gradient(145deg,rgba(246,249,255,.98),rgba(255,247,239,.98));border:1px solid #d7e1ee;box-shadow:0 10px 24px rgba(11,32,96,.08);display:flex;align-items:center;gap:10px;overflow:hidden}
 .attach-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:7px;flex:0 0 auto;padding:9px 13px;border-radius:10px;background:linear-gradient(135deg,#0b2060,#3978e0);color:#fff;font-size:11.5px;font-weight:900;cursor:pointer;overflow:hidden;box-shadow:0 8px 18px rgba(11,32,96,.16)}
 .attach-btn:before{content:"＋";font-size:15px;line-height:1}.attach-btn input{position:absolute;inset:0;opacity:0;cursor:pointer}
-.attachment-status{min-width:0;flex:1;color:#6b7c95;font-size:11.5px;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.attachment-status{min-width:0;flex:1;color:#6b7c95;font-size:11.5px;line-height:1.4;display:flex;flex-direction:column;gap:4px;overflow:hidden}
 .attachment-status.has-file{color:#f5821f;font-weight:800}
+.attachment-primary{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.attachment-list{display:none;margin:0;padding-left:16px;max-height:50px;overflow:auto;color:#586a86;font-weight:600}
+.attachment-status.has-file .attachment-list{display:block}
+.attachment-list li{font-size:10.8px;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.attach-clear-btn{flex:0 0 auto;border:0;border-radius:10px;padding:8px 10px;background:#fff;color:#0b2060;font-size:11px;font-weight:800;box-shadow:0 8px 16px rgba(11,32,96,.08);cursor:pointer;display:none}
+.attach-clear-btn.show{display:inline-flex;align-items:center;justify-content:center}
+.message-shell.is-dragover .attachment-dock{border-color:#3978e0;box-shadow:0 0 0 4px rgba(57,120,224,.10),0 10px 24px rgba(11,32,96,.08)}
 .form-actions{margin-top:auto;padding-top:18px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .form-note{font-size:11.8px;color:#6a7b95;line-height:1.58;max-width:430px}
 .submit-btn{min-width:168px}
@@ -70,6 +77,7 @@ body.contact-page{background:radial-gradient(circle at 8% 12%,rgba(245,130,31,.1
 @media (max-width:840px){.contact-page .site-nav .container,.products-hero .container,.contact-main>.container,.contact-page footer .container{width:calc(100vw - 44px);margin-inline:auto}.products-hero{height:190px;min-height:190px;padding:36px 0 30px}.contact-side,.contact-map-card{padding:22px}.form-grid,.contact-list{grid-template-columns:1fr}.contact-tile{min-height:auto}.contact-map-head{flex-direction:column;align-items:flex-start}.form-actions{align-items:flex-start;flex-direction:column}.submit-btn{width:100%}.map-frame{height:320px}.attachment-dock{align-items:flex-start;flex-direction:column}.message-shell textarea{padding-bottom:104px}}
 @media (min-width:841px) and (max-width:1100px){.products-hero{height:205px;min-height:205px}}
 </style>
+<link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body class="contact-page">
 <nav class="site-nav"><div class="container nav-inner"><a class="brand" href="index.html"><img src="assets/images/logo.webp" alt="Therm-X Innovations"></a><button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button><ul class="nav-menu"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="products.html">Products</a></li><li><a href="services.html">Our Services</a></li><li><a href="news.html">News &amp; Updates</a></li><li><a class="active" href="contact.html">Contact</a></li></ul><div class="nav-actions"><a class="btn btn-outline brochure-download-trigger" href="#" data-brochure-download>Download Brochure</a><a class="btn btn-primary" href="#contact-dashboard">Request a Quote</a></div></div></nav>
@@ -99,7 +107,7 @@ body.contact-page{background:radial-gradient(circle at 8% 12%,rgba(245,130,31,.1
         <div class="field"><label for="contact-email">Email Address</label><input id="contact-email" name="Email" type="email" required placeholder="name@example.com"></div>
         <div class="field"><label for="contact-phone">Phone Number</label><input id="contact-phone" name="Telephone" type="tel" required placeholder="+91 98765 43210"></div>
         <div class="field full"><label for="contact-type">Requirement Type</label><select id="contact-type" name="Requirement Type" required><option value="">Select a requirement type</option><option>Environmental Test Chambers</option><option>Thermal Shock Series</option><option>Battery Test Chamber</option><option>Rain Chambers</option><option>Dust Chambers</option><option>Service / AMC</option><option>Refurbishment / Upgradation</option><option>Testing Services</option><option>Rental Solutions</option><option>Other</option></select></div>
-        <div class="field full"><label for="contact-description">Description</label><div class="message-shell"><textarea id="contact-description" name="Description" required placeholder="Describe the chamber, service issue, test requirement, or rental need in detail."></textarea><div class="attachment-dock"><label class="attach-btn">Add Files<input id="contact-files" type="file" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.webp"></label><div class="attachment-status" id="attachment-status">No files added</div></div></div></div>
+        <div class="field full"><label for="contact-description">Description</label><div class="message-shell"><textarea id="contact-description" name="Description" required placeholder="Describe the chamber, service issue, test requirement, or rental need in detail."></textarea><div class="attachment-dock"><label class="attach-btn">Add Files<input id="contact-files" type="file" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.webp,.zip,.txt"></label><div class="attachment-status" id="attachment-status"><span class="attachment-primary">No files added</span><ul class="attachment-list" id="attachment-list"></ul></div><button class="attach-clear-btn" id="attachment-clear" type="button">Clear</button></div></div></div>
       </div>
       <div class="form-actions"><div class="form-note">Submitting opens your default email application with the entered details. Attach the selected files in the email before sending if your browser does not attach them automatically.</div><button class="btn btn-primary submit-btn" type="submit">Submit Enquiry →</button></div>
     </form>
@@ -111,36 +119,76 @@ body.contact-page{background:radial-gradient(circle at 8% 12%,rgba(245,130,31,.1
 <script src="assets/js/main.js"></script>
 <script>
 (() => {
-  const form=document.getElementById('contact-enquiry-form');
-  const filesInput=document.getElementById('contact-files');
-  const status=document.getElementById('attachment-status');
-  filesInput.addEventListener('change',()=>{
-    const files=[...filesInput.files];
-    if(!files.length){status.textContent='No files added';status.classList.remove('has-file');return}
-    status.textContent=files.length===1?files[0].name:`${files.length} files selected`;
+  const form = document.getElementById('contact-enquiry-form');
+  const filesInput = document.getElementById('contact-files');
+  const status = document.getElementById('attachment-status');
+  const primary = status.querySelector('.attachment-primary');
+  const list = document.getElementById('attachment-list');
+  const clearBtn = document.getElementById('attachment-clear');
+  const messageShell = document.querySelector('.message-shell');
+
+  function renderFiles(fileList){
+    const files = [...fileList];
+    list.innerHTML = '';
+    if(!files.length){
+      primary.textContent = 'No files added';
+      status.classList.remove('has-file');
+      clearBtn.classList.remove('show');
+      return;
+    }
+    primary.textContent = files.length === 1 ? files[0].name : `${files.length} files selected`;
+    files.forEach(file => {
+      const li = document.createElement('li');
+      li.textContent = file.name;
+      list.appendChild(li);
+    });
     status.classList.add('has-file');
+    clearBtn.classList.add('show');
+  }
+
+  filesInput.addEventListener('change', () => renderFiles(filesInput.files));
+
+  clearBtn.addEventListener('click', () => {
+    filesInput.value = '';
+    renderFiles([]);
   });
-  form.addEventListener('submit',e=>{
+
+  ['dragenter','dragover'].forEach(type => {
+    messageShell.addEventListener(type, e => {
+      e.preventDefault();
+      messageShell.classList.add('is-dragover');
+    });
+  });
+  ['dragleave','drop'].forEach(type => {
+    messageShell.addEventListener(type, e => {
+      e.preventDefault();
+      if(type === 'drop' && e.dataTransfer?.files?.length){
+        filesInput.files = e.dataTransfer.files;
+        renderFiles(filesInput.files);
+      }
+      messageShell.classList.remove('is-dragover');
+    });
+  });
+
+  form.addEventListener('submit', e => {
     e.preventDefault();
-    const fd=new FormData(form);
-    const files=[...filesInput.files];
-    const lines=[
-      `Name: ${fd.get('Name')||''}`,
-      `Company: ${fd.get('Company')||''}`,
-      `Email: ${fd.get('Email')||''}`,
-      `Phone: ${fd.get('Telephone')||''}`,
-      `Requirement Type: ${fd.get('Requirement Type')||''}`,
-      `Description: ${fd.get('Description')||''}`,
-      `Selected Files: ${files.length?files.map(file=>file.name).join(', '):'No files selected'}`
+    const fd = new FormData(form);
+    const files = [...filesInput.files];
+    const lines = [
+      `Name: ${fd.get('Name') || ''}`,
+      `Company: ${fd.get('Company') || ''}`,
+      `Email: ${fd.get('Email') || ''}`,
+      `Phone: ${fd.get('Telephone') || ''}`,
+      `Requirement Type: ${fd.get('Requirement Type') || ''}`,
+      `Description: ${fd.get('Description') || ''}`,
+      `Selected Files: ${files.length ? files.map(file => file.name).join(', ') : 'No files selected'}`
     ];
-    const subject=encodeURIComponent('Website enquiry - '+(fd.get('Requirement Type')||'Therm-X Innovations'));
-    const body=encodeURIComponent(lines.join('
-
-')+'
-
-Please attach the selected files before sending this email if they are not attached automatically.');
-    window.location.href=`mailto:sales@thermxinnovations.com?subject=${subject}&body=${body}`;
+    const subject = encodeURIComponent('Website enquiry - ' + (fd.get('Requirement Type') || 'Therm-X Innovations'));
+    const body = encodeURIComponent(lines.join('\n\n') + '\n\nPlease attach the selected files before sending this email if they are not attached automatically.');
+    window.location.href = `mailto:sales@thermxinnovations.com?subject=${subject}&body=${body}`;
   });
+
+  renderFiles([]);
 })();
 </script>
 </body>

@@ -2,7 +2,66 @@
 (() => {
   const menuToggle = document.querySelector('.menu-toggle');
   const menu = document.querySelector('.nav-menu');
-  if(menuToggle && menu){menuToggle.addEventListener('click',()=>{menu.classList.toggle('open');menuToggle.setAttribute('aria-expanded',menu.classList.contains('open'))})}
+  const desktopActions = document.querySelector('.nav-actions');
+
+  // Add the existing brochure and quote actions inside the responsive menu.
+  // The desktop buttons remain unchanged; these copies are displayed only at mobile/tablet widths.
+  if(menu && desktopActions && !menu.querySelector('.mobile-menu-actions')){
+    const mobileActions = document.createElement('li');
+    mobileActions.className = 'mobile-menu-actions';
+
+    const brochureButton = desktopActions.querySelector('[data-brochure-download], .brochure-download-trigger');
+    const quoteButton = desktopActions.querySelector('.btn-primary');
+
+    if(brochureButton){
+      const brochureCopy = brochureButton.cloneNode(true);
+      brochureCopy.classList.add('mobile-brochure-btn');
+      mobileActions.appendChild(brochureCopy);
+    }
+
+    if(quoteButton){
+      const quoteCopy = quoteButton.cloneNode(true);
+      quoteCopy.classList.add('mobile-quote-btn');
+      const quoteHref = (quoteCopy.getAttribute('href') || 'contact.html#contact-dashboard')
+        .replace('#enquiry', '#contact-dashboard');
+      quoteCopy.setAttribute('href', quoteHref);
+      mobileActions.appendChild(quoteCopy);
+    }
+
+    if(mobileActions.children.length) menu.appendChild(mobileActions);
+  }
+
+  const closeMenu = () => {
+    if(!menu || !menuToggle) return;
+    menu.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Open menu');
+  };
+
+  if(menuToggle && menu){
+    menuToggle.addEventListener('click',()=>{
+      const isOpen = menu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+
+    menu.addEventListener('click',event=>{
+      const link = event.target.closest('a');
+      if(link && !link.classList.contains('nav-link')) closeMenu();
+    });
+
+    document.addEventListener('click',event=>{
+      if(innerWidth<=1050 && menu.classList.contains('open') && !event.target.closest('.site-nav')) closeMenu();
+    });
+
+    document.addEventListener('keydown',event=>{
+      if(event.key==='Escape' && menu.classList.contains('open')) closeMenu();
+    });
+
+    window.addEventListener('resize',()=>{
+      if(innerWidth>1050) closeMenu();
+    });
+  }
   document.querySelectorAll('.dropdown > .nav-link').forEach(link=>link.addEventListener('click',e=>{
     if(innerWidth<=1050){e.preventDefault();link.parentElement.classList.toggle('open')}
   }));
