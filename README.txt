@@ -60,3 +60,20 @@ Products page update: uniform detail-card UI/animation and animated circular ser
 
 
 Product detail pages updated from the current official Therm-X product pages on 2026-07-02. Home and About pages were not modified in this update.
+
+SUPABASE NEWS INTEGRATION
+-------------------------
+The News & Updates page is connected to the Supabase project ref wnlvzucwmtsrvbqdwojw.
+Public configuration: assets/js/supabase-config.js
+News management: assets/js/news-supabase.js
+Article page: news-details.html
+Only the publishable browser key is included. Never add a service-role or secret key to this folder.
+Open news.html through a web server or deployed domain; do not rely on file:// for production testing.
+
+RESEND CONTACT FORM INTEGRATION
+-------------------------------
+The Contact page now submits through the Supabase Edge Function send-contact-email.
+Frontend: assets/js/contact-resend.js
+Function: supabase/functions/send-contact-email/index.ts
+Deployment instructions: RESEND-CONTACT-SETUP.txt
+No Resend secret key is included in the website files.

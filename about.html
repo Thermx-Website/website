@@ -2032,6 +2032,52 @@
 }
 </style>
 
+
+<style id="industries-right-to-left-wave-final">
+/* Smooth right-to-left flowing cards with a travelling wave */
+.about-page .industries-card .industry-train-wrap{
+  overflow:hidden!important;
+  padding-top:38px!important;
+  padding-bottom:46px!important;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 5%,#000 95%,transparent 100%);
+  mask-image:linear-gradient(to right,transparent 0,#000 5%,#000 95%,transparent 100%);
+}
+.about-page .industries-card .industry-train-track{
+  align-items:center!important;
+  gap:20px!important;
+  will-change:transform!important;
+}
+.about-page .industries-card .industry-serve-card{
+  animation:industryFlowWave 4.8s ease-in-out infinite!important;
+  transform-origin:center bottom!important;
+  transition:box-shadow .35s ease,filter .35s ease!important;
+}
+.about-page .industries-card .industry-serve-card:nth-child(9n+1){animation-delay:0s!important}
+.about-page .industries-card .industry-serve-card:nth-child(9n+2){animation-delay:-.42s!important}
+.about-page .industries-card .industry-serve-card:nth-child(9n+3){animation-delay:-.84s!important}
+.about-page .industries-card .industry-serve-card:nth-child(9n+4){animation-delay:-1.26s!important}
+.about-page .industries-card .industry-serve-card:nth-child(9n+5){animation-delay:-1.68s!important}
+.about-page .industries-card .industry-serve-card:nth-child(9n+6){animation-delay:-2.10s!important}
+.about-page .industries-card .industry-serve-card:nth-child(9n+7){animation-delay:-2.52s!important}
+.about-page .industries-card .industry-serve-card:nth-child(9n+8){animation-delay:-2.94s!important}
+.about-page .industries-card .industry-serve-card:nth-child(9n+9){animation-delay:-3.36s!important}
+@keyframes industryFlowWave{
+  0%,100%{transform:translateY(8px) rotateX(0deg) scale(.98);filter:brightness(.98)}
+  25%{transform:translateY(-13px) rotateX(2deg) scale(1.025);filter:brightness(1.03)}
+  50%{transform:translateY(-2px) rotateX(0deg) scale(1);filter:brightness(1)}
+  75%{transform:translateY(10px) rotateX(-2deg) scale(.985);filter:brightness(.99)}
+}
+.about-page .industries-card .industry-serve-card:hover{
+  box-shadow:0 24px 52px rgba(11,32,96,.19),0 10px 24px rgba(245,130,31,.12)!important;
+}
+@media(max-width:720px){
+  .about-page .industries-card .industry-train-wrap{padding-top:30px!important;padding-bottom:38px!important}
+  .about-page .industries-card .industry-train-track{gap:14px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .about-page .industries-card .industry-serve-card{animation:none!important}
+}
+</style>
 </head>
 <body class="about-page">
 <nav class="site-nav">
@@ -2192,7 +2238,7 @@
           <div class="about-card-kicker">Application Sectors</div>
           <h2>Industries We Serve</h2>
           <p>Therm-X systems support reliable product validation across advanced manufacturing, mobility, defence, healthcare, research, and technology sectors.</p>
-          <div class="industry-train-wrap" aria-label="Industries we serve moving cards from left to right">
+          <div class="industry-train-wrap" aria-label="Industries we serve moving cards from right to left in a wave flow">
             <div class="industry-train-track">
               <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-electronics.webp" alt="Electronics industry"></div><h3>Electronics</h3></article>
               <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-automotive.webp" alt="Automotive industry"></div><h3>Automotive</h3></article>
@@ -2474,7 +2520,7 @@
     };
 
     const setPosition = (withTransition = true) => {
-      track.style.transition = withTransition ? 'transform .55s cubic-bezier(.22,.8,.2,1)' : 'none';
+      track.style.transition = withTransition ? 'transform 1.05s cubic-bezier(.22,.78,.18,1)' : 'none';
       track.style.transform = `translate3d(${-index * cardStep()}px,0,0)`;
     };
 
@@ -2498,14 +2544,14 @@
       window.setTimeout(() => {
         normalize();
         isAnimating = false;
-      }, 570);
+      }, 1080);
 
       if (manual) restartAuto();
     };
 
     const restartAuto = () => {
       if (autoTimer) clearInterval(autoTimer);
-      autoTimer = setInterval(() => move(1, false), 2300);
+      autoTimer = setInterval(() => move(1, false), 1250);
     };
 
     if (next) next.addEventListener('click', () => move(1, true));

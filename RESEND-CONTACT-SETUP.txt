@@ -1,0 +1,61 @@
+THERM-X CONTACT FORM — RESEND + SUPABASE EDGE FUNCTION
+======================================================
+
+WHAT IS ALREADY CONNECTED IN THIS ZIP
+-------------------------------------
+1. contact.html now submits through Supabase.
+2. assets/js/contact-resend.js invokes the Edge Function named:
+   send-contact-email
+3. The Edge Function sends the enquiry through Resend.
+4. Attachments are supported: maximum 3 files, 3 MB each, 7 MB total.
+5. The visitor's email is used as Reply-To.
+6. The Resend secret key is NOT included in the website.
+
+FILES ADDED
+-----------
+supabase/functions/send-contact-email/index.ts
+supabase/config.toml
+assets/js/contact-resend.js
+
+SUPABASE SECRETS REQUIRED
+-------------------------
+RESEND_API_KEY
+CONTACT_TO_EMAIL
+CONTACT_FROM_EMAIL
+
+TEMPORARY TEST VALUES WITHOUT A DOMAIN
+--------------------------------------
+CONTACT_FROM_EMAIL = Therm-X Website <onboarding@resend.dev>
+CONTACT_TO_EMAIL   = the exact email address used for your Resend account
+
+After verifying a domain in Resend, change only CONTACT_FROM_EMAIL, for example:
+Therm-X Website <enquiries@yourdomain.com>
+
+DEPLOY USING SUPABASE CLI
+-------------------------
+1. Install the Supabase CLI.
+2. Open a terminal inside the website folder.
+3. Run:
+
+   supabase login
+   supabase link --project-ref wnlvzucwmtsrvbqdwojw
+   supabase secrets set RESEND_API_KEY="re_your_real_key"
+   supabase secrets set CONTACT_TO_EMAIL="your-resend-account-email@example.com"
+   supabase secrets set CONTACT_FROM_EMAIL="Therm-X Website <onboarding@resend.dev>"
+   supabase functions deploy send-contact-email --no-verify-jwt
+
+OPTIONAL AFTER DOMAIN CONNECTION
+--------------------------------
+Set the live website origins:
+
+   supabase secrets set CONTACT_ALLOWED_ORIGINS="https://yourdomain.com,https://www.yourdomain.com"
+
+Then update the sender:
+
+   supabase secrets set CONTACT_FROM_EMAIL="Therm-X Website <enquiries@yourdomain.com>"
+
+IMPORTANT
+---------
+- Do not put RESEND_API_KEY in HTML, JavaScript, GitHub, or Vercel variables exposed to the browser.
+- The public Supabase publishable key in assets/js/supabase-config.js is expected and protected by Supabase policies.
+- Resend's onboarding@resend.dev test sender can normally send only to the Resend account owner's email.

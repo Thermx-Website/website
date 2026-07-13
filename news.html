@@ -178,6 +178,22 @@ body.news-admin-open .public-news-section{display:none}
   .news-page .admin-hero-btn{min-width:78px!important;padding:8px 12px!important;font-size:11px!important}
 }
 </style>
+
+<style id="news-supabase-final-styles">
+.news-loading{grid-column:1/-1;min-height:260px;display:grid;place-items:center;text-align:center;color:#526581;font-weight:750}
+.news-loading::before{content:"";width:42px;height:42px;border-radius:50%;border:4px solid #dbe7fb;border-top-color:#f5821f;animation:newsSpin .8s linear infinite;margin-bottom:14px}
+@keyframes newsSpin{to{transform:rotate(360deg)}}
+.news-card h3 a{color:inherit;text-decoration:none}.news-card h3 a:hover{color:#d9610e}
+.news-readmore{display:inline-flex;align-items:center;gap:8px;margin-top:13px;color:#0b4db8;font-size:12px;font-weight:900;text-decoration:none}.news-readmore:hover{color:#d9610e}
+.manage-status{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;margin-left:6px;font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.manage-status.published{background:#e6f8ed;color:#18723d}.manage-status.draft{background:#fff0e2;color:#b84d08}
+.field-check{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid #d9e1ee;border-radius:14px;background:#fff}.field-check input{width:17px;height:17px;accent-color:#f5821f}.field-check label{margin:0!important;cursor:pointer}
+.auth-input-wrap{display:grid;gap:8px;margin-bottom:15px}.auth-input-wrap input{width:100%;border:1px solid #d7e1ee;border-radius:15px;padding:14px 16px;font:inherit;font-size:14px;outline:none;background:#f9fbff;color:#172138;transition:.22s}.auth-input-wrap input:focus{border-color:#3978e0;background:#fff;box-shadow:0 0 0 4px rgba(57,120,224,.10)}
+.admin-user-note{display:none;margin:0 0 12px;padding:10px 12px;border-radius:12px;background:#edf7ff;color:#0b4a86;font-size:11.5px;font-weight:750}.admin-user-note.is-visible{display:block}
+.form-status-success{color:#16733b!important}.form-status-error{color:#b42318!important}
+.news-card-image.no-image{display:grid;place-items:center;color:#0b2060;font-weight:900;font-size:42px}
+@media(max-width:720px){.upload-row{grid-template-columns:1fr}.admin-grid{height:auto}.admin-column{min-height:600px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.admin-action-buttons{flex-wrap:wrap!important}.form-actions{grid-template-columns:1fr}}
+</style>
 <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body class="news-page">
@@ -196,15 +212,19 @@ body.news-admin-open .public-news-section{display:none}
             </div>
             <div class="form-grid">
               <div class="field"><label for="news-type">News Type</label><select id="news-type" required><option value="">Select a type</option><option>Product Update</option><option>Installation Update</option><option>Service Announcement</option><option>Technical Insight</option><option>Testing Activity</option><option>Rental Update</option><option>Company News</option><option>Others</option></select></div>
+              <div class="field"><label for="news-status">Publishing Status</label><select id="news-status" required><option value="published">Published</option><option value="draft">Draft</option></select></div>
               <div class="field"><label for="news-date">Publish Date</label><input id="news-date" type="date" required></div>
-              <div class="field full"><label for="news-title">News Title</label><input id="news-title" type="text" required placeholder="Enter the news heading"></div>
+              <div class="field"><label for="news-image-alt">Image Description</label><input id="news-image-alt" type="text" placeholder="Describe the news image"></div>
+              <div class="field full"><label for="news-title">News Title</label><input id="news-title" type="text" required maxlength="180" placeholder="Enter the news heading"></div>
+              <div class="field full"><label for="news-summary">Short Summary</label><textarea id="news-summary" maxlength="500" placeholder="Short introduction shown on the public news card"></textarea></div>
               <div class="field full"><label for="news-content">News Content</label><textarea id="news-content" required placeholder="Enter the complete news content here."></textarea></div>
+              <div class="field full"><div class="field-check"><input id="news-featured" type="checkbox"><label for="news-featured">Feature this update</label></div></div>
             </div>
-            <div class="form-actions"><div class="form-note" id="form-status">Publish new company news or select an existing post from the right column to edit it.</div><div class="admin-action-buttons"><button class="secondary-btn" id="cancel-edit-btn" type="button" style="display:none">Cancel Edit</button><button class="admin-logout" id="admin-logout-btn" type="button">↪ Logout</button><button class="admin-close" id="close-admin-btn" type="button">✕ Close</button><button class="btn btn-primary" id="submit-news-btn" type="submit">Publish News →</button></div></div>
+            <div class="form-actions"><div class="form-note" id="form-status">Save a draft or publish a company update. Select an existing post from the right column to edit it.</div><div class="admin-action-buttons"><button class="secondary-btn" id="cancel-edit-btn" type="button" style="display:none">Cancel Edit</button><button class="admin-logout" id="admin-logout-btn" type="button">↪ Logout</button><button class="admin-close" id="close-admin-btn" type="button">✕ Close</button><button class="btn btn-primary" id="submit-news-btn" type="submit">Save News →</button></div></div>
           </form>
         </div>
         <div class="admin-column">
-          <div class="admin-column-head"><h3>Posted News</h3><p>Manage all published posts. Use Edit to load a post into the left column or Delete to remove it.</p></div>
+          <div class="admin-column-head"><h3>Posted News</h3><p>Manage published posts and drafts stored securely in Supabase. Use Edit to load a post or Delete to remove it.</p></div>
           <div class="manage-list" id="manage-list"></div>
         </div>
       </div>
@@ -277,78 +297,18 @@ body.news-admin-open .public-news-section{display:none}
       <div class="modal-brand-copy"><small>Secure Company Portal</small><h3 id="admin-login-title">News Admin Access</h3><p>Sign in once to manage and publish official Therm-X news.</p></div>
     </div>
     <div class="modal-content">
+      <div class="admin-user-note" id="admin-user-note"></div>
+      <div class="auth-input-wrap"><label class="modal-label" for="admin-email-input">Administrator Email</label><input id="admin-email-input" type="email" autocomplete="username" placeholder="Enter admin email"></div>
       <label class="modal-label" for="admin-password-input">Administrator Password</label>
       <div class="password-field"><input id="admin-password-input" type="password" autocomplete="current-password" placeholder="Enter admin password"><button class="password-toggle" id="password-toggle-btn" type="button">Show</button></div>
-      <div class="session-note"><i>✓</i><span>After a successful login, this browser will remember admin access and will not ask for the password again.</span></div>
+      <div class="session-note"><i>✓</i><span>Secure Supabase authentication keeps the administrator signed in on this browser until logout.</span></div>
       <div class="modal-error" id="login-error"></div>
       <div class="modal-actions"><button class="modal-cancel" id="cancel-login-btn" type="button">Cancel</button><button class="modal-login" id="submit-login-btn" type="button">Secure Login →</button></div>
     </div>
   </div>
 </div>
 <script src="assets/js/main.js"></script>
-<script>
-(() => {
-  const POSTS_KEY='thermx_news_posts_v3';
-  const PASSWORD_KEY='thermx_news_admin_password_v3';
-  const AUTH_KEY='thermx_news_admin_remembered_v1';
-  const DEFAULT_HASH='976f55ddf7a00d7213384db126a98f2c941bc0b9465067d3856988f82cd262d4';
-  const grid=document.getElementById('news-grid');
-  const manageList=document.getElementById('manage-list');
-  const panel=document.getElementById('admin-panel');
-  const openBtn=document.getElementById('open-admin-btn');
-  const logoutBtn=document.getElementById('admin-logout-btn');
-  const closeBtn=document.getElementById('close-admin-btn');
-  const backdrop=document.getElementById('login-backdrop');
-  const passwordInput=document.getElementById('admin-password-input');
-  const errorBox=document.getElementById('login-error');
-  const loginBtn=document.getElementById('submit-login-btn');
-  const cancelBtn=document.getElementById('cancel-login-btn');
-  const passwordToggleBtn=document.getElementById('password-toggle-btn');
-  const form=document.getElementById('admin-news-form');
-  const imageInput=document.getElementById('news-image');
-  const preview=document.getElementById('image-preview');
-  const dateInput=document.getElementById('news-date');
-  const statusBox=document.getElementById('form-status');
-  const cancelEditBtn=document.getElementById('cancel-edit-btn');
-  const submitBtn=document.getElementById('submit-news-btn');
-  dateInput.value=new Date().toISOString().slice(0,10);
-  let previewData='';
-  let adminActive=false;
-  let editingId=null;
-  const getPosts=()=>{try{return JSON.parse(localStorage.getItem(POSTS_KEY)||'[]')}catch{return[]}};
-  const savePosts=posts=>localStorage.setItem(POSTS_KEY,JSON.stringify(posts));
-  const escapeHtml=str=>String(str).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-  const formatDate=value=>{const date=new Date(value);return isNaN(date)?value:date.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'})};
-  const hashText=async text=>{const data=new TextEncoder().encode(text);const digest=await crypto.subtle.digest('SHA-256',data);return [...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,'0')).join('')};
-  function resetForm(){editingId=null;form.reset();dateInput.value=new Date().toISOString().slice(0,10);previewData='';preview.textContent='Image preview';statusBox.textContent='Publish new company news or select an existing post from the right column to edit it.';submitBtn.textContent='Publish News →';cancelEditBtn.style.display='none'}
-  function renderMain(){const posts=getPosts().sort((a,b)=>new Date(b.date)-new Date(a.date)||b.createdAt-a.createdAt);if(!posts.length){grid.innerHTML='<div class="news-empty"><div><div class="news-empty-icon">N</div><h3>No News Published Yet</h3><p>Company administrators can use the Admin button in the heading card to publish the first official update.</p></div></div>';return}grid.innerHTML=posts.map(post=>`<article class="news-card reveal visible"><div class="news-card-image"><img src="${post.image}" alt="${escapeHtml(post.title)}"></div><div class="news-card-body"><div class="news-card-meta"><span class="news-type">${escapeHtml(post.type)}</span><time class="news-date">${escapeHtml(formatDate(post.date))}</time></div><h3>${escapeHtml(post.title)}</h3><div class="news-scroll-content">${escapeHtml(post.content)}</div></div></article>`).join('');}
-  function renderManage(){const posts=getPosts().sort((a,b)=>new Date(b.date)-new Date(a.date)||b.createdAt-a.createdAt);if(!posts.length){manageList.innerHTML='<div class="empty-manage">No posted news yet. Publish the first update from the left column.</div>';return}manageList.innerHTML=posts.map(post=>`<div class="manage-item" data-id="${escapeHtml(post.id)}"><div class="manage-thumb"><img src="${post.image}" alt="${escapeHtml(post.title)}"></div><div><h4>${escapeHtml(post.title)}</h4><div class="manage-meta">${escapeHtml(post.type)} • ${escapeHtml(formatDate(post.date))}</div><div class="manage-actions"><button class="edit-btn" type="button">Edit</button><button class="delete-btn" type="button">Delete</button></div></div></div>`).join('')}
-  function renderAll(){renderMain();renderManage()}
-  const setAdmin=active=>{adminActive=active;document.body.classList.toggle('news-admin-open',active);panel.classList.toggle('is-open',active);panel.setAttribute('aria-hidden',String(!active));if(active){panel.scrollIntoView({behavior:'smooth',block:'start'})}else{resetForm()}}
-  const isRemembered=()=>localStorage.getItem(AUTH_KEY)==='true';
-  const openLogin=()=>{if(adminActive){panel.scrollIntoView({behavior:'smooth'});return}if(isRemembered()){setAdmin(true);return}backdrop.classList.add('is-open');passwordInput.type='password';passwordToggleBtn.textContent='Show';passwordInput.value='';errorBox.textContent='';setTimeout(()=>passwordInput.focus(),80)};
-  const closeLogin=()=>backdrop.classList.remove('is-open');
-  openBtn.addEventListener('click',openLogin);
-  logoutBtn.addEventListener('click',()=>{
-    localStorage.removeItem(AUTH_KEY);
-    setAdmin(false);
-    passwordInput.value='';
-    errorBox.textContent='';
-  });
-  closeBtn.addEventListener('click',()=>setAdmin(false));
-  cancelBtn.addEventListener('click',closeLogin);
-  passwordToggleBtn.addEventListener('click',()=>{const showing=passwordInput.type==='text';passwordInput.type=showing?'password':'text';passwordToggleBtn.textContent=showing?'Show':'Hide';passwordInput.focus()});
-  backdrop.addEventListener('click',e=>{if(e.target===backdrop)closeLogin()});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&backdrop.classList.contains('is-open'))closeLogin()});
-  passwordInput.addEventListener('keydown',e=>{if(e.key==='Enter')loginBtn.click()});
-  loginBtn.addEventListener('click',async()=>{const value=passwordInput.value;if(!value){errorBox.textContent='Enter the admin password.';passwordInput.focus();return}loginBtn.disabled=true;loginBtn.textContent='Verifying…';const hash=await hashText(value);const expected=localStorage.getItem(PASSWORD_KEY)||DEFAULT_HASH;if(hash!==expected){errorBox.textContent='Incorrect password. Please try again.';loginBtn.disabled=false;loginBtn.textContent='Secure Login →';passwordInput.select();return}localStorage.setItem(AUTH_KEY,'true');closeLogin();loginBtn.disabled=false;loginBtn.textContent='Secure Login →';openBtn.textContent='Admin ✓';setAdmin(true)});
-  if(isRemembered())openBtn.textContent='Admin ✓';
-  async function compressImage(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=reject;reader.onload=()=>{const img=new Image();img.onerror=reject;img.onload=()=>{const maxW=1200,maxH=800,ratio=Math.min(maxW/img.width,maxH/img.height,1);const canvas=document.createElement('canvas');canvas.width=Math.round(img.width*ratio);canvas.height=Math.round(img.height*ratio);canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);resolve(canvas.toDataURL('image/jpeg',.78))};img.src=reader.result};reader.readAsDataURL(file)})}
-  imageInput.addEventListener('change',async()=>{const file=imageInput.files[0];if(!file)return;try{previewData=await compressImage(file);preview.innerHTML=`<img src="${previewData}" alt="Preview">`}catch{alert('Unable to read this image.')}});
-  form.addEventListener('submit',e=>{e.preventDefault();if(!adminActive)return;const title=document.getElementById('news-title').value.trim();const type=document.getElementById('news-type').value;const date=dateInput.value;const content=document.getElementById('news-content').value.trim();if(!previewData && !editingId){alert('Please select a news image.');return}const posts=getPosts();if(editingId){const idx=posts.findIndex(post=>post.id===editingId);if(idx===-1)return;posts[idx]={...posts[idx],title,type,date,content,image:previewData||posts[idx].image,updatedAt:Date.now()};statusBox.textContent='News updated successfully.'}else{posts.push({id:'news-'+Date.now(),title,type,date,content,image:previewData,createdAt:Date.now()});statusBox.textContent='News published successfully.'}savePosts(posts);renderAll();resetForm();panel.scrollIntoView({behavior:'smooth',block:'start'})});
-  cancelEditBtn.addEventListener('click',resetForm);
-  manageList.addEventListener('click',e=>{const item=e.target.closest('.manage-item');if(!item)return;const id=item.dataset.id;const posts=getPosts();const post=posts.find(p=>p.id===id);if(!post)return;if(e.target.closest('.delete-btn')){if(confirm('Delete this news post?')){savePosts(posts.filter(p=>p.id!==id));renderAll();if(editingId===id)resetForm()}return}if(e.target.closest('.edit-btn')){editingId=id;document.getElementById('news-title').value=post.title;document.getElementById('news-type').value=post.type;dateInput.value=post.date;document.getElementById('news-content').value=post.content;previewData=post.image;preview.innerHTML=`<img src="${post.image}" alt="Preview">`;submitBtn.textContent='Update News →';cancelEditBtn.style.display='inline-flex';statusBox.textContent='Editing selected news post. Update the fields and save changes.';window.scrollTo({top:panel.offsetTop-80,behavior:'smooth'})}});
-  renderAll();
-})();
-</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/news-supabase.js"></script>
 </body></html>

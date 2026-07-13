@@ -77,6 +77,16 @@ body.contact-page{background:radial-gradient(circle at 8% 12%,rgba(245,130,31,.1
 @media (max-width:840px){.contact-page .site-nav .container,.products-hero .container,.contact-main>.container,.contact-page footer .container{width:calc(100vw - 44px);margin-inline:auto}.products-hero{height:190px;min-height:190px;padding:36px 0 30px}.contact-side,.contact-map-card{padding:22px}.form-grid,.contact-list{grid-template-columns:1fr}.contact-tile{min-height:auto}.contact-map-head{flex-direction:column;align-items:flex-start}.form-actions{align-items:flex-start;flex-direction:column}.submit-btn{width:100%}.map-frame{height:320px}.attachment-dock{align-items:flex-start;flex-direction:column}.message-shell textarea{padding-bottom:104px}}
 @media (min-width:841px) and (max-width:1100px){.products-hero{height:205px;min-height:205px}}
 </style>
+
+<style id="contact-resend-integration-styles">
+.contact-honeypot{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
+.contact-form-status{min-height:20px;margin-top:14px;padding:0;font-size:12px;font-weight:800;line-height:1.55;color:#5f6f87}
+.contact-form-status.sending{color:#0b4db8}
+.contact-form-status.success{padding:11px 13px;border-radius:12px;background:#eaf8ef;color:#18723d;border:1px solid #bfe6cd}
+.contact-form-status.error{padding:11px 13px;border-radius:12px;background:#fff0ef;color:#b42318;border:1px solid #f2c7c3}
+.submit-btn:disabled{cursor:not-allowed;opacity:.72;transform:none!important;box-shadow:none!important}
+@media(max-width:840px){.contact-form-status{width:100%}}
+</style>
 <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body class="contact-page">
@@ -101,6 +111,10 @@ body.contact-page{background:radial-gradient(circle at 8% 12%,rgba(245,130,31,.1
     <h2 class="panel-title">Send Your Requirement</h2>
     <p class="panel-copy">Complete the form below and describe your requirement clearly. Supporting files can be added from inside the Description field.</p>
     <form class="contact-form" id="contact-enquiry-form">
+      <div class="contact-honeypot" aria-hidden="true">
+        <label for="contact-website">Leave this field empty</label>
+        <input id="contact-website" name="Website" type="text" tabindex="-1" autocomplete="off">
+      </div>
       <div class="form-grid">
         <div class="field"><label for="contact-name">Full Name</label><input id="contact-name" name="Name" required placeholder="Your full name"></div>
         <div class="field"><label for="contact-company">Company / Organization</label><input id="contact-company" name="Company" placeholder="Your company name"></div>
@@ -109,7 +123,8 @@ body.contact-page{background:radial-gradient(circle at 8% 12%,rgba(245,130,31,.1
         <div class="field full"><label for="contact-type">Requirement Type</label><select id="contact-type" name="Requirement Type" required><option value="">Select a requirement type</option><option>Environmental Test Chambers</option><option>Thermal Shock Series</option><option>Battery Test Chamber</option><option>Rain Chambers</option><option>Dust Chambers</option><option>Service / AMC</option><option>Refurbishment / Upgradation</option><option>Testing Services</option><option>Rental Solutions</option><option>Other</option></select></div>
         <div class="field full"><label for="contact-description">Description</label><div class="message-shell"><textarea id="contact-description" name="Description" required placeholder="Describe the chamber, service issue, test requirement, or rental need in detail."></textarea><div class="attachment-dock"><label class="attach-btn">Add Files<input id="contact-files" type="file" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.webp,.zip,.txt"></label><div class="attachment-status" id="attachment-status"><span class="attachment-primary">No files added</span><ul class="attachment-list" id="attachment-list"></ul></div><button class="attach-clear-btn" id="attachment-clear" type="button">Clear</button></div></div></div>
       </div>
-      <div class="form-actions"><div class="form-note">Submitting opens your default email application with the entered details. Attach the selected files in the email before sending if your browser does not attach them automatically.</div><button class="btn btn-primary submit-btn" type="submit">Submit Enquiry →</button></div>
+      <div id="contact-form-status" class="contact-form-status" role="status" aria-live="polite"></div>
+      <div class="form-actions"><div class="form-note">Your requirement will be sent securely to the Therm-X team. You can attach up to 3 files, with a maximum of 3 MB per file and 7 MB total.</div><button class="btn btn-primary submit-btn" type="submit">Submit Enquiry →</button></div>
     </form>
   </article>
 </section>
@@ -173,79 +188,8 @@ body.contact-page{background:radial-gradient(circle at 8% 12%,rgba(245,130,31,.1
   </div>
 </footer>
 <script src="assets/js/main.js"></script>
-<script>
-(() => {
-  const form = document.getElementById('contact-enquiry-form');
-  const filesInput = document.getElementById('contact-files');
-  const status = document.getElementById('attachment-status');
-  const primary = status.querySelector('.attachment-primary');
-  const list = document.getElementById('attachment-list');
-  const clearBtn = document.getElementById('attachment-clear');
-  const messageShell = document.querySelector('.message-shell');
-
-  function renderFiles(fileList){
-    const files = [...fileList];
-    list.innerHTML = '';
-    if(!files.length){
-      primary.textContent = 'No files added';
-      status.classList.remove('has-file');
-      clearBtn.classList.remove('show');
-      return;
-    }
-    primary.textContent = files.length === 1 ? files[0].name : `${files.length} files selected`;
-    files.forEach(file => {
-      const li = document.createElement('li');
-      li.textContent = file.name;
-      list.appendChild(li);
-    });
-    status.classList.add('has-file');
-    clearBtn.classList.add('show');
-  }
-
-  filesInput.addEventListener('change', () => renderFiles(filesInput.files));
-
-  clearBtn.addEventListener('click', () => {
-    filesInput.value = '';
-    renderFiles([]);
-  });
-
-  ['dragenter','dragover'].forEach(type => {
-    messageShell.addEventListener(type, e => {
-      e.preventDefault();
-      messageShell.classList.add('is-dragover');
-    });
-  });
-  ['dragleave','drop'].forEach(type => {
-    messageShell.addEventListener(type, e => {
-      e.preventDefault();
-      if(type === 'drop' && e.dataTransfer?.files?.length){
-        filesInput.files = e.dataTransfer.files;
-        renderFiles(filesInput.files);
-      }
-      messageShell.classList.remove('is-dragover');
-    });
-  });
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const fd = new FormData(form);
-    const files = [...filesInput.files];
-    const lines = [
-      `Name: ${fd.get('Name') || ''}`,
-      `Company: ${fd.get('Company') || ''}`,
-      `Email: ${fd.get('Email') || ''}`,
-      `Phone: ${fd.get('Telephone') || ''}`,
-      `Requirement Type: ${fd.get('Requirement Type') || ''}`,
-      `Description: ${fd.get('Description') || ''}`,
-      `Selected Files: ${files.length ? files.map(file => file.name).join(', ') : 'No files selected'}`
-    ];
-    const subject = encodeURIComponent('Website enquiry - ' + (fd.get('Requirement Type') || 'Therm-X Innovations'));
-    const body = encodeURIComponent(lines.join('\n\n') + '\n\nPlease attach the selected files before sending this email if they are not attached automatically.');
-    window.location.href = `mailto:sales@thermxinnovations.com?subject=${subject}&body=${body}`;
-  });
-
-  renderFiles([]);
-})();
-</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/contact-resend.js"></script>
 </body>
 </html>
