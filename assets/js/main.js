@@ -211,3 +211,19 @@
   },{threshold:.12});
   observer.observe(footer);
 })();
+
+
+// Global scroll-to-top button
+(() => {
+  const button=document.createElement('button');
+  button.type='button';
+  button.className='scroll-to-top';
+  button.setAttribute('aria-label','Scroll to top');
+  button.setAttribute('title','Back to top');
+  button.innerHTML='↑';
+  document.body.appendChild(button);
+  const update=()=>button.classList.toggle('is-visible',window.scrollY>320);
+  window.addEventListener('scroll',update,{passive:true});
+  button.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  update();
+})();

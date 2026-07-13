@@ -8,6 +8,7 @@
   const attachmentStatus = document.getElementById('attachment-status');
   const primaryStatus = attachmentStatus?.querySelector('.attachment-primary');
   const attachmentList = document.getElementById('attachment-list');
+  const attachmentCount = document.getElementById('attachment-count');
   const clearButton = document.getElementById('attachment-clear');
   const messageShell = document.querySelector('.message-shell');
   const submitButton = form.querySelector('button[type="submit"]');
@@ -17,17 +18,14 @@
   const MAX_FILE_BYTES = 3 * 1024 * 1024;
   const MAX_TOTAL_BYTES = 7 * 1024 * 1024;
   const ALLOWED_TYPES = new Set([
-    'application/pdf',
-    'application/msword',
+    'application/pdf','application/msword',
     'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     'application/vnd.ms-excel',
     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-    'image/jpeg',
-    'image/png',
-    'image/webp',
-    'application/zip',
-    'text/plain'
+    'image/jpeg','image/png','image/webp','application/zip','text/plain'
   ]);
+
+  let selectedFiles = [];
 
   function setFormStatus(message, type = '') {
     if (!formStatus) return;
@@ -42,33 +40,6 @@
     submitButton.setAttribute('aria-busy', String(isSubmitting));
   }
 
-  function renderFiles(fileList) {
-    const files = [...(fileList || [])];
-    if (attachmentList) attachmentList.innerHTML = '';
-
-    if (!files.length) {
-      if (primaryStatus) primaryStatus.textContent = 'No files added';
-      attachmentStatus?.classList.remove('has-file');
-      clearButton?.classList.remove('show');
-      return;
-    }
-
-    if (primaryStatus) {
-      primaryStatus.textContent = files.length === 1
-        ? files[0].name
-        : `${files.length} files selected`;
-    }
-
-    files.forEach((file) => {
-      const item = document.createElement('li');
-      item.textContent = `${file.name} (${formatBytes(file.size)})`;
-      attachmentList?.appendChild(item);
-    });
-
-    attachmentStatus?.classList.add('has-file');
-    clearButton?.classList.add('show');
-  }
-
   function formatBytes(bytes) {
     if (!Number.isFinite(bytes) || bytes <= 0) return '0 KB';
     if (bytes < 1024 * 1024) return `${Math.ceil(bytes / 1024)} KB`;
@@ -76,36 +47,90 @@
   }
 
   function validateFiles(files) {
-    if (files.length > MAX_FILES) {
-      throw new Error(`You can attach a maximum of ${MAX_FILES} files.`);
-    }
-
+    if (files.length > MAX_FILES) throw new Error(`You can attach a maximum of ${MAX_FILES} files.`);
     let totalSize = 0;
     for (const file of files) {
       totalSize += file.size;
-      if (file.size > MAX_FILE_BYTES) {
-        throw new Error(`${file.name} exceeds the 3 MB file limit.`);
+      if (file.size > MAX_FILE_BYTES) throw new Error(`${file.name} exceeds the 3 MB file limit.`);
+      if (file.type && !ALLOWED_TYPES.has(file.type)) throw new Error(`${file.name} is not an allowed file type.`);
+    }
+    if (totalSize > MAX_TOTAL_BYTES) throw new Error('The total attachment size must be 7 MB or less.');
+  }
+
+  function syncInputFiles() {
+    if (!filesInput) return;
+    const transfer = new DataTransfer();
+    selectedFiles.forEach((file) => transfer.items.add(file));
+    filesInput.files = transfer.files;
+  }
+
+  function renderFiles() {
+    if (attachmentList) attachmentList.innerHTML = '';
+    const countText = `${selectedFiles.length} / ${MAX_FILES} files selected`;
+    if (attachmentCount) attachmentCount.textContent = countText;
+    else if (primaryStatus) primaryStatus.textContent = countText;
+
+    selectedFiles.forEach((file, index) => {
+      const item = document.createElement('li');
+      item.dataset.fileNumber = String(index + 1);
+
+      const name = document.createElement('span');
+      name.className = 'attachment-file-name';
+      name.textContent = `${file.name} (${formatBytes(file.size)})`;
+
+      const removeButton = document.createElement('button');
+      removeButton.type = 'button';
+      removeButton.className = 'attachment-remove-btn';
+      removeButton.dataset.fileIndex = String(index);
+      removeButton.setAttribute('aria-label', `Remove ${file.name}`);
+      removeButton.title = `Remove ${file.name}`;
+      removeButton.textContent = '×';
+
+      item.append(name, removeButton);
+      attachmentList?.appendChild(item);
+    });
+
+    attachmentStatus?.classList.toggle('has-file', selectedFiles.length > 0);
+    clearButton?.classList.toggle('show', selectedFiles.length > 0);
+  }
+
+  function addFiles(newFiles) {
+    const incoming = [...newFiles];
+    let message = '';
+
+    for (const file of incoming) {
+      if (selectedFiles.length >= MAX_FILES) {
+        message = `Maximum ${MAX_FILES} files allowed.`;
+        break;
       }
-      if (file.type && !ALLOWED_TYPES.has(file.type)) {
-        throw new Error(`${file.name} is not an allowed file type.`);
-      }
+      const duplicate = selectedFiles.some((existing) =>
+        existing.name === file.name && existing.size === file.size && existing.lastModified === file.lastModified
+      );
+      if (!duplicate) selectedFiles.push(file);
     }
 
-    if (totalSize > MAX_TOTAL_BYTES) {
-      throw new Error('The total attachment size must be 7 MB or less.');
+    try {
+      validateFiles(selectedFiles);
+    } catch (error) {
+      selectedFiles = selectedFiles.filter((file) => {
+        try { validateFiles([file]); return true; } catch { return false; }
+      });
+      while (selectedFiles.reduce((sum, file) => sum + file.size, 0) > MAX_TOTAL_BYTES) selectedFiles.pop();
+      message = error.message;
     }
+
+    syncInputFiles();
+    renderFiles();
+    setFormStatus(message, message ? 'error' : '');
   }
 
   async function fileToBase64(file) {
     const buffer = await file.arrayBuffer();
     const bytes = new Uint8Array(buffer);
-    const chunkSize = 0x8000;
     let binary = '';
-
-    for (let index = 0; index < bytes.length; index += chunkSize) {
-      binary += String.fromCharCode(...bytes.subarray(index, index + chunkSize));
+    for (let index = 0; index < bytes.length; index += 0x8000) {
+      binary += String.fromCharCode(...bytes.subarray(index, index + 0x8000));
     }
-
     return btoa(binary);
   }
 
@@ -117,14 +142,33 @@
     })));
   }
 
+  const phoneInput = document.getElementById('contact-phone');
+  phoneInput?.addEventListener('input', () => {
+    phoneInput.value = phoneInput.value.replace(/\D/g, '').slice(0, 10);
+    phoneInput.setCustomValidity(phoneInput.value.length === 10 ? '' : 'Enter exactly 10 digits.');
+  });
+
   filesInput?.addEventListener('change', () => {
-    setFormStatus('');
-    renderFiles(filesInput.files);
+    addFiles(filesInput.files || []);
   });
 
   clearButton?.addEventListener('click', () => {
-    if (filesInput) filesInput.value = '';
-    renderFiles([]);
+    selectedFiles = [];
+    syncInputFiles();
+    renderFiles();
+    setFormStatus('');
+  });
+
+  attachmentList?.addEventListener('click', (event) => {
+    const button = event.target.closest('.attachment-remove-btn');
+    if (!button) return;
+
+    const index = Number(button.dataset.fileIndex);
+    if (!Number.isInteger(index) || index < 0 || index >= selectedFiles.length) return;
+
+    selectedFiles.splice(index, 1);
+    syncInputFiles();
+    renderFiles();
     setFormStatus('');
   });
 
@@ -138,14 +182,7 @@
   ['dragleave', 'drop'].forEach((type) => {
     messageShell?.addEventListener(type, (event) => {
       event.preventDefault();
-
-      if (type === 'drop' && event.dataTransfer?.files?.length && filesInput) {
-        const transfer = new DataTransfer();
-        [...event.dataTransfer.files].slice(0, MAX_FILES).forEach((file) => transfer.items.add(file));
-        filesInput.files = transfer.files;
-        renderFiles(filesInput.files);
-      }
-
+      if (type === 'drop' && event.dataTransfer?.files?.length) addFiles(event.dataTransfer.files);
       messageShell.classList.remove('is-dragover');
     });
   });
@@ -154,6 +191,10 @@
     event.preventDefault();
     setFormStatus('');
 
+    if (phoneInput) {
+      phoneInput.value = phoneInput.value.replace(/\D/g, '').slice(0, 10);
+      phoneInput.setCustomValidity(phoneInput.value.length === 10 ? '' : 'Enter exactly 10 digits.');
+    }
     if (!form.reportValidity()) return;
 
     const client = window.thermxSupabase;
@@ -163,14 +204,12 @@
     }
 
     const formData = new FormData(form);
-    const files = [...(filesInput?.files || [])];
 
     try {
-      validateFiles(files);
+      validateFiles(selectedFiles);
       setSubmitting(true);
       setFormStatus('Sending your enquiry securely…', 'sending');
-
-      const attachments = await prepareAttachments(files);
+      const attachments = await prepareAttachments(selectedFiles);
       const payload = {
         name: String(formData.get('Name') || '').trim(),
         company: String(formData.get('Company') || '').trim(),
@@ -183,24 +222,22 @@
         attachments
       };
 
-      const { data, error } = await client.functions.invoke('send-contact-email', {
-        body: payload
-      });
-
+      const { data, error } = await client.functions.invoke('send-contact-email', { body: payload });
       if (error) throw error;
       if (!data?.success) throw new Error(data?.error || 'Unable to send the enquiry.');
 
       form.reset();
-      renderFiles([]);
+      selectedFiles = [];
+      syncInputFiles();
+      renderFiles();
       setFormStatus('Your enquiry was sent successfully. Our team will contact you soon.', 'success');
     } catch (error) {
       console.error('Contact enquiry error:', error);
-      const message = error?.message || 'Unable to send the enquiry. Please try again.';
-      setFormStatus(message, 'error');
+      setFormStatus(error?.message || 'Unable to send the enquiry. Please try again.', 'error');
     } finally {
       setSubmitting(false);
     }
   });
 
-  renderFiles([]);
+  renderFiles();
 })();

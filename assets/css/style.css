@@ -1116,3 +1116,11 @@ iframe[src*="google.com/maps/embed"]{
 @media(prefers-reduced-motion:reduce){
   .site-footer::before,.site-footer::after,.site-footer > .container::before{animation:none!important}
 }
+
+
+/* Global scroll-to-top control */
+.scroll-to-top{position:fixed;right:24px;bottom:24px;width:48px;height:48px;border:0;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#0b2060,#2d6fd3);color:#fff;font-size:23px;font-weight:900;line-height:1;cursor:pointer;z-index:9997;box-shadow:0 12px 30px rgba(11,32,96,.28);opacity:0;visibility:hidden;transform:translateY(14px) scale(.9);transition:opacity .22s ease,visibility .22s ease,transform .22s ease,box-shadow .22s ease}
+.scroll-to-top.is-visible{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.scroll-to-top:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 16px 34px rgba(11,32,96,.34)}
+.scroll-to-top:focus-visible{outline:3px solid rgba(245,130,31,.42);outline-offset:3px}
+@media(max-width:640px){.scroll-to-top{right:16px;bottom:16px;width:44px;height:44px}}
