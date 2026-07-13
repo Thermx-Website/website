@@ -298,3 +298,132 @@ input,select,textarea,button{max-width:100%}
   .mobile-menu-actions{grid-template-columns:1fr}
 }
 
+
+/* Compact premium footer — unified layout without separate section cards */
+.site-footer{
+  min-height:auto!important;
+  display:block!important;
+  align-items:initial!important;
+  padding:46px 0 20px!important;
+}
+.site-footer > .container{
+  width:min(92vw,1320px)!important;
+  max-width:1320px!important;
+  min-height:0!important;
+  display:block!important;
+  margin-inline:auto!important;
+}
+.site-footer .footer-grid-modern{
+  grid-template-columns:minmax(300px,1.35fr) minmax(160px,.7fr) minmax(150px,.65fr) minmax(240px,1fr)!important;
+  gap:34px!important;
+  align-items:start!important;
+  padding-bottom:26px!important;
+}
+.site-footer .footer-brand,
+.site-footer .footer-col{
+  overflow:visible!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  transform:none!important;
+}
+.site-footer .footer-brand::before,
+.site-footer .footer-col::before{display:none!important}
+.site-footer .footer-brand:hover,
+.site-footer .footer-col:hover{
+  transform:none!important;
+  border-color:transparent!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.site-footer .footer-logo-link{
+  padding:9px 12px!important;
+  border-radius:12px!important;
+}
+.site-footer .footer-logo{width:195px!important}
+.site-footer .footer-intro{
+  max-width:455px!important;
+  margin:16px 0 17px!important;
+  font-size:13px!important;
+  line-height:1.65!important;
+}
+.site-footer .footer-contact-list{
+  max-width:520px!important;
+  gap:9px!important;
+}
+.site-footer .footer-contact-item{
+  min-height:54px!important;
+  padding:9px 11px!important;
+  border-radius:11px!important;
+}
+.site-footer .footer-contact-icon{
+  width:32px!important;
+  height:32px!important;
+  flex-basis:32px!important;
+  border-radius:9px!important;
+}
+.site-footer .footer-contact-item strong{font-size:12.5px!important}
+.site-footer .footer-col h3{
+  margin:2px 0 14px!important;
+  padding-bottom:8px!important;
+}
+.site-footer .footer-col ul{gap:9px!important}
+.site-footer .footer-col li,
+.site-footer .footer-col a{font-size:12.8px!important}
+.site-footer .footer-address-text{
+  font-size:12.8px!important;
+  line-height:1.65!important;
+}
+.site-footer .footer-social-title{margin-top:19px!important}
+.site-footer .footer-socials{gap:9px!important}
+.site-footer .footer-social{
+  width:39px!important;
+  height:39px!important;
+  border-radius:11px!important;
+}
+.site-footer .footer-social svg{width:18px!important;height:18px!important}
+.site-footer .footer-bottom{
+  margin-top:0!important;
+  padding:16px 0 0!important;
+  border:0!important;
+  border-top:1px solid rgba(255,255,255,.10)!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+}
+.site-footer .footer-bottom p{font-size:12px!important}
+
+@media(max-width:1180px){
+  .site-footer .footer-grid-modern{
+    grid-template-columns:1.25fr 1fr 1fr!important;
+    gap:28px!important;
+  }
+  .site-footer .footer-brand{grid-column:1/-1!important}
+  .site-footer .footer-reach{grid-column:auto!important}
+}
+@media(max-width:760px){
+  .site-footer{padding:38px 0 18px!important}
+  .site-footer > .container{width:min(92vw,1320px)!important}
+  .site-footer .footer-grid-modern{
+    grid-template-columns:1fr 1fr!important;
+    gap:26px 22px!important;
+    padding-bottom:22px!important;
+  }
+  .site-footer .footer-brand,
+  .site-footer .footer-reach{grid-column:1/-1!important}
+  .site-footer .footer-contact-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .site-footer .footer-logo{width:180px!important}
+}
+@media(max-width:520px){
+  .site-footer{padding:34px 0 16px!important}
+  .site-footer .footer-grid-modern{grid-template-columns:1fr!important;gap:22px!important}
+  .site-footer .footer-brand,
+  .site-footer .footer-reach{grid-column:auto!important}
+  .site-footer .footer-contact-list{grid-template-columns:1fr!important}
+  .site-footer .footer-bottom{gap:8px!important}
+}

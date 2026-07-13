@@ -191,3 +191,23 @@
     close();
   });
 })();
+
+// Premium footer entrance animation
+(() => {
+  const footer=document.querySelector('.site-footer');
+  if(!footer)return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    footer.classList.add('is-visible');
+    return;
+  }
+  footer.classList.add('footer-motion');
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        footer.classList.add('is-visible');
+        observer.disconnect();
+      }
+    });
+  },{threshold:.12});
+  observer.observe(footer);
+})();

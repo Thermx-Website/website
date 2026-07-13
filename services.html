@@ -111,7 +111,7 @@
     .service-cta span{display:inline-block;color:#ffc28d;font-size:11.5px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;margin-bottom:7px}
     .service-cta h2{font-size:clamp(25px,3vw,39px);line-height:1.15;margin-bottom:8px}
     .service-cta p{color:#d6e2f5;max-width:760px;font-size:14px}
-    .service-cta .btn{white-space:nowrap;background:#fff;color:#0b2060}
+    .service-cta .btn{white-space:nowrap;background:#071126;color:#0b2060}
 
     @media(max-width:1080px){
       .service-intro-card{grid-template-columns:1fr}.service-intro-image{height:300px}
@@ -455,8 +455,344 @@
   .products-hero h1{font-size:clamp(27px,8vw,34px)!important}
   .products-hero p{font-size:12.8px!important;line-height:1.55!important}
 }
+
+    /* Final top banner only: no extra background card or small navigation cards */
+    .service-intro-card.service-intro-banner{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      margin:0 0 30px;
+      padding:0;
+      min-height:auto;
+      background:transparent;
+      border:0;
+      border-radius:0;
+      box-shadow:none;
+      overflow:visible;
+      position:relative;
+      isolation:isolate;
+      animation:serviceBannerFloat 5s ease-in-out infinite;
+    }
+    .service-intro-card.service-intro-banner::before{display:none!important;content:none!important}
+    .service-intro-card.service-intro-banner img{
+      display:block;
+      width:100%;
+      max-width:100%;
+      height:auto;
+      object-fit:contain;
+      object-position:center;
+      border-radius:28px;
+      background:transparent;
+      box-shadow:0 26px 60px rgba(11,32,96,.14);
+      margin:0 auto;
+      animation:serviceBannerGlow 3.4s ease-in-out infinite alternate;
+    }
+    .service-nav{display:none!important}
+    @keyframes serviceBannerFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+    @keyframes serviceBannerGlow{0%{box-shadow:0 18px 42px rgba(11,32,96,.10)}100%{box-shadow:0 28px 68px rgba(11,32,96,.16),0 8px 24px rgba(245,130,31,.14)}}
+    @media(max-width:820px){
+      .service-intro-card.service-intro-banner{margin:0 0 22px;}
+      .service-intro-card.service-intro-banner img{border-radius:22px}
+    }
+
+
+
+
+    /* Final: first service card displays only the Business Verticals image */
+    .services-page .service-intro-card.service-intro-banner{
+      display:flex!important;
+      align-items:center!important;
+      justify-content:center!important;
+      width:100%!important;
+      margin:0 0 30px!important;
+      padding:0!important;
+      min-height:0!important;
+      background:transparent!important;
+      border:0!important;
+      border-radius:0!important;
+      box-shadow:none!important;
+      overflow:visible!important;
+    }
+    .services-page .service-intro-card.service-intro-banner::before,
+    .services-page .service-intro-card.service-intro-banner::after{
+      display:none!important;
+      content:none!important;
+    }
+    .services-page .service-intro-card.service-intro-banner img{
+      display:block!important;
+      width:100%!important;
+      height:auto!important;
+      max-width:100%!important;
+      margin:0 auto!important;
+      padding:0!important;
+      object-fit:contain!important;
+      object-position:center!important;
+      border:0!important;
+      border-radius:24px!important;
+      background:#fff!important;
+      box-shadow:0 20px 46px rgba(11,32,96,.12)!important;
+      animation:businessVerticalsFloat 5s ease-in-out infinite!important;
+    }
+    @keyframes businessVerticalsFloat{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-5px)}
+    }
+    @media(max-width:820px){
+      .services-page .service-intro-card.service-intro-banner{margin-bottom:22px!important}
+      .services-page .service-intro-card.service-intro-banner img{border-radius:18px!important}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .services-page .service-intro-card.service-intro-banner img{animation:none!important}
+    }
+
 </style>
 <link rel="stylesheet" href="assets/css/responsive.css">
+
+<style id="business-verticals-3d-animation">
+/* Premium animated business vertical cards */
+.services-page .business-verticals-showcase{
+  width:100%;
+  margin:0 0 34px;
+  padding:12px 0 20px;
+  background:transparent;
+  border:0;
+  box-shadow:none;
+  overflow:visible;
+  perspective:1400px;
+}
+.services-page .business-verticals-heading{
+  text-align:center;
+  margin:0 auto 24px;
+}
+.services-page .business-verticals-heading h2{
+  margin:0;
+  font-size:clamp(34px,4.5vw,64px);
+  line-height:1.05;
+  font-weight:900;
+  letter-spacing:-.035em;
+  color:#f45b00;
+}
+.services-page .business-verticals-heading h2 span{
+  color:#0b3b93;
+}
+.services-page .business-verticals-accent{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  margin-top:13px;
+}
+.services-page .business-verticals-accent i{
+  display:block;
+  width:76px;
+  height:3px;
+  border-radius:99px;
+  background:linear-gradient(90deg,transparent,#164ca8);
+}
+.services-page .business-verticals-accent i:last-child{
+  background:linear-gradient(90deg,#f5821f,transparent);
+}
+.services-page .business-verticals-accent b,
+.services-page .business-verticals-accent em{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  display:block;
+  background:#0d48a8;
+  box-shadow:0 5px 12px rgba(11,58,147,.25);
+}
+.services-page .business-verticals-accent em{background:#f5821f}
+.services-page .business-verticals-grid{
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:14px;
+  align-items:end;
+}
+.services-page .business-vertical-tile{
+  position:relative;
+  min-width:0;
+  border-radius:26px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 16px 32px rgba(13,49,117,.13),0 5px 14px rgba(245,130,31,.08);
+  opacity:0;
+  transform:translateY(34px) rotateX(14deg) rotateY(calc((var(--i) - 2.5) * 1.5deg)) scale(.94);
+  transform-origin:center bottom;
+  animation:verticalTileEnter .78s cubic-bezier(.18,.85,.2,1) forwards,
+            verticalTileFloat 5.2s ease-in-out calc(var(--i) * .32s + 1.05s) infinite;
+  animation-delay:calc(var(--i) * .13s),calc(var(--i) * .32s + 1.05s);
+  transition:transform .38s cubic-bezier(.2,.8,.2,1),box-shadow .38s ease,filter .38s ease;
+  will-change:transform;
+}
+.services-page .business-vertical-tile:nth-child(even){
+  transform-origin:center top;
+}
+.services-page .business-vertical-tile::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  border-radius:inherit;
+  border:1px solid rgba(255,255,255,.72);
+  box-shadow:inset 0 0 0 1px rgba(25,75,162,.06);
+}
+.services-page .business-vertical-tile img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:290/365;
+  object-fit:cover;
+  object-position:center;
+  transform:scale(1.015);
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),filter .35s ease;
+}
+.services-page .business-vertical-tile:hover{
+  transform:translateY(-14px) rotateX(0deg) rotateY(0deg) scale(1.045)!important;
+  box-shadow:0 28px 54px rgba(13,49,117,.20),0 12px 26px rgba(245,130,31,.18);
+  z-index:5;
+  filter:saturate(1.05);
+}
+.services-page .business-vertical-tile:hover img{
+  transform:scale(1.065);
+}
+.services-page .business-vertical-tile:nth-child(2),
+.services-page .business-vertical-tile:nth-child(4),
+.services-page .business-vertical-tile:nth-child(6){
+  margin-bottom:18px;
+}
+
+.services-page .business-vertical-tile h3{
+  margin:0;
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 10px 14px;
+  text-align:center;
+  font-size:clamp(12px,1.05vw,16px);
+  line-height:1.22;
+  font-weight:900;
+  color:#0b3b93;
+  background:linear-gradient(180deg,rgba(8,18,36,.96),rgba(10,24,48,.98));
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.services-page .business-vertical-tile:nth-child(even) h3{color:#f5821f}
+
+@keyframes verticalTileEnter{
+  0%{opacity:0;transform:translateY(36px) rotateX(16deg) scale(.92)}
+  65%{opacity:1;transform:translateY(-7px) rotateX(-2deg) scale(1.015)}
+  100%{opacity:1;transform:translateY(0) rotateX(0) scale(1)}
+}
+@keyframes verticalTileFloat{
+  0%,100%{transform:translateY(0) rotateY(0) scale(1)}
+  50%{transform:translateY(-8px) rotateY(1.2deg) scale(1.01)}
+}
+@media(max-width:1180px){
+  .services-page .business-verticals-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .services-page .business-vertical-tile:nth-child(even){margin-bottom:0}
+}
+@media(max-width:720px){
+  .services-page .business-verticals-showcase{padding-top:4px;margin-bottom:26px}
+  .services-page .business-verticals-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .services-page .business-verticals-heading{margin-bottom:18px}
+  .services-page .business-verticals-heading h2{font-size:clamp(30px,10vw,44px)}
+  .services-page .business-verticals-accent i{width:46px}
+  .services-page .business-vertical-tile{border-radius:20px}
+}
+@media(max-width:430px){
+  .services-page .business-verticals-grid{grid-template-columns:1fr;max-width:320px;margin-inline:auto}
+  .services-page .business-vertical-tile img{aspect-ratio:auto}
+}
+@media(prefers-reduced-motion:reduce){
+  .services-page .business-vertical-tile{animation:none!important;opacity:1!important;transform:none!important}
+}
+</style>
+
+
+<style id="business-verticals-separate-images-final-fit">
+/* Final fit for the six separately generated Business Vertical images */
+.services-page .business-verticals-grid{
+  align-items:stretch!important;
+}
+.services-page .business-vertical-tile{
+  display:flex!important;
+  flex-direction:column!important;
+  min-height:330px!important;
+  border-radius:26px!important;
+  background:linear-gradient(180deg,#ffffff 0%,#f7faff 100%)!important;
+  border:1px solid rgba(17,66,151,.13)!important;
+  overflow:hidden!important;
+}
+.services-page .business-vertical-tile:nth-child(even){
+  background:linear-gradient(180deg,#ffffff 0%,#fff8f2 100%)!important;
+}
+.services-page .business-vertical-tile::before{
+  content:counter(vertical-card, decimal-leading-zero)!important;
+  counter-increment:vertical-card!important;
+  position:absolute!important;
+  top:12px!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  width:40px!important;
+  height:40px!important;
+  border-radius:50%!important;
+  display:grid!important;
+  place-items:center!important;
+  z-index:3!important;
+  color:#fff!important;
+  font-size:14px!important;
+  font-weight:900!important;
+  background:linear-gradient(145deg,#0b3b93,#176fd2)!important;
+  box-shadow:0 8px 18px rgba(11,59,147,.24)!important;
+}
+.services-page .business-verticals-grid{counter-reset:vertical-card!important}
+.services-page .business-vertical-tile:nth-child(even)::before{
+  background:linear-gradient(145deg,#f5821f,#e65700)!important;
+  box-shadow:0 8px 18px rgba(245,130,31,.25)!important;
+}
+.services-page .business-vertical-tile img{
+  width:100%!important;
+  height:260px!important;
+  min-height:260px!important;
+  aspect-ratio:1/1!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  padding:30px 14px 12px!important;
+  box-sizing:border-box!important;
+  background:transparent!important;
+  transform:scale(.96)!important;
+}
+.services-page .business-vertical-tile:hover img{
+  transform:scale(1.025)!important;
+}
+.services-page .business-vertical-tile h3{
+  min-height:70px!important;
+  margin-top:auto!important;
+  padding:14px 12px 16px!important;
+  color:#ffffff!important;
+  font-size:clamp(12px,1.02vw,15.5px)!important;
+  background:linear-gradient(145deg,#0b3b93,#0a57b7)!important;
+  border-top:0!important;
+}
+.services-page .business-vertical-tile:nth-child(even) h3{
+  color:#ffffff!important;
+  background:linear-gradient(145deg,#f5821f,#eb6100)!important;
+}
+@media(max-width:1180px){
+  .services-page .business-vertical-tile{min-height:350px!important}
+  .services-page .business-vertical-tile img{height:275px!important;min-height:275px!important}
+}
+@media(max-width:720px){
+  .services-page .business-vertical-tile{min-height:300px!important}
+  .services-page .business-vertical-tile img{height:230px!important;min-height:230px!important;padding-top:28px!important}
+}
+@media(max-width:430px){
+  .services-page .business-vertical-tile{min-height:390px!important}
+  .services-page .business-vertical-tile img{height:315px!important;min-height:315px!important}
+}
+</style>
+
 </head>
 <body class="services-page">
 <nav class="site-nav">
@@ -471,10 +807,7 @@
 <li><a href="news.html">News &amp; Updates</a></li>
 <li><a href="contact.html">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<a class="btn btn-outline brochure-download-trigger" href="#" data-brochure-download>Download Brochure</a>
-<a class="btn btn-primary" href="contact.html#enquiry">Request a Quote</a>
-</div>
+<div class="nav-actions"><a class="btn btn-primary brochure-download-trigger" href="#" data-brochure-download>Download Brochure</a></div>
 </div>
 </nav>
 <header class="products-hero">
@@ -486,40 +819,24 @@
 </header>
 <main class="services-main">
 <div class="container">
-<section class="service-intro-card reveal">
-<div class="service-intro-copy">
-<span class="eyebrow">END TO END SERVICES FOR ALL</span>
-<h2>Complete Lifecycle Support for <span>Environmental Testing Systems</span></h2>
-<p>We provide end-to-end services that support our customers throughout the complete lifecycle of environmental testing systems—from concept and manufacturing to long-term operation and upgrades.</p>
-</div>
-<div class="service-intro-image"><img alt="Therm-X business verticals" src="assets/images/services-verticals.webp"/></div>
+<section class="business-verticals-showcase reveal" aria-labelledby="business-verticals-title">
+  <div class="business-verticals-heading">
+    <h2 id="business-verticals-title"><span>Business</span> Verticals</h2>
+    <div class="business-verticals-accent" aria-hidden="true"><i></i><b></b><em></em><i></i></div>
+  </div>
+  <div class="business-verticals-grid">
+    <article class="business-vertical-tile" style="--i:0"><img src="assets/images/business-verticals/manufacturer.webp" alt="Manufacturer – Environmental Chamber"><h3>Manufacturer – Environmental Chamber</h3></article>
+    <article class="business-vertical-tile" style="--i:1"><img src="assets/images/business-verticals/refurbishment.webp" alt="Refurbishment"><h3>Refurbishment</h3></article>
+    <article class="business-vertical-tile" style="--i:2"><img src="assets/images/business-verticals/maintenance.webp" alt="Maintenance"><h3>Maintenance</h3></article>
+    <article class="business-vertical-tile" style="--i:3"><img src="assets/images/business-verticals/repair-service.webp" alt="Repair and Service"><h3>Repair / Service</h3></article>
+    <article class="business-vertical-tile" style="--i:4"><img src="assets/images/business-verticals/rentals.webp" alt="Rentals"><h3>Rentals</h3></article>
+    <article class="business-vertical-tile" style="--i:5"><img src="assets/images/business-verticals/fabrication.webp" alt="Fabrication"><h3>Fabrication</h3></article>
+  </div>
 </section>
-<section class="service-dashboard reveal">
-<div class="service-dashboard-head">
-<span class="eyebrow">Business Verticals</span>
-<h2>End-to-End Capabilities Under <span>One Technical Team</span></h2>
-<p>Manufacturer – Environmental Chamber, Refurbishment, Maintenance, Repair / Service, Rentals, and Fabrication.</p>
-</div>
-<div class="vertical-grid">
-<article class="vertical-card"><div class="vertical-icon">01</div><div><b>Manufacturer – Environmental Chamber</b><span>New Equipment</span></div></article>
-<article class="vertical-card"><div class="vertical-icon">02</div><div><b>Refurbishment</b><span>Life Extension</span></div></article>
-<article class="vertical-card"><div class="vertical-icon">03</div><div><b>Maintenance</b><span>Preventive Care</span></div></article>
-<article class="vertical-card"><div class="vertical-icon">04</div><div><b>Repair / Service</b><span>Technical Support</span></div></article>
-<article class="vertical-card"><div class="vertical-icon">05</div><div><b>Rentals</b><span>Flexible Access</span></div></article>
-<article class="vertical-card"><div class="vertical-icon">06</div><div><b>Fabrication</b><span>Custom Build</span></div></article>
-</div>
-</section>
-<nav aria-label="Services navigation" class="service-nav">
-<a class="active" href="#design-manufacturing"><i>01</i>Design &amp; Manufacturing</a>
-<a href="#service-support"><i>02</i>Service Support</a>
-<a href="#refurbishment"><i>03</i>Refurbishment</a>
-<a href="#testing-services"><i>04</i>Testing Services</a>
-<a href="#rental-solutions"><i>05</i>Rental Solutions</a>
-</nav>
 <div class="service-card-list">
 <article class="service-detail-card reveal" id="design-manufacturing">
 <div class="service-media">
-<div class="service-media-frame"><img alt="Design and manufacturing of environmental test chambers" src="assets/images/product-environmental.webp"/></div>
+<div class="service-media-frame"><img alt="Design and manufacturing of environmental test chambers" src="assets/images/service-design-manufacturing.png"/></div>
 </div>
 <div class="service-content">
 <span class="service-label">Design &amp; Manufacturing</span>
@@ -588,16 +905,62 @@
 </section>
 </div>
 </main>
-<footer>
-<div class="container">
-<div class="footer-grid">
-<div class="footer-brand"><img alt="Therm-X Innovations" class="footer-logo" src="assets/images/logo.webp"/><p>Specialized manufacturer of environmental test chambers delivering reliable, precise, and application-focused product validation solutions.</p></div>
-<div class="footer-col"><h3>Products</h3><ul><li><a href="products/environmental-test-chambers.html">Environmental Test Chambers</a></li><li><a href="products/thermal-shock-series.html">Thermal Shock Series</a></li><li><a href="products/altitude-series.html">Altitude Series</a></li><li><a href="products/battery-test-chamber.html">Battery Test Chamber</a></li><li><a href="products/rain-chambers.html">Rain Chambers</a></li></ul></div>
-<div class="footer-col"><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="news.html">News &amp; Updates</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-<div class="footer-col"><h3>Contact</h3><ul><li><a href="tel:+919916904077">+91 99169 04077</a></li><li><a href="tel:+918029904629">+91 080 29904629</a></li><li><a href="mailto:sales@thermxinnovations.com">sales@thermxinnovations.com</a></li><li>#41A/11, 2nd Cross, 2nd Phase, Peenya Industrial Area, Bengaluru – 560058</li></ul></div>
-</div>
-<div class="footer-bottom"><p>© 2026 Therm-X Innovations Pvt. Ltd. All rights reserved.</p><p>CIN: U28990KA2024PTC191086</p></div>
-</div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid footer-grid-modern">
+      <div class="footer-brand">
+        <a class="footer-logo-link" href="index.html" aria-label="Therm-X Innovations home">
+          <img class="footer-logo" src="assets/images/logo.webp" alt="Therm-X Innovations">
+        </a>
+        <p class="footer-intro">Precision environmental testing systems engineered for reliable, repeatable, and standards-compliant performance.</p>
+        <div class="footer-contact-list">
+          <a class="footer-contact-item" href="tel:+919980728238">
+            <span class="footer-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.46 15.46 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.37 11.37 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.37 11.37 0 0 0 .57 3.56 1 1 0 0 1-.25 1.02l-2.2 2.21Z"/></svg></span>
+            <span><small>Call</small><strong>9980728238</strong></span>
+          </a>
+          <a class="footer-contact-item" href="https://wa.me/918073261027" target="_blank" rel="noopener">
+            <span class="footer-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.84 9.84 0 0 0-8.42 14.93L2 22l5.2-1.57A9.97 9.97 0 1 0 12.04 2Zm0 17.95a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.08.93.95-3-.2-.31a7.93 7.93 0 1 1 6.76 3.69Zm4.45-5.93c-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.53.06-.24-.12-1.03-.38-1.96-1.21a7.32 7.32 0 0 1-1.36-1.69c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.75-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.65.3-.22.24-.85.83-.85 2.03s.87 2.36.99 2.52c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg></span>
+            <span><small>WhatsApp</small><strong>+91 80732 61027</strong></span>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="products/environmental-test-chambers.html">Environmental Test Chambers</a></li>
+          <li><a href="products/thermal-shock-series.html">Thermal Shock Series</a></li>
+          <li><a href="products/battery-test-chamber.html">Battery Test Chamber</a></li>
+          <li><a href="products/xwt-walkin-series.html">XWT Walk-in Series</a></li>
+          <li><a href="products/industrial-ovens.html">Industrial Ovens</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="news.html">News &amp; Updates</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-reach">
+        <h3>Reach Us</h3>
+        <p class="footer-address-text">#41A/11, 2nd Cross, 2nd Phase,<br>Peenya Industrial Area, Opp. ABB Ltd,<br>Bengaluru – 560058</p>
+        <h3 class="footer-social-title">Follow Us</h3>
+        <div class="footer-socials">
+          <a class="footer-social facebook" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-9h3l.45-3.5H13.5V7.26c0-1.01.28-1.7 1.73-1.7H17V2.43A23.7 23.7 0 0 0 14.39 2C11.81 2 10 3.57 10 6.46V9.5H7V13h3v9h3.5Z"/></svg></a>
+          <a class="footer-social youtube" href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2 31.58 31.58 0 0 0 0 12a31.58 31.58 0 0 0 .5 5.8 3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14A31.58 31.58 0 0 0 24 12a31.58 31.58 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg></a>
+          <a class="footer-social whatsapp" href="https://wa.me/918073261027" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.84 9.84 0 0 0-8.42 14.93L2 22l5.2-1.57A9.97 9.97 0 1 0 12.04 2Zm0 17.95a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.08.93.95-3-.2-.31a7.93 7.93 0 1 1 6.76 3.69Zm4.45-5.93c-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.53.06-.24-.12-1.03-.38-1.96-1.21a7.32 7.32 0 0 1-1.36-1.69c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.75-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.65.3-.22.24-.85.83-.85 2.03s.87 2.36.99 2.52c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg></a>
+          <a class="footer-social instagram" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm10.5 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Therm-X Innovations Pvt. Ltd. All rights reserved.</p>
+      <p>CIN: U28990KA2024PTC191086</p>
+    </div>
+  </div>
 </footer>
 
 <script>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>About Us | Therm-X Innovations</title>
-  <meta name="description" content="Learn who Therm-X Innovations is, our vision, mission, and commitments to precise environmental testing solutions.">
+  <meta name="description" content="Learn about Therm-X Innovations, our purpose, vision, mission, commitments, values, industries served, and engineering strengths.">
   <link rel="icon" href="assets/images/favicon-x.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,6 +48,14 @@
     .about-story-card.about-who-section:before{display:none}
     .about-story-card.about-who-section:hover{box-shadow:none}
     .about-who-section .about-card-image{min-height:380px;height:380px;border-radius:22px;box-shadow:0 22px 52px rgba(11,32,96,.17);border:1px solid rgba(255,255,255,.45)}
+    .about-image-slider{position:relative;width:100%;height:100%;overflow:hidden;border-radius:inherit;background:#fff;padding:14px;box-sizing:border-box}
+    .about-image-slider .about-image-slide{position:absolute;inset:14px;width:calc(100% - 28px);height:calc(100% - 28px);object-fit:contain;object-position:center;background:#fff;border-radius:14px;opacity:0;transform:translateX(12%);transition:opacity .6s ease,transform .6s ease}
+    .about-image-slider .about-image-slide.active{opacity:1;transform:translateX(0)}
+    .about-image-slider .about-image-slide.exit-left{opacity:0;transform:translateX(-12%)}
+    @media(max-width:720px){
+      .about-image-slider{padding:10px}
+      .about-image-slider .about-image-slide{inset:10px;width:calc(100% - 20px);height:calc(100% - 20px);border-radius:11px}
+    }
     .about-who-section .about-card-copy{padding:18px 4px 18px 8px;min-height:380px;height:380px;display:flex;flex-direction:column;justify-content:center}
     .about-who-section .who-summary{max-width:620px;margin:0 0 17px;font-size:14.5px;line-height:1.65;color:#536782}
     .who-brief-points{display:grid;grid-template-columns:1fr 1fr;gap:11px 13px;margin:0 0 20px}
@@ -71,6 +79,12 @@
     .about-card-image{position:relative;min-height:410px;overflow:hidden;background:#153671}
     .about-card-image:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(6,24,74,.22),transparent 50%,rgba(245,130,31,.18))}
     .about-card-image img{width:100%;height:100%;object-fit:cover;transition:transform .75s cubic-bezier(.2,.75,.2,1),filter .5s ease}
+    /* Keep every About-page card image at the original fixed dimensions */
+    .about-story-card:not(.values-showcase-card) .about-card-image{height:410px;min-height:410px}
+    .about-story-card:not(.values-showcase-card) .about-card-image img{display:block;width:100%;height:410px;min-height:410px;object-fit:cover;object-position:center}
+    .values-showcase-card .value-detail-card img{width:112px;height:168px;min-height:168px;object-fit:cover;object-position:center}
+    .industries-card .industry-serve-image{width:100%!important;height:146px!important;min-height:146px!important;border-radius:16px!important;overflow:hidden!important;background:#eef4ff!important;margin:0 0 11px!important;box-shadow:inset 0 0 0 1px rgba(11,32,96,.06);position:relative!important}
+    .industries-card .industry-serve-image img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;display:block!important;image-rendering:auto!important;filter:none!important;transform:translateZ(0) scale(1.015)!important}
     .about-story-card:hover .about-card-image img{transform:scale(1.045);filter:saturate(1.08)}
     .about-card-number{position:absolute;left:22px;top:23px;z-index:2;width:50px;height:50px;border-radius:15px;display:grid;place-items:center;background:rgba(6,24,74,.82);color:#fff;font-weight:900;border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(8px)}
     .about-card-copy{padding:44px 44px 40px;display:flex;flex-direction:column;justify-content:center}
@@ -82,6 +96,89 @@
     .about-points li:before{content:"✓";position:absolute;left:13px;top:10px;color:#f5821f;font-weight:900}
     .about-read-more{align-self:flex-start;border:0;border-radius:9px;padding:12px 20px;display:inline-flex;align-items:center;gap:9px;color:#fff;background:linear-gradient(135deg,#f5821f,#d75d08);font:800 13px Inter,Arial,sans-serif;cursor:pointer;box-shadow:0 8px 20px rgba(245,130,31,.26);transition:transform .22s ease,box-shadow .22s ease,gap .22s ease}
     .about-read-more:hover{transform:translateY(-2px);box-shadow:0 13px 28px rgba(245,130,31,.34);gap:13px}
+    .about-card-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .about-card-actions .about-read-more{align-self:auto}
+    .about-certification-button{border:0;border-radius:9px;padding:12px 20px;display:inline-flex;align-items:center;gap:9px;color:#fff;text-decoration:none;background:linear-gradient(135deg,#1673cf,#073f9f);font:800 13px Inter,Arial,sans-serif;box-shadow:0 8px 20px rgba(22,115,207,.27);transition:transform .22s ease,box-shadow .22s ease,gap .22s ease,filter .22s ease}
+    .about-certification-button:hover{transform:translateY(-2px);box-shadow:0 13px 28px rgba(22,115,207,.36);gap:13px;filter:brightness(1.04)}
+    .about-certification-button:focus-visible{outline:3px solid rgba(22,115,207,.28);outline-offset:3px}
+
+
+    .industry-train-wrap{margin:10px -4px 24px!important;padding:14px 54px 28px!important;overflow:hidden!important;position:relative!important;cursor:default!important;user-select:none!important}
+    .industries-card{display:block!important;min-height:640px!important;padding:32px 36px 76px!important;background:linear-gradient(145deg,rgba(239,246,255,.98),rgba(255,244,235,.98))!important;overflow:hidden!important}
+    .industries-card .about-card-image{height:410px;min-height:410px}
+    .industries-card .about-card-copy{height:410px;min-height:410px;padding:30px 34px;overflow:hidden}
+    .industries-card .industry-train-wrap{margin:4px 0 18px;padding:7px 0 4px}
+    .industries-card .industry-serve-card{width:210px!important;height:210px!important;min-width:210px!important;min-height:210px!important;max-width:210px!important;max-height:210px!important;padding:10px!important;border-radius:24px!important;background:linear-gradient(145deg,#ffffff 0%,#f3f8ff 100%)!important;border:1px solid rgba(31,77,166,.22)!important;box-shadow:0 20px 46px rgba(11,32,96,.14),0 8px 20px rgba(245,130,31,.08),inset 0 1px 0 rgba(255,255,255,.95)!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;animation:none!important;will-change:transform;backface-visibility:hidden;transform:none!important}
+    .industries-card .industry-serve-image{height:88px;flex:0 0 88px;margin-bottom:8px}
+    .value-detail-card img,.industry-serve-image img{image-rendering:auto;backface-visibility:hidden;transform:translateZ(0);filter:contrast(1.05) saturate(1.04)}
+    .industry-train-track{gap:18px!important;width:max-content!important;min-width:max-content!important;animation:none!important;will-change:transform;align-items:center!important;overflow:visible!important;padding:18px 0!important;transition:transform .55s cubic-bezier(.22,.8,.2,1)!important}
+    .industry-train-wrap:before,.industry-train-wrap:after{content:"";position:absolute;top:0;bottom:0;width:34px;z-index:2;pointer-events:none}
+    .industry-train-wrap:before{left:0;background:linear-gradient(90deg,rgba(240,246,255,.96),rgba(240,246,255,0))}
+    .industry-train-wrap:after{right:0;background:linear-gradient(270deg,rgba(255,239,226,.96),rgba(255,239,226,0))}
+    .industry-train-track{display:flex;align-items:stretch;gap:16px;width:max-content;animation:industryTrain 32s linear infinite}
+    .industry-serve-card{flex:0 0 auto;width:154px;padding:10px 10px 12px;border-radius:30px;background:linear-gradient(160deg,rgba(255,255,255,.98),rgba(228,239,255,.97));border:1px solid rgba(48,90,178,.16);box-shadow:0 14px 32px rgba(11,32,96,.09), inset 0 1px 0 rgba(255,255,255,.7);display:flex;flex-direction:column;align-items:center;text-align:center;transition:transform .28s ease,box-shadow .28s ease}
+    .industry-serve-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(11,32,96,.15)}
+    .industry-serve-image{width:100%;height:86px;border-radius:22px;overflow:hidden;background:#dfeafc;margin-bottom:10px}
+    .industry-serve-image img{width:100%;height:100%;object-fit:cover;display:block}
+    .industry-serve-card h3{margin:0;color:#0b2060;font-size:12.7px;line-height:1.3;font-weight:800}
+    .industry-serve-card p{margin:4px 0 0;color:#5c6f89;font-size:11px;line-height:1.45}
+    @keyframes industryTrain{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+
+
+    .values-showcase-card{display:block!important;min-height:0!important;padding:36px!important;background:linear-gradient(145deg,rgba(232,241,255,.98),rgba(255,235,218,.96))!important}
+    .values-showcase-card:before{height:6px}
+    .values-showcase-head{text-align:center;max-width:760px;margin:0 auto 28px}
+    .values-showcase-head .about-card-kicker{margin-bottom:8px}
+    .values-showcase-head h2{font-size:clamp(27px,3vw,40px);color:#0b2060;margin-bottom:10px}
+    .values-showcase-head p{color:#556985;font-size:14.5px;line-height:1.7;margin:0}
+    .values-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .value-detail-card{display:grid;grid-template-columns:112px minmax(0,1fr);min-height:168px;overflow:hidden;border-radius:18px;background:rgba(255,255,255,.92);border:1px solid rgba(43,83,165,.14);box-shadow:0 14px 34px rgba(11,32,96,.09);transition:transform .28s ease,box-shadow .28s ease}
+    .value-detail-card:hover{transform:translateY(-5px);box-shadow:0 20px 44px rgba(11,32,96,.15)}
+    .value-detail-card img{width:100%;height:100%;min-height:168px;object-fit:cover}
+    .value-detail-copy{padding:18px 16px;display:flex;flex-direction:column;justify-content:center}
+    .value-detail-copy h3{color:#0b2060;font-size:14px;line-height:1.3;margin:0 0 8px}
+    .value-detail-copy p{color:#586b86;font-size:11.8px;line-height:1.58;margin:0}
+    12.5%{transform:translate3d(0,-6px,0)}
+      25%{transform:translate3d(0,-13px,0)}
+      37.5%{transform:translate3d(0,-6px,0)}
+      50%{transform:translate3d(0,0,0)}
+      62.5%{transform:translate3d(0,6px,0)}
+      75%{transform:translate3d(0,13px,0)}
+      87.5%{transform:translate3d(0,6px,0)}
+    }
+    @media(max-width:1050px){.values-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:720px){.values-showcase-card{padding:24px 18px!important}.values-card-grid{grid-template-columns:1fr}.value-detail-card{grid-template-columns:100px minmax(0,1fr);min-height:150px}.value-detail-card img{width:100px;height:150px;min-height:150px}.value-detail-copy{padding:15px 13px}}
+    @media(max-width:430px){.value-detail-card{grid-template-columns:1fr}.value-detail-card img{width:100%;height:170px;min-height:170px}.value-detail-copy{padding:17px}}
+
+    @media(max-width:1050px){.industries-card,.industries-card .about-card-image,.industries-card .about-card-copy{height:auto;min-height:0}.industries-card .about-card-image{min-height:330px}.industries-card .about-card-copy{overflow:visible}}
+
+
+    .why-showcase-card{display:block!important;min-height:0!important;padding:36px!important;background:linear-gradient(145deg,rgba(232,241,255,.98),rgba(255,235,218,.96))!important}
+    .why-showcase-card:before{height:6px}
+    .why-showcase-head{text-align:center;max-width:760px;margin:0 auto 28px}
+    .why-showcase-head h2{font-size:clamp(27px,3vw,40px);color:#0b2060;margin-bottom:10px}
+    .why-showcase-head p{color:#556985;font-size:14.5px;line-height:1.7;margin:0}
+    .why-card-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;align-items:stretch}
+    .why-detail-card{display:grid;grid-template-columns:92px minmax(0,1fr);height:168px;min-height:168px;max-height:168px;overflow:hidden;border-radius:17px;background:rgba(255,255,255,.96);border:1px solid rgba(43,83,165,.15);box-shadow:0 14px 32px rgba(11,32,96,.09);transition:transform .28s ease,box-shadow .28s ease}
+    .why-detail-card:hover{transform:translateY(-5px);box-shadow:0 22px 48px rgba(11,32,96,.16)}
+    .why-detail-card img{width:92px;height:168px;min-height:168px;max-height:168px;object-fit:cover;object-position:center;display:block;align-self:stretch}
+    .why-detail-copy{padding:14px 12px;display:flex;flex-direction:column;justify-content:center;min-width:0}
+    .why-detail-copy h3{color:#0b2060;font-size:12.8px;line-height:1.25;margin:0 0 6px;font-weight:900}
+    .why-detail-copy p{color:#586b86;font-size:10.8px;line-height:1.45;margin:0}
+
+    .industries-card{display:block!important;min-height:0!important;padding:36px!important;background:linear-gradient(145deg,rgba(229,239,255,.98),rgba(255,235,217,.97))!important}
+    .industries-card>.about-card-image{display:none!important}
+    .industries-card>.about-card-copy{padding:0!important;display:block!important}
+    .industries-card .about-card-kicker,.industries-card h2,.industries-card> .about-card-copy>p{text-align:center}
+    .industries-card .about-card-copy>p{max-width:760px;margin:0 auto 24px}
+    .industry-train-wrap{margin:10px -4px 24px!important;padding:18px 4px 22px!important;overflow:hidden!important}
+    .industry-train-track{gap:18px!important;animation:industryTrain 58s linear infinite!important;will-change:transform}
+    .industries-card .industry-serve-card{width:190px!important;height:190px!important;padding:10px!important;border-radius:22px!important;background:rgba(255,255,255,.98)!important;border:1px solid rgba(31,77,166,.18)!important;box-shadow:0 18px 42px rgba(11,32,96,.12),inset 0 1px 0 rgba(255,255,255,.8)!important;justify-content:flex-start!important;animation:industryWave 6.5s ease-in-out infinite;will-change:transform}
+    .industries-card .industry-serve-image{width:100%!important;height:130px!important;border-radius:16px!important;overflow:hidden!important;background:#eef4ff!important;margin-bottom:10px!important;box-shadow:inset 0 0 0 1px rgba(11,32,96,.06)}
+    .industries-card .industry-serve-image img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;display:block!important;image-rendering:auto!important;filter:none!important}
+    .industries-card .industry-serve-card h3{width:100%!important;min-height:33px!important;margin:0!important;color:#0b2060!important;text-align:center!important;font-size:13.4px!important;line-height:1.22!important;font-weight:900!important;display:flex!important;align-items:center!important;justify-content:center!important}
+    @media(max-width:1050px){.why-card-grid{grid-template-columns:1fr}.why-detail-card{min-height:0}.why-detail-card img{height:280px}}
+    @media(max-width:720px){.why-showcase-card,.industries-card{padding:24px 18px!important}.why-card-grid{gap:18px}.why-detail-card img{height:220px}.why-detail-copy{padding:17px 15px 21px}.industries-card .industry-serve-card{width:166px!important;height:166px!important;min-width:166px!important;min-height:166px!important;padding:9px!important;border-radius:20px!important}.industries-card .industry-serve-image{height:108px!important;min-height:108px!important;border-radius:14px!important}.industry-train-track{animation-duration:70s!important}}
 
     .about-modal[hidden]{display:none}
     .about-modal{position:fixed;inset:0;z-index:3000;display:grid;place-items:center;padding:40px;background:rgba(3,13,39,.78);backdrop-filter:blur(10px);animation:aboutOverlayIn .28s ease both}
@@ -110,14 +207,18 @@
       .about-story-card.about-who-section{grid-template-columns:1fr;gap:26px;padding-bottom:20px}
       .about-who-section .about-card-copy{height:auto;min-height:auto;padding:0 2px}
       .about-story-card.reverse .about-card-image,.about-story-card.reverse .about-card-copy{order:initial}
-      .about-card-image,.about-who-section .about-card-image{min-height:330px}
+      .about-card-image,.about-who-section .about-card-image{height:330px!important;min-height:330px!important}
+      .about-story-card:not(.values-showcase-card) .about-card-image img{height:330px!important;min-height:330px!important}
     }
     @media(max-width:720px){
       .about-hero{padding:40px 0 38px}
       .about-story-section{padding:58px 0 70px}
       .about-card-copy{padding:31px 23px 30px}
       .about-points{grid-template-columns:1fr}
-      .about-card-image{min-height:250px}
+      .industry-serve-card{width:138px;padding:9px 9px 11px;border-radius:24px}
+      .industry-serve-image{height:76px;border-radius:18px}
+      .about-card-image{height:250px!important;min-height:250px!important}
+      .about-story-card:not(.values-showcase-card) .about-card-image img{height:250px!important;min-height:250px!important}
       .about-modal{padding:40px}
       .about-modal-panel{width:calc(100vw - 80px);height:calc(100vh - 80px);border-radius:18px}
       .about-modal-body{grid-template-columns:1fr;padding:20px;gap:20px}
@@ -191,8 +292,1746 @@
   .about-hero h1{font-size:clamp(27px,8vw,34px)!important}
   .about-hero p{font-size:12.8px!important;line-height:1.55!important}
 }
+
+
+/* 10px image gap from all four sides of every About page card */
+.about-story-card:not(.values-showcase-card) .about-card-image{
+  margin:10px;
+  height:390px;
+  min-height:390px;
+  border-radius:18px;
+}
+.about-story-card:not(.values-showcase-card) .about-card-image img{
+  height:390px;
+  min-height:390px;
+  border-radius:18px;
+}
+.about-who-section .about-card-image{
+  margin:10px;
+  height:360px;
+  min-height:360px;
+}
+.values-showcase-card .value-detail-card{
+  grid-template-columns:132px minmax(0,1fr);
+}
+.values-showcase-card .value-detail-card img{
+  width:112px;
+  height:148px;
+  min-height:148px;
+  margin:10px;
+  border-radius:12px;
+}
+.industries-card .industry-serve-card{
+  padding:10px;
+}
+.industries-card .industry-serve-image{
+  margin:0 0 10px;
+}
+@media(max-width:1050px){
+  .about-story-card:not(.values-showcase-card) .about-card-image,
+  .about-who-section .about-card-image{
+    height:310px!important;
+    min-height:310px!important;
+  }
+  .about-story-card:not(.values-showcase-card) .about-card-image img{
+    height:310px!important;
+    min-height:310px!important;
+  }
+}
+@media(max-width:720px){
+  .about-story-card:not(.values-showcase-card) .about-card-image,
+  .about-who-section .about-card-image{
+    height:230px!important;
+    min-height:230px!important;
+  }
+  .about-story-card:not(.values-showcase-card) .about-card-image img{
+    height:230px!important;
+    min-height:230px!important;
+  }
+  .values-showcase-card .value-detail-card{
+    grid-template-columns:120px minmax(0,1fr);
+  }
+  .values-showcase-card .value-detail-card img{
+    width:100px;
+    height:130px;
+    min-height:130px;
+  }
+}
+@media(max-width:430px){
+  .values-showcase-card .value-detail-card{
+    grid-template-columns:1fr;
+  }
+  .values-showcase-card .value-detail-card img{
+    width:calc(100% - 20px);
+    height:170px;
+    min-height:170px;
+  }
+}
+
+
+    @media(max-width:720px){
+      .industries-card{min-height:520px!important;padding-bottom:62px!important}
+      .industry-train-wrap{padding-bottom:54px!important;overflow:visible!important}
+      .industry-train-track{padding:16px 0!important}
+    }
+
+    to{transform:translate3d(88px,0,0)}
+    }
+    25%{transform:translateY(-12px)}
+      50%{transform:translateY(0)}
+      75%{transform:translateY(12px)}
+    }
+
+    @media(max-width:720px){
+      .why-card-grid{grid-template-columns:1fr!important}
+      .why-detail-card{grid-template-columns:96px minmax(0,1fr)!important;min-height:138px!important}
+      .why-detail-card img{width:96px!important;height:138px!important}
+      .why-detail-copy{padding:14px 13px!important}
+    }
+
+
+    @media(max-width:1180px){
+      .why-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+    }
+    @media(max-width:720px){
+      .why-card-grid{grid-template-columns:1fr!important}
+      .why-detail-card{grid-template-columns:96px minmax(0,1fr)!important;min-height:138px!important}
+      .why-detail-card img{width:96px!important;height:138px!important}
+      .why-detail-copy{padding:14px 13px!important}
+    }
+    @media(max-width:720px){
+      .why-detail-card{height:138px!important;max-height:138px!important}
+      .why-detail-card img{height:138px!important;min-height:138px!important;max-height:138px!important}
+    }
+
+
+    @media(max-width:720px){
+      .why-detail-card{height:auto!important;min-height:158px!important;max-height:none!important;grid-template-columns:96px minmax(0,1fr)!important}
+      .why-detail-card img{width:96px!important;height:158px!important;min-height:158px!important;max-height:158px!important}
+      .why-detail-copy{padding:14px 13px!important}
+      .why-detail-copy h3{font-size:13px!important}
+      .why-detail-copy p{font-size:11px!important}
+      .industry-train-track{animation-duration:36s!important}
+    }
+
+
+    .industry-train-wrap{position:relative!important}
+
+
+    .industry-slide-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      z-index:10;
+      width:44px;
+      height:44px;
+      border:0;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      color:#fff;
+      font-size:30px;
+      font-weight:900;
+      line-height:1;
+      background:linear-gradient(135deg,#0b2060,#0b5eb2);
+      box-shadow:0 12px 28px rgba(11,32,96,.24),0 4px 10px rgba(245,130,31,.12);
+      transition:transform .22s ease,box-shadow .22s ease,background .22s ease;
+    }
+    .industry-slide-btn:hover{
+      transform:translateY(-50%) scale(1.08);
+      background:linear-gradient(135deg,#f5821f,#0b5eb2);
+      box-shadow:0 16px 34px rgba(11,32,96,.30);
+    }
+    .industry-slide-prev{left:10px}
+    .industry-slide-next{right:10px}
+    @media(max-width:720px){
+      .industry-train-wrap{padding-left:46px!important;padding-right:46px!important}
+      .industry-slide-btn{width:38px;height:38px;font-size:25px}
+      .industry-slide-prev{left:6px}
+      .industry-slide-next{right:6px}
+    }
+
+
+/* Latest We Serve compact adjustments */
+.about-page .industries-card{margin-top:-22px!important;min-height:480px!important;padding-top:28px!important;padding-bottom:54px!important}
+.about-page .industries-card .industry-train-wrap{margin:-2px -4px 16px!important;padding:10px 4px 12px!important;transform:translateY(-10px)!important;overflow:visible!important}
+.about-page .industries-card .industry-serve-card{width:178px!important;height:178px!important;min-width:178px!important;min-height:178px!important;max-width:178px!important;max-height:178px!important;padding:9px!important;border-radius:20px!important}
+.about-page .industries-card .industry-serve-image{height:116px!important;min-height:116px!important;flex:0 0 116px!important;margin-bottom:8px!important;border-radius:15px!important}
+.about-page .industries-card .industry-serve-card h3{min-height:28px!important;font-size:12.8px!important;line-height:1.18!important}
+.about-page .industries-card .industry-serve-card p{font-size:10.8px!important;line-height:1.35!important}
+@media (max-width:720px){.about-page .industries-card{margin-top:-8px!important;padding-top:22px!important;padding-bottom:42px!important}.about-page .industries-card .industry-train-wrap{transform:none!important;margin:0 0 12px!important;padding:8px 0 8px!important}.about-page .industries-card .industry-serve-card{width:156px!important;height:156px!important;min-width:156px!important;min-height:156px!important}.about-page .industries-card .industry-serve-image{height:100px!important;min-height:100px!important;flex-basis:100px!important}}
+
+/* Final We Serve + Commitments refinements */
+.about-page .industries-card{
+  margin-top:-26px!important;
+  min-height:438px!important;
+  padding:24px 24px 44px!important;
+  background:linear-gradient(145deg,rgba(245,249,255,.98),rgba(255,248,242,.97))!important;
+  border:1px solid rgba(53,94,180,.12)!important;
+  box-shadow:0 18px 42px rgba(11,32,96,.08),0 8px 18px rgba(245,130,31,.06)!important;
+}
+.about-page .industries-card>.about-card-copy{padding:0!important}
+.about-page .industries-card .about-card-copy>p{max-width:720px!important;margin:0 auto 18px!important}
+.about-page .industries-card .industry-train-wrap{
+  margin:-8px auto 8px!important;
+  padding:6px 0 10px!important;
+  transform:translateY(-14px)!important;
+  max-width:100%!important;
+  overflow:hidden!important;
+}
+.about-page .industries-card .industry-train-track{align-items:stretch!important}
+.about-page .industries-card .industry-serve-card{
+  width:166px!important;
+  height:166px!important;
+  min-width:166px!important;
+  min-height:166px!important;
+  max-width:166px!important;
+  max-height:166px!important;
+  padding:8px!important;
+  border-radius:18px!important;
+  background:linear-gradient(160deg,#ffffff 0%,#f8fbff 100%)!important;
+  border:1px solid rgba(40,86,177,.14)!important;
+  box-shadow:0 10px 22px rgba(11,32,96,.07),0 3px 8px rgba(245,130,31,.05)!important;
+  justify-content:flex-start!important;
+}
+.about-page .industries-card .industry-serve-image{
+  height:108px!important;
+  min-height:108px!important;
+  flex:0 0 108px!important;
+  margin-bottom:7px!important;
+  border-radius:13px!important;
+  background:#ffffff!important;
+  box-shadow:inset 0 0 0 1px rgba(11,32,96,.05)!important;
+}
+.about-page .industries-card .industry-serve-image img{object-fit:cover!important;object-position:center!important}
+.about-page .industries-card .industry-serve-card h3{
+  min-height:24px!important;
+  font-size:12px!important;
+  line-height:1.15!important;
+  letter-spacing:.01em!important;
+}
+.about-page .industries-card .industry-serve-card p{
+  font-size:10.2px!important;
+  line-height:1.28!important;
+  color:#6b7a90!important;
+}
+.about-page .commitments-card .about-card-image{
+  margin:10px!important;
+  border-radius:20px!important;
+  overflow:hidden!important;
+  background:linear-gradient(145deg,#f5f9ff,#fff7f0)!important;
+  box-shadow:inset 0 0 0 1px rgba(38,79,168,.08)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.about-page .commitments-card .about-card-image img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  padding:14px!important;
+  background:transparent!important;
+}
+@media (max-width:720px){
+  .about-page .industries-card{margin-top:-10px!important;min-height:0!important;padding:20px 16px 34px!important}
+  .about-page .industries-card .industry-train-wrap{transform:none!important;margin:0 auto 6px!important;padding:4px 0 8px!important}
+  .about-page .industries-card .industry-serve-card{width:150px!important;height:150px!important;min-width:150px!important;min-height:150px!important}
+  .about-page .industries-card .industry-serve-image{height:96px!important;min-height:96px!important;flex-basis:96px!important}
+  .about-page .industries-card .industry-serve-card h3{font-size:11.2px!important}
+  .about-page .industries-card .industry-serve-card p{font-size:9.8px!important}
+  .about-page .commitments-card .about-card-image img{padding:10px!important}
+}
+
+/* Our Values generated-image visibility fix */
+.about-page .values-showcase-card .value-detail-card{
+  grid-template-columns:168px minmax(0,1fr)!important;
+  min-height:170px!important;
+  height:170px!important;
+  align-items:stretch!important;
+}
+.about-page .values-showcase-card .value-detail-card img{
+  display:block!important;
+  width:152px!important;
+  height:146px!important;
+  min-height:146px!important;
+  max-height:146px!important;
+  margin:12px 8px!important;
+  padding:6px!important;
+  box-sizing:border-box!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  background:linear-gradient(145deg,#f4f8ff 0%,#fffaf5 100%)!important;
+  border:1px solid rgba(39,82,169,.10)!important;
+  border-radius:13px!important;
+  filter:none!important;
+  transform:none!important;
+}
+.about-page .values-showcase-card .value-detail-card:hover img{
+  transform:none!important;
+  filter:none!important;
+}
+.about-page .values-showcase-card .value-detail-copy{
+  padding:16px 15px!important;
+}
+@media(max-width:1050px){
+  .about-page .values-showcase-card .value-detail-card{grid-template-columns:170px minmax(0,1fr)!important;height:174px!important;min-height:174px!important}
+  .about-page .values-showcase-card .value-detail-card img{width:154px!important;height:150px!important;min-height:150px!important}
+}
+@media(max-width:720px){
+  .about-page .values-showcase-card .value-detail-card{grid-template-columns:150px minmax(0,1fr)!important;height:158px!important;min-height:158px!important}
+  .about-page .values-showcase-card .value-detail-card img{width:134px!important;height:134px!important;min-height:134px!important;margin:12px 8px!important;padding:5px!important}
+}
+@media(max-width:470px){
+  .about-page .values-showcase-card .value-detail-card{grid-template-columns:1fr!important;height:auto!important;min-height:0!important}
+  .about-page .values-showcase-card .value-detail-card img{width:calc(100% - 24px)!important;height:190px!important;min-height:190px!important;margin:12px!important;padding:8px!important}
+  .about-page .values-showcase-card .value-detail-copy{padding:6px 16px 18px!important}
+}
+
+
+/* Final image visibility and larger Industries We Serve cards */
+.about-page .about-story-card:not(.values-showcase-card):not(.why-showcase-card):not(.industries-card) > .about-card-image{
+  background:linear-gradient(145deg,#f5f9ff 0%,#fff8f2 100%)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:12px!important;
+  box-sizing:border-box!important;
+}
+.about-page .about-story-card:not(.values-showcase-card):not(.why-showcase-card):not(.industries-card) > .about-card-image > img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  padding:10px!important;
+  box-sizing:border-box!important;
+  background:transparent!important;
+  transform:none!important;
+  filter:none!important;
+}
+.about-page .about-story-card:not(.values-showcase-card):not(.why-showcase-card):not(.industries-card):hover > .about-card-image > img{
+  transform:none!important;
+  filter:none!important;
+}
+.about-page .industries-card{
+  min-height:500px!important;
+  padding-bottom:56px!important;
+}
+.about-page .industries-card .industry-train-wrap{
+  margin:-4px auto 10px!important;
+  padding:10px 0 16px!important;
+  transform:translateY(-10px)!important;
+  overflow:hidden!important;
+}
+.about-page .industries-card .industry-serve-card{
+  width:194px!important;
+  height:194px!important;
+  min-width:194px!important;
+  min-height:194px!important;
+  max-width:194px!important;
+  max-height:194px!important;
+  padding:10px!important;
+  border-radius:22px!important;
+}
+.about-page .industries-card .industry-serve-image{
+  height:132px!important;
+  min-height:132px!important;
+  flex:0 0 132px!important;
+  margin-bottom:9px!important;
+  border-radius:15px!important;
+}
+.about-page .industries-card .industry-serve-card h3{
+  min-height:28px!important;
+  font-size:13.2px!important;
+  line-height:1.18!important;
+}
+@media(max-width:720px){
+  .about-page .about-story-card:not(.values-showcase-card):not(.why-showcase-card):not(.industries-card) > .about-card-image{padding:8px!important}
+  .about-page .about-story-card:not(.values-showcase-card):not(.why-showcase-card):not(.industries-card) > .about-card-image > img{padding:6px!important}
+  .about-page .industries-card{min-height:0!important;padding-bottom:42px!important}
+  .about-page .industries-card .industry-train-wrap{transform:none!important;margin:0 auto 8px!important;padding:8px 0 12px!important}
+  .about-page .industries-card .industry-serve-card{width:168px!important;height:168px!important;min-width:168px!important;min-height:168px!important;max-width:168px!important;max-height:168px!important}
+  .about-page .industries-card .industry-serve-image{height:110px!important;min-height:110px!important;flex-basis:110px!important}
+  .about-page .industries-card .industry-serve-card h3{font-size:12px!important}
+}
+
+
+
+/* Final refinements: fixed premium image cards + values image sizing */
+.about-page .vision-card > .about-card-image,
+.about-page .mission-card > .about-card-image,
+.about-page .commitments-card > .about-card-image{
+  background:linear-gradient(145deg,#eff5ff 0%,#fff6ef 100%)!important;
+  border:1px solid rgba(43,83,165,.12)!important;
+  border-radius:22px!important;
+  padding:14px!important;
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+  box-shadow:0 16px 38px rgba(11,32,96,.10)!important;
+  transition:transform .34s ease, box-shadow .34s ease, border-color .34s ease!important;
+}
+.about-page .vision-card > .about-card-image::after,
+.about-page .mission-card > .about-card-image::after,
+.about-page .commitments-card > .about-card-image::after{
+  display:none!important;
+}
+.about-page .vision-card > .about-card-image > img,
+.about-page .mission-card > .about-card-image > img,
+.about-page .commitments-card > .about-card-image > img{
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  background:#ffffff!important;
+  border-radius:18px!important;
+  padding:8px!important;
+  box-sizing:border-box!important;
+  transition:transform .42s cubic-bezier(.2,.75,.2,1), filter .34s ease!important;
+}
+.about-page .vision-card:hover > .about-card-image,
+.about-page .mission-card:hover > .about-card-image,
+.about-page .commitments-card:hover > .about-card-image{
+  transform:translateY(-6px)!important;
+  box-shadow:0 24px 52px rgba(11,32,96,.16)!important;
+  border-color:rgba(245,130,31,.28)!important;
+}
+.about-page .vision-card:hover > .about-card-image > img,
+.about-page .mission-card:hover > .about-card-image > img,
+.about-page .commitments-card:hover > .about-card-image > img{
+  transform:scale(1.02)!important;
+  filter:saturate(1.04) contrast(1.02)!important;
+}
+
+.about-page .values-showcase-card .value-detail-card{
+  grid-template-columns:122px minmax(0,1fr)!important;
+}
+.about-page .values-showcase-card .value-detail-card img{
+  width:122px!important;
+  min-width:122px!important;
+  height:178px!important;
+  min-height:178px!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  border-radius:16px!important;
+  margin:10px 0 10px 10px!important;
+  box-shadow:0 10px 22px rgba(11,32,96,.12)!important;
+}
+.about-page .values-showcase-card .value-detail-copy{
+  padding:18px 16px 18px 18px!important;
+}
+@media(max-width:720px){
+  .about-page .vision-card > .about-card-image,
+  .about-page .mission-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{padding:10px!important}
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .mission-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{padding:6px!important}
+  .about-page .values-showcase-card .value-detail-card{grid-template-columns:110px minmax(0,1fr)!important}
+  .about-page .values-showcase-card .value-detail-card img{width:110px!important;min-width:110px!important;height:160px!important;min-height:160px!important;margin:8px 0 8px 8px!important}
+}
+@media(max-width:430px){
+  .about-page .values-showcase-card .value-detail-card{grid-template-columns:1fr!important}
+  .about-page .values-showcase-card .value-detail-card img{width:calc(100% - 20px)!important;min-width:0!important;height:170px!important;min-height:170px!important;margin:10px!important}
+}
+
+
+/* Final requested overrides: values square images + 10px bordered vision/mission/commitments */
+.about-page .vision-card > .about-card-image,
+.about-page .mission-card > .about-card-image,
+.about-page .commitments-card > .about-card-image{
+  padding:10px !important;
+  border-radius:22px !important;
+  overflow:hidden !important;
+  background:linear-gradient(145deg,#eef4ff 0%,#fff7f1 100%) !important;
+  box-sizing:border-box !important;
+}
+.about-page .vision-card > .about-card-image > img,
+.about-page .mission-card > .about-card-image > img,
+.about-page .commitments-card > .about-card-image > img{
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  padding:0 !important;
+  margin:0 !important;
+  border-radius:18px !important;
+  background:#ffffff !important;
+}
+.about-page .vision-card:hover > .about-card-image > img,
+.about-page .mission-card:hover > .about-card-image > img,
+.about-page .commitments-card:hover > .about-card-image > img{
+  transform:scale(1.02) !important;
+}
+
+.about-page .values-showcase-card .value-detail-card{
+  grid-template-columns:170px minmax(0,1fr) !important;
+  min-height:170px !important;
+  height:170px !important;
+  align-items:center !important;
+}
+.about-page .values-showcase-card .value-detail-card img{
+  width:150px !important;
+  min-width:150px !important;
+  height:150px !important;
+  min-height:150px !important;
+  margin:10px !important;
+  padding:0 !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  border-radius:18px !important;
+  display:block !important;
+  box-shadow:0 10px 22px rgba(11,32,96,.12) !important;
+}
+.about-page .values-showcase-card .value-detail-copy{
+  padding:16px 16px 16px 4px !important;
+}
+@media(max-width:720px){
+  .about-page .values-showcase-card .value-detail-card{
+    grid-template-columns:140px minmax(0,1fr) !important;
+    min-height:146px !important;
+    height:146px !important;
+  }
+  .about-page .values-showcase-card .value-detail-card img{
+    width:126px !important;
+    min-width:126px !important;
+    height:126px !important;
+    min-height:126px !important;
+    margin:10px 8px 10px 10px !important;
+    border-radius:16px !important;
+  }
+  .about-page .vision-card > .about-card-image,
+  .about-page .mission-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{padding:8px !important}
+}
+@media(max-width:430px){
+  .about-page .values-showcase-card .value-detail-card{
+    grid-template-columns:1fr !important;
+    height:auto !important;
+    min-height:0 !important;
+  }
+  .about-page .values-showcase-card .value-detail-card img{
+    width:calc(100% - 20px) !important;
+    min-width:0 !important;
+    height:180px !important;
+    min-height:180px !important;
+    margin:10px !important;
+  }
+  .about-page .values-showcase-card .value-detail-copy{
+    padding:0 16px 16px 16px !important;
+  }
+}
+
+
+
+/* Final Vision / Mission / Commitments image-area fill and premium animation */
+.about-page .vision-card > .about-card-image,
+.about-page .mission-card > .about-card-image,
+.about-page .commitments-card > .about-card-image{
+  position:relative!important;
+  isolation:isolate!important;
+  padding:10px!important;
+  background:#eef4ff!important;
+  overflow:hidden!important;
+  transition:transform .38s cubic-bezier(.2,.75,.2,1),box-shadow .38s ease,border-color .38s ease!important;
+}
+.about-page .vision-card > .about-card-image::before,
+.about-page .mission-card > .about-card-image::before,
+.about-page .commitments-card > .about-card-image::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  background-image:linear-gradient(rgba(8,34,92,.16),rgba(8,34,92,.08)),var(--section-image)!important;
+  background-size:cover!important;
+  background-position:center!important;
+  filter:blur(14px) saturate(1.08)!important;
+  transform:scale(1.10)!important;
+  opacity:.82!important;
+  transition:transform .55s cubic-bezier(.2,.75,.2,1),filter .4s ease,opacity .4s ease!important;
+}
+.about-page .vision-card > .about-card-image::after,
+.about-page .mission-card > .about-card-image::after,
+.about-page .commitments-card > .about-card-image::after{
+  content:""!important;
+  position:absolute!important;
+  inset:10px!important;
+  z-index:1!important;
+  border-radius:18px!important;
+  background:linear-gradient(115deg,transparent 18%,rgba(255,255,255,.34) 44%,transparent 70%)!important;
+  transform:translateX(-135%)!important;
+  transition:transform .72s cubic-bezier(.2,.75,.2,1)!important;
+  pointer-events:none!important;
+  display:block!important;
+}
+.about-page .vision-card > .about-card-image > img,
+.about-page .mission-card > .about-card-image > img,
+.about-page .commitments-card > .about-card-image > img{
+  position:relative!important;
+  z-index:2!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  padding:0!important;
+  margin:0!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.94)!important;
+  box-shadow:0 12px 28px rgba(7,32,84,.15)!important;
+  transform:scale(1)!important;
+  filter:none!important;
+  transition:transform .5s cubic-bezier(.2,.75,.2,1),box-shadow .4s ease,filter .4s ease!important;
+}
+.about-page .vision-card:hover > .about-card-image,
+.about-page .mission-card:hover > .about-card-image,
+.about-page .commitments-card:hover > .about-card-image{
+  transform:translateY(-7px)!important;
+  box-shadow:0 26px 58px rgba(11,32,96,.18)!important;
+  border-color:rgba(245,130,31,.34)!important;
+}
+.about-page .vision-card:hover > .about-card-image::before,
+.about-page .mission-card:hover > .about-card-image::before,
+.about-page .commitments-card:hover > .about-card-image::before{
+  transform:scale(1.16)!important;
+  filter:blur(11px) saturate(1.18)!important;
+  opacity:.92!important;
+}
+.about-page .vision-card:hover > .about-card-image::after,
+.about-page .mission-card:hover > .about-card-image::after,
+.about-page .commitments-card:hover > .about-card-image::after{
+  transform:translateX(135%)!important;
+}
+.about-page .vision-card:hover > .about-card-image > img,
+.about-page .mission-card:hover > .about-card-image > img,
+.about-page .commitments-card:hover > .about-card-image > img{
+  transform:scale(1.025)!important;
+  filter:saturate(1.05) contrast(1.02)!important;
+  box-shadow:0 18px 36px rgba(7,32,84,.20)!important;
+}
+@media(max-width:720px){
+  .about-page .vision-card > .about-card-image,
+  .about-page .mission-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{padding:8px!important}
+  .about-page .vision-card > .about-card-image::after,
+  .about-page .mission-card > .about-card-image::after,
+  .about-page .commitments-card > .about-card-image::after{inset:8px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .about-page .vision-card > .about-card-image,
+  .about-page .mission-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image,
+  .about-page .vision-card > .about-card-image::before,
+  .about-page .mission-card > .about-card-image::before,
+  .about-page .commitments-card > .about-card-image::before,
+  .about-page .vision-card > .about-card-image::after,
+  .about-page .mission-card > .about-card-image::after,
+  .about-page .commitments-card > .about-card-image::after,
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .mission-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{transition:none!important}
+}
+
 </style>
 <link rel="stylesheet" href="assets/css/responsive.css">
+<style>
+.industry-slide-btn{display:none!important}
+.why-detail-card{padding:10px!important;box-sizing:border-box!important}
+.why-detail-card img{margin:0!important;border-radius:12px!important;object-fit:cover!important}
+.industry-serve-card{padding:10px!important;box-sizing:border-box!important}
+.industry-serve-image{margin:0 0 10px!important;box-sizing:border-box!important}
+.about-story-card:not(.why-showcase-card):not(.industries-card) .about-card-image{margin:10px!important;overflow:hidden!important;border-radius:18px!important}
+.about-story-card:not(.why-showcase-card):not(.industries-card) .about-card-image img{width:100%!important;height:100%!important;object-fit:cover!important}
+</style>
+<style>
+/* Why Choose Us alignment fix */
+.why-showcase-card .why-card-grid{
+  display:grid!important;
+  grid-template-columns:repeat(5,minmax(0,1fr))!important;
+  gap:16px!important;
+  align-items:stretch!important;
+}
+.why-showcase-card .why-detail-card{
+  display:grid!important;
+  grid-template-columns:92px minmax(0,1fr)!important;
+  height:168px!important;
+  min-height:168px!important;
+  max-height:168px!important;
+  padding:10px!important;
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+  align-items:stretch!important;
+  border-radius:18px!important;
+}
+.why-showcase-card .why-detail-card img{
+  width:72px!important;
+  height:148px!important;
+  min-width:72px!important;
+  min-height:148px!important;
+  max-height:148px!important;
+  margin:0!important;
+  padding:0!important;
+  border-radius:12px!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  align-self:center!important;
+  justify-self:center!important;
+  display:block!important;
+}
+.why-showcase-card .why-detail-copy{
+  min-width:0!important;
+  height:100%!important;
+  padding:4px 0 4px 8px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:flex-start!important;
+  text-align:left!important;
+  box-sizing:border-box!important;
+}
+.why-showcase-card .why-detail-copy h3{
+  width:100%!important;
+  margin:0 0 6px!important;
+  color:#0b2060!important;
+  font-size:12.6px!important;
+  line-height:1.24!important;
+  font-weight:900!important;
+  display:block!important;
+}
+.why-showcase-card .why-detail-copy p{
+  width:100%!important;
+  margin:0!important;
+  color:#586b86!important;
+  font-size:10.7px!important;
+  line-height:1.42!important;
+  display:block!important;
+}
+@media(max-width:1180px){
+  .why-showcase-card .why-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:720px){
+  .why-showcase-card .why-card-grid{grid-template-columns:1fr!important}
+  .why-showcase-card .why-detail-card{
+    grid-template-columns:96px minmax(0,1fr)!important;
+    height:auto!important;
+    min-height:158px!important;
+    max-height:none!important;
+  }
+  .why-showcase-card .why-detail-card img{
+    width:76px!important;
+    height:138px!important;
+    min-height:138px!important;
+  }
+  .why-showcase-card .why-detail-copy h3{font-size:13px!important}
+  .why-showcase-card .why-detail-copy p{font-size:11px!important}
+}
+</style>
+
+
+<style>
+/* Industries We Serve wave animation */
+.industries-card .industry-train-wrap{
+  overflow:hidden!important;
+  position:relative!important;
+  padding-top:34px!important;
+  padding-bottom:46px!important;
+}
+.industries-card .industry-train-track{
+  display:flex!important;
+  align-items:center!important;
+  gap:18px!important;
+  width:max-content!important;
+  min-width:max-content!important;
+  will-change:transform!important;
+}
+.industries-card .industry-serve-card{
+  animation:industryCardWave 6.8s ease-in-out infinite!important;
+  transform:translateY(0);
+  will-change:transform!important;
+}
+.industries-card .industry-serve-card:nth-child(1),
+.industries-card .industry-serve-card:nth-child(10){animation-delay:0s!important}
+.industries-card .industry-serve-card:nth-child(2),
+.industries-card .industry-serve-card:nth-child(11){animation-delay:.22s!important}
+.industries-card .industry-serve-card:nth-child(3),
+.industries-card .industry-serve-card:nth-child(12){animation-delay:.44s!important}
+.industries-card .industry-serve-card:nth-child(4),
+.industries-card .industry-serve-card:nth-child(13){animation-delay:.66s!important}
+.industries-card .industry-serve-card:nth-child(5),
+.industries-card .industry-serve-card:nth-child(14){animation-delay:.88s!important}
+.industries-card .industry-serve-card:nth-child(6),
+.industries-card .industry-serve-card:nth-child(15){animation-delay:1.1s!important}
+.industries-card .industry-serve-card:nth-child(7),
+.industries-card .industry-serve-card:nth-child(16){animation-delay:1.32s!important}
+.industries-card .industry-serve-card:nth-child(8),
+.industries-card .industry-serve-card:nth-child(17){animation-delay:1.54s!important}
+.industries-card .industry-serve-card:nth-child(9),
+.industries-card .industry-serve-card:nth-child(18){animation-delay:1.76s!important}
+@keyframes industryCardWave{
+  0%,100%{transform:translateY(0)}
+  20%{transform:translateY(-14px)}
+  40%{transform:translateY(-5px)}
+  60%{transform:translateY(10px)}
+  80%{transform:translateY(5px)}
+}
+@media(max-width:720px){
+  .industries-card .industry-train-wrap{padding-top:28px!important;padding-bottom:38px!important}
+  .industries-card .industry-serve-card{animation-duration:7.4s!important}
+}
+</style>
+
+
+<style id="about-slider-full-image-final-fix">
+.about-page .about-who-section .about-card-image{padding:12px!important;box-sizing:border-box!important;background:#fff!important;overflow:hidden!important}
+.about-page .about-who-section .about-card-image::after{display:none!important}
+.about-page .about-who-section .about-image-slider{position:relative!important;width:100%!important;height:100%!important;padding:0!important;margin:0!important;background:linear-gradient(135deg,#eef5ff 0%,#fffaf5 48%,#eef4ff 100%)!important;overflow:hidden!important;border-radius:14px!important;isolation:isolate!important}
+.about-page .about-who-section .about-image-slider::before{content:"";position:absolute;left:-28px;top:14%;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(36,110,255,.20) 0%,rgba(36,110,255,.08) 45%,rgba(36,110,255,0) 72%)!important;filter:blur(3px);z-index:0}
+.about-page .about-who-section .about-image-slider::after{content:"";position:absolute;right:-26px;bottom:12%;width:132px;height:132px;border-radius:50%;background:radial-gradient(circle,rgba(255,126,20,.20) 0%,rgba(255,126,20,.08) 45%,rgba(255,126,20,0) 72%)!important;filter:blur(3px);z-index:0}
+.about-page .about-who-section .about-image-slider .about-image-slide{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-height:0!important;max-height:100%!important;object-fit:contain!important;object-position:center!important;margin:0!important;padding:18px!important;border:0!important;border-radius:12px!important;background:transparent!important;box-sizing:border-box!important;filter:none!important;opacity:0!important;transform:translateX(10%)!important;transition:opacity .55s ease,transform .55s ease!important;z-index:1}
+.about-page .about-who-section .about-image-slider .about-image-slide.active{opacity:1!important;transform:translateX(0)!important}
+.about-page .about-who-section .about-image-slider .about-image-slide.exit-left{opacity:0!important;transform:translateX(-10%)!important}
+.about-page .about-who-section:hover .about-image-slider .about-image-slide.active{transform:translateX(0)!important;filter:none!important}
+@media(max-width:720px){.about-page .about-who-section .about-card-image{padding:8px!important}.about-page .about-who-section .about-image-slider .about-image-slide{padding:12px!important}.about-page .about-who-section .about-image-slider::before{width:90px;height:90px;left:-18px}.about-page .about-who-section .about-image-slider::after{width:96px;height:96px;right:-18px}}
+</style>
+
+<style id="about-stability-final-fix">
+/* Keep the standard About card geometry intact. */
+.about-page .commitments-card .about-card-image{
+  padding:12px!important;
+  box-sizing:border-box!important;
+  background:linear-gradient(145deg,#eef5ff 0%,#fff6ee 100%)!important;
+  overflow:hidden!important;
+}
+.about-page .commitments-card .about-card-image::after{display:none!important}
+.about-page .commitments-card .about-card-image img{
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  padding:0!important;
+  margin:0!important;
+  border-radius:14px!important;
+  background:#fff!important;
+  transform:none!important;
+  filter:none!important;
+}
+.about-page .commitments-card:hover .about-card-image img{transform:none!important;filter:none!important}
+
+/* Compact animated text-only Why Choose Us boxes. */
+.about-page .why-showcase-card .why-card-grid{
+  display:grid!important;
+  grid-template-columns:repeat(5,minmax(0,1fr))!important;
+  gap:14px!important;
+  align-items:stretch!important;
+}
+.about-page .why-showcase-card .why-detail-card.text-only{
+  display:flex!important;
+  grid-template-columns:none!important;
+  align-items:center!important;
+  justify-content:center!important;
+  height:136px!important;
+  min-height:136px!important;
+  max-height:136px!important;
+  padding:16px 14px!important;
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+  border-radius:17px!important;
+  background:linear-gradient(145deg,#fff 0%,#eef5ff 58%,#fff2e7 100%)!important;
+  border:1px solid rgba(31,77,166,.17)!important;
+  box-shadow:0 13px 30px rgba(11,32,96,.10)!important;
+  animation:whyBoxFloat 5s ease-in-out infinite!important;
+}
+.about-page .why-showcase-card .why-detail-card.text-only:nth-child(2){animation-delay:.35s!important}
+.about-page .why-showcase-card .why-detail-card.text-only:nth-child(3){animation-delay:.7s!important}
+.about-page .why-showcase-card .why-detail-card.text-only:nth-child(4){animation-delay:1.05s!important}
+.about-page .why-showcase-card .why-detail-card.text-only:nth-child(5){animation-delay:1.4s!important}
+.about-page .why-showcase-card .why-detail-card.text-only:hover{
+  animation-play-state:paused!important;
+  transform:translateY(-5px)!important;
+  box-shadow:0 20px 42px rgba(11,32,96,.16),0 7px 18px rgba(245,130,31,.10)!important;
+}
+.about-page .why-showcase-card .why-detail-card.text-only img{display:none!important}
+.about-page .why-showcase-card .why-detail-card.text-only .why-detail-copy{
+  width:100%!important;
+  height:auto!important;
+  padding:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:flex-start!important;
+  text-align:left!important;
+}
+.about-page .why-showcase-card .why-detail-card.text-only h3{
+  margin:0 0 7px!important;
+  color:#0b2060!important;
+  font-size:12.4px!important;
+  line-height:1.26!important;
+  font-weight:900!important;
+}
+.about-page .why-showcase-card .why-detail-card.text-only p{
+  margin:0!important;
+  color:#5b6d88!important;
+  font-size:10.3px!important;
+  line-height:1.42!important;
+}
+@keyframes whyBoxFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+
+/* Move the Industries section slightly upward while retaining enough vertical room for every animated card. */
+.about-page .industries-card{margin-top:-16px!important}
+.about-page .industries-card .industry-train-wrap{
+  margin-top:-2px!important;
+  margin-bottom:10px!important;
+  padding-top:28px!important;
+  padding-bottom:40px!important;
+}
+
+@media(max-width:1180px){
+  .about-page .why-showcase-card .why-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .about-page .why-showcase-card .why-detail-card.text-only{height:auto!important;min-height:126px!important;max-height:none!important}
+}
+@media(max-width:720px){
+  .about-page .commitments-card .about-card-image{padding:8px!important}
+  .about-page .why-showcase-card .why-card-grid{grid-template-columns:1fr!important}
+  .about-page .why-showcase-card .why-detail-card.text-only{height:auto!important;min-height:112px!important;max-height:none!important;padding:14px!important}
+  .about-page .why-showcase-card .why-detail-card.text-only h3{font-size:12.2px!important}
+  .about-page .why-showcase-card .why-detail-card.text-only p{font-size:10.5px!important}
+  .about-page .industries-card{margin-top:-8px!important}
+}
+@media(prefers-reduced-motion:reduce){.about-page .why-showcase-card .why-detail-card.text-only{animation:none!important}}
+</style>
+
+<style id="final-image-fill-and-number-removal">
+/* Final request: fill Vision, Mission and Commitments image areas sharply */
+.about-page .vision-card > .about-card-image,
+.about-page .mission-card > .about-card-image,
+.about-page .commitments-card > .about-card-image{
+  padding:10px!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+  background:linear-gradient(145deg,#eef4ff 0%,#fff7f1 100%)!important;
+  border-radius:22px!important;
+}
+.about-page .vision-card > .about-card-image::before,
+.about-page .mission-card > .about-card-image::before,
+.about-page .commitments-card > .about-card-image::before,
+.about-page .vision-card > .about-card-image::after,
+.about-page .mission-card > .about-card-image::after,
+.about-page .commitments-card > .about-card-image::after{
+  display:none!important;
+}
+.about-page .vision-card > .about-card-image > img,
+.about-page .mission-card > .about-card-image > img,
+.about-page .commitments-card > .about-card-image > img{
+  width:100%!important;
+  height:100%!important;
+  min-height:100%!important;
+  margin:0!important;
+  padding:0!important;
+  display:block!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  border-radius:17px!important;
+  background:#fff!important;
+  image-rendering:auto!important;
+  backface-visibility:hidden!important;
+  transform:translateZ(0) scale(1.01)!important;
+  filter:none!important;
+  transition:transform .72s cubic-bezier(.2,.75,.2,1),filter .42s ease!important;
+}
+.about-page .vision-card:hover > .about-card-image > img,
+.about-page .mission-card:hover > .about-card-image > img,
+.about-page .commitments-card:hover > .about-card-image > img{
+  transform:translateZ(0) scale(1.055)!important;
+  filter:saturate(1.04) contrast(1.025)!important;
+}
+/* Ensure no serial number badge remains visible anywhere on the About page. */
+.about-page .about-card-number{display:none!important}
+@media(max-width:720px){
+  .about-page .vision-card > .about-card-image,
+  .about-page .mission-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{padding:8px!important}
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .mission-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{border-radius:15px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .mission-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{transition:none!important}
+}
+</style>
+
+
+<style id="final-vision-commitments-and-we-serve-refresh">
+/* Make Vision and Commitments image presence longer / fuller like Mission */
+.about-page .vision-card > .about-card-image > img,
+.about-page .commitments-card > .about-card-image > img{
+  transform:translateZ(0) scale(1.10)!important;
+  object-position:center center!important;
+}
+.about-page .vision-card:hover > .about-card-image > img,
+.about-page .commitments-card:hover > .about-card-image > img{
+  transform:translateZ(0) scale(1.15)!important;
+}
+@media(max-width:720px){
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{transform:translateZ(0) scale(1.08)!important}
+  .about-page .vision-card:hover > .about-card-image > img,
+  .about-page .commitments-card:hover > .about-card-image > img{transform:translateZ(0) scale(1.12)!important}}
+</style>
+
+<style id="vision-commitments-match-mission-layout">
+/* Vision and Commitments now use the same image-section layout as Mission. */
+.about-page .vision-card > .about-card-image,
+.about-page .commitments-card > .about-card-image{
+  height:410px!important;
+  min-height:410px!important;
+  margin:10px!important;
+  padding:10px!important;
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+  border-radius:22px!important;
+  background:linear-gradient(145deg,#eef4ff 0%,#fff7f1 100%)!important;
+  box-shadow:0 16px 38px rgba(11,32,96,.10)!important;
+}
+.about-page .vision-card > .about-card-image > img,
+.about-page .commitments-card > .about-card-image > img{
+  width:100%!important;
+  height:100%!important;
+  min-height:100%!important;
+  margin:0!important;
+  padding:0!important;
+  display:block!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  border:10px solid rgba(255,255,255,.94)!important;
+  border-radius:22px!important;
+  box-sizing:border-box!important;
+  background:#fff!important;
+  transform:translateZ(0) scale(1.01)!important;
+  filter:none!important;
+  transition:transform .72s cubic-bezier(.2,.75,.2,1),filter .42s ease!important;
+}
+.about-page .vision-card:hover > .about-card-image > img,
+.about-page .commitments-card:hover > .about-card-image > img{
+  transform:translateZ(0) scale(1.055)!important;
+  filter:saturate(1.04) contrast(1.025)!important;
+}
+@media(max-width:1050px){
+  .about-page .vision-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{height:330px!important;min-height:330px!important}
+}
+@media(max-width:720px){
+  .about-page .vision-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{height:250px!important;min-height:250px!important;margin:8px!important;padding:8px!important}
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{border-width:8px!important;border-radius:18px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{transition:none!important}
+}
+</style>
+
+
+<style id="we-serve-generated-images-fit">
+.about-page .industries-card .industry-serve-image{
+  background:linear-gradient(135deg,#eef4ff 0%, #fff7ef 100%)!important;
+}
+.about-page .industries-card .industry-serve-image img{
+  object-fit:contain!important;
+  object-position:center center!important;
+  padding:8px!important;
+  width:100%!important;
+  height:100%!important;
+  background:transparent!important;
+}
+@media (max-width:720px){
+  .about-page .industries-card .industry-serve-image img{padding:6px!important;}
+}
+</style>
+
+
+<style>
+/* Final fix: make We Serve images fully visible inside curved square boxes */
+.about-page .industries-card .industry-serve-card{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+}
+.about-page .industries-card .industry-serve-image{
+  width:100%!important;
+  height:132px!important;
+  min-height:132px!important;
+  flex:0 0 132px!important;
+  padding:8px!important;
+  margin:0 0 9px!important;
+  border-radius:16px!important;
+  background:linear-gradient(145deg,#ffffff 0%,#f7fbff 100%)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+  box-shadow:inset 0 0 0 1px rgba(12,32,96,.06)!important;
+}
+.about-page .industries-card .industry-serve-image img{
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  transform:none!important;
+  filter:none!important;
+  image-rendering:auto!important;
+}
+@media (max-width:720px){
+  .about-page .industries-card .industry-serve-image{
+    height:108px!important;
+    min-height:108px!important;
+    flex:0 0 108px!important;
+    padding:7px!important;
+  }
+}
+</style>
+
+
+<style id="we-serve-full-bleed-image-fill">
+/* Full-bleed We Serve images: no border, no padding, no empty pixels */
+.about-page .industries-card .industry-serve-image{
+  padding:0!important;
+  margin:0 0 9px!important;
+  border:none!important;
+  outline:none!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+  border-radius:16px!important;
+}
+.about-page .industries-card .industry-serve-image img{
+  width:100%!important;
+  height:100%!important;
+  min-width:100%!important;
+  min-height:100%!important;
+  display:block!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  border:0!important;
+  outline:0!important;
+  padding:0!important;
+  margin:0!important;
+  border-radius:16px!important;
+  transform:scale(1.035)!important;
+  transform-origin:center center!important;
+  filter:none!important;
+  image-rendering:auto!important;
+  backface-visibility:hidden!important;
+}
+.about-page .industries-card .industry-serve-card:hover .industry-serve-image img{
+  transform:scale(1.075)!important;
+}
+@media(max-width:720px){
+  .about-page .industries-card .industry-serve-image,
+  .about-page .industries-card .industry-serve-image img{border-radius:14px!important}
+}
+</style>
+
+
+<style id="final-vmc-full-cover-no-border">
+/* Vision, Mission and Commitments: full-bleed sharp image fit */
+.about-page .vision-card > .about-card-image,
+.about-page .mission-card > .about-card-image,
+.about-page .commitments-card > .about-card-image{
+  height:410px!important;
+  min-height:410px!important;
+  margin:10px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:18px!important;
+  background:transparent!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+}
+.about-page .vision-card > .about-card-image::before,
+.about-page .mission-card > .about-card-image::before,
+.about-page .commitments-card > .about-card-image::before,
+.about-page .vision-card > .about-card-image::after,
+.about-page .mission-card > .about-card-image::after,
+.about-page .commitments-card > .about-card-image::after{
+  display:none!important;
+}
+.about-page .vision-card > .about-card-image > img,
+.about-page .mission-card > .about-card-image > img,
+.about-page .commitments-card > .about-card-image > img{
+  width:100%!important;
+  height:100%!important;
+  min-width:100%!important;
+  min-height:100%!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:18px!important;
+  display:block!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  background:transparent!important;
+  filter:none!important;
+  image-rendering:auto!important;
+  backface-visibility:hidden!important;
+  transform:translateZ(0) scale(1.025)!important;
+  transition:transform .72s cubic-bezier(.2,.75,.2,1),filter .4s ease!important;
+}
+.about-page .vision-card:hover > .about-card-image > img,
+.about-page .mission-card:hover > .about-card-image > img,
+.about-page .commitments-card:hover > .about-card-image > img{
+  transform:translateZ(0) scale(1.075)!important;
+  filter:saturate(1.04) contrast(1.02)!important;
+}
+@media(max-width:1050px){
+  .about-page .vision-card > .about-card-image,
+  .about-page .mission-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{
+    height:330px!important;
+    min-height:330px!important;
+  }
+}
+@media(max-width:720px){
+  .about-page .vision-card > .about-card-image,
+  .about-page .mission-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{
+    height:250px!important;
+    min-height:250px!important;
+    margin:8px!important;
+    border-radius:16px!important;
+  }
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .mission-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{
+    border-radius:16px!important;
+    transform:translateZ(0) scale(1.03)!important;
+  }
+  .about-page .vision-card:hover > .about-card-image > img,
+  .about-page .mission-card:hover > .about-card-image > img,
+  .about-page .commitments-card:hover > .about-card-image > img{
+    transform:translateZ(0) scale(1.07)!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .mission-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{
+    transition:none!important;
+  }
+}
+</style>
+
+
+<style id="final-vmc-zoom-like-we-serve">
+/* Vision, Mission and Commitments: full zoomed image inside the curved area */
+.about-page .vision-card > .about-card-image,
+.about-page .mission-card > .about-card-image,
+.about-page .commitments-card > .about-card-image{
+  width:100%!important;
+  height:410px!important;
+  min-height:410px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:22px!important;
+  background:transparent!important;
+  overflow:hidden!important;
+  clip-path:inset(0 round 22px)!important;
+  box-shadow:none!important;
+}
+.about-page .vision-card > .about-card-image::before,
+.about-page .mission-card > .about-card-image::before,
+.about-page .commitments-card > .about-card-image::before,
+.about-page .vision-card > .about-card-image::after,
+.about-page .mission-card > .about-card-image::after,
+.about-page .commitments-card > .about-card-image::after{
+  display:none!important;
+}
+.about-page .vision-card > .about-card-image > img,
+.about-page .mission-card > .about-card-image > img,
+.about-page .commitments-card > .about-card-image > img{
+  width:100%!important;
+  height:100%!important;
+  min-width:100%!important;
+  min-height:100%!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:22px!important;
+  display:block!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  background:transparent!important;
+  filter:none!important;
+  image-rendering:auto!important;
+  backface-visibility:hidden!important;
+  transform:translateZ(0) scale(1.12)!important;
+  transform-origin:center center!important;
+  transition:transform .65s cubic-bezier(.2,.75,.2,1),filter .35s ease!important;
+}
+.about-page .vision-card:hover > .about-card-image > img,
+.about-page .mission-card:hover > .about-card-image > img,
+.about-page .commitments-card:hover > .about-card-image > img{
+  transform:translateZ(0) scale(1.17)!important;
+  filter:saturate(1.04) contrast(1.02)!important;
+}
+@media(max-width:1050px){
+  .about-page .vision-card > .about-card-image,
+  .about-page .mission-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{
+    height:330px!important;
+    min-height:330px!important;
+  }
+}
+@media(max-width:720px){
+  .about-page .vision-card > .about-card-image,
+  .about-page .mission-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{
+    height:250px!important;
+    min-height:250px!important;
+    border-radius:18px!important;
+    clip-path:inset(0 round 18px)!important;
+  }
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .mission-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{
+    border-radius:18px!important;
+    transform:translateZ(0) scale(1.10)!important;
+  }
+  .about-page .vision-card:hover > .about-card-image > img,
+  .about-page .mission-card:hover > .about-card-image > img,
+  .about-page .commitments-card:hover > .about-card-image > img{
+    transform:translateZ(0) scale(1.14)!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .mission-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{transition:none!important}
+}
+</style>
+
+
+<style id="final-vc-cover-fix">
+/* Final force-fit for Vision + Commitments like We Serve cover boxes */
+.about-page .vision-card > .about-card-image,
+.about-page .commitments-card > .about-card-image{
+  position:relative!important;
+  margin:10px!important;
+  padding:0!important;
+  overflow:hidden!important;
+  border-radius:22px!important;
+  background:#ffffff!important;
+  box-shadow:0 18px 42px rgba(11,32,96,.12)!important;
+  min-height:390px!important;
+  height:390px!important;
+}
+.about-page .vision-card > .about-card-image::before,
+.about-page .vision-card > .about-card-image::after,
+.about-page .commitments-card > .about-card-image::before,
+.about-page .commitments-card > .about-card-image::after{
+  display:none!important;
+}
+.about-page .vision-card > .about-card-image > img,
+.about-page .commitments-card > .about-card-image > img{
+  width:100%!important;
+  height:100%!important;
+  min-height:390px!important;
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  border:none!important;
+  border-radius:22px!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  transform:scale(1.18)!important;
+  filter:none!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.about-page .vision-card:hover > .about-card-image,
+.about-page .commitments-card:hover > .about-card-image{
+  transform:translateY(-6px)!important;
+  box-shadow:0 24px 54px rgba(11,32,96,.16)!important;
+}
+.about-page .vision-card:hover > .about-card-image > img,
+.about-page .commitments-card:hover > .about-card-image > img{
+  transform:scale(1.24)!important;
+}
+@media (max-width:1050px){
+  .about-page .vision-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{min-height:330px!important;height:330px!important}
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{min-height:330px!important}
+}
+@media (max-width:640px){
+  .about-page .vision-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{margin:8px!important;min-height:250px!important;height:250px!important;border-radius:18px!important}
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{min-height:250px!important;border-radius:18px!important;transform:scale(1.16)!important}
+  .about-page .vision-card:hover > .about-card-image > img,
+  .about-page .commitments-card:hover > .about-card-image > img{transform:scale(1.2)!important}
+}
+</style>
+
+
+<style id="strict-vc-mission-match">
+/* Make Vision + Commitments image fitting strictly match Mission */
+.about-page .vision-card > .about-card-image,
+.about-page .commitments-card > .about-card-image{
+  background:linear-gradient(145deg,#eff5ff 0%,#fff6ef 100%)!important;
+  border:1px solid rgba(43,83,165,.12)!important;
+  border-radius:22px!important;
+  padding:14px!important;
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+  box-shadow:0 16px 38px rgba(11,32,96,.10)!important;
+  min-height:410px!important;
+  height:410px!important;
+  display:block!important;
+}
+.about-page .vision-card > .about-card-image::after,
+.about-page .commitments-card > .about-card-image::after{
+  display:none!important;
+}
+.about-page .vision-card > .about-card-image > img,
+.about-page .commitments-card > .about-card-image > img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:382px!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  background:#ffffff!important;
+  border-radius:18px!important;
+  padding:0!important;
+  margin:0!important;
+  box-sizing:border-box!important;
+  transform:scale(1.02)!important;
+  transition:transform .42s cubic-bezier(.2,.75,.2,1), filter .34s ease!important;
+}
+.about-page .vision-card:hover > .about-card-image,
+.about-page .commitments-card:hover > .about-card-image{
+  transform:translateY(-6px)!important;
+  box-shadow:0 24px 52px rgba(11,32,96,.16)!important;
+  border-color:rgba(245,130,31,.28)!important;
+}
+.about-page .vision-card:hover > .about-card-image > img,
+.about-page .commitments-card:hover > .about-card-image > img{
+  transform:scale(1.055)!important;
+  filter:saturate(1.04) contrast(1.02)!important;
+}
+@media (max-width:720px){
+  .about-page .vision-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{padding:10px!important;min-height:320px!important;height:320px!important}
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{min-height:300px!important}
+}
+</style>
+
+
+<style id="final-vmc-identical-card-design">
+/* Vision, Mission and Commitments use one identical card design. */
+.about-page .vision-card,
+.about-page .mission-card,
+.about-page .commitments-card{
+  display:grid!important;
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)!important;
+  min-height:410px!important;
+  border-radius:24px!important;
+  overflow:hidden!important;
+  background:linear-gradient(145deg,rgba(227,238,255,.96),rgba(255,232,211,.95))!important;
+  border:1px solid rgba(52,91,170,.20)!important;
+  box-shadow:0 24px 58px rgba(11,32,96,.12),0 8px 24px rgba(245,130,31,.08)!important;
+}
+.about-page .vision-card > .about-card-image,
+.about-page .mission-card > .about-card-image,
+.about-page .commitments-card > .about-card-image{
+  order:1!important;
+  position:relative!important;
+  height:390px!important;
+  min-height:390px!important;
+  margin:10px!important;
+  padding:14px!important;
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:22px!important;
+  background:#ffffff!important;
+  box-shadow:0 16px 38px rgba(11,32,96,.10)!important;
+}
+.about-page .vision-card > .about-card-copy,
+.about-page .mission-card > .about-card-copy,
+.about-page .commitments-card > .about-card-copy{
+  order:2!important;
+  padding:44px 44px 40px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+.about-page .vision-card > .about-card-image::before,
+.about-page .vision-card > .about-card-image::after,
+.about-page .mission-card > .about-card-image::before,
+.about-page .mission-card > .about-card-image::after,
+.about-page .commitments-card > .about-card-image::before,
+.about-page .commitments-card > .about-card-image::after{
+  display:none!important;
+}
+.about-page .vision-card > .about-card-image > img,
+.about-page .mission-card > .about-card-image > img,
+.about-page .commitments-card > .about-card-image > img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:17px!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  background:#ffffff!important;
+  transform:scale(1.01)!important;
+  filter:none!important;
+  transition:transform .72s cubic-bezier(.2,.75,.2,1),filter .42s ease!important;
+}
+.about-page .vision-card:hover,
+.about-page .mission-card:hover,
+.about-page .commitments-card:hover{
+  box-shadow:0 31px 70px rgba(11,32,96,.17),0 12px 30px rgba(245,130,31,.13)!important;
+}
+.about-page .vision-card:hover > .about-card-image > img,
+.about-page .mission-card:hover > .about-card-image > img,
+.about-page .commitments-card:hover > .about-card-image > img{
+  transform:scale(1.045)!important;
+  filter:saturate(1.06) contrast(1.02)!important;
+}
+@media(max-width:1050px){
+  .about-page .vision-card,
+  .about-page .mission-card,
+  .about-page .commitments-card{grid-template-columns:1fr!important}
+  .about-page .vision-card > .about-card-image,
+  .about-page .mission-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{order:1!important;height:330px!important;min-height:330px!important}
+  .about-page .vision-card > .about-card-copy,
+  .about-page .mission-card > .about-card-copy,
+  .about-page .commitments-card > .about-card-copy{order:2!important}
+}
+@media(max-width:640px){
+  .about-page .vision-card > .about-card-image,
+  .about-page .mission-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{height:250px!important;min-height:250px!important;margin:8px!important;padding:10px!important;border-radius:18px!important}
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .mission-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{border-radius:14px!important}
+  .about-page .vision-card > .about-card-copy,
+  .about-page .mission-card > .about-card-copy,
+  .about-page .commitments-card > .about-card-copy{padding:28px 22px 30px!important}
+}
+</style>
+
+
+<style id="final-vmc-image-fit-curved-area">
+/* Final: fit Vision, Mission and Commitments images identically inside the curved image frame. */
+.about-page .vision-card > .about-card-image,
+.about-page .mission-card > .about-card-image,
+.about-page .commitments-card > .about-card-image{
+  position:relative!important;
+  height:390px!important;
+  min-height:390px!important;
+  margin:10px!important;
+  padding:0!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+  border:0!important;
+  border-radius:22px!important;
+  background:#ffffff!important;
+  box-shadow:0 16px 38px rgba(11,32,96,.10)!important;
+}
+.about-page .vision-card > .about-card-image::before,
+.about-page .vision-card > .about-card-image::after,
+.about-page .mission-card > .about-card-image::before,
+.about-page .mission-card > .about-card-image::after,
+.about-page .commitments-card > .about-card-image::before,
+.about-page .commitments-card > .about-card-image::after{
+  display:none!important;
+}
+.about-page .vision-card > .about-card-image > img,
+.about-page .mission-card > .about-card-image > img,
+.about-page .commitments-card > .about-card-image > img{
+  position:absolute!important;
+  inset:14px!important;
+  width:calc(100% - 28px)!important;
+  height:calc(100% - 28px)!important;
+  min-height:0!important;
+  max-width:none!important;
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:17px!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  background:#ffffff!important;
+  transform:scale(1.01)!important;
+  transform-origin:center center!important;
+  filter:none!important;
+  transition:transform .68s cubic-bezier(.2,.75,.2,1),filter .38s ease!important;
+}
+.about-page .vision-card:hover > .about-card-image > img,
+.about-page .mission-card:hover > .about-card-image > img,
+.about-page .commitments-card:hover > .about-card-image > img{
+  transform:scale(1.045)!important;
+  filter:saturate(1.05) contrast(1.02)!important;
+}
+@media(max-width:1050px){
+  .about-page .vision-card > .about-card-image,
+  .about-page .mission-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{
+    height:330px!important;
+    min-height:330px!important;
+  }
+}
+@media(max-width:640px){
+  .about-page .vision-card > .about-card-image,
+  .about-page .mission-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{
+    height:250px!important;
+    min-height:250px!important;
+    margin:8px!important;
+    border-radius:18px!important;
+  }
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .mission-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{
+    inset:10px!important;
+    width:calc(100% - 20px)!important;
+    height:calc(100% - 20px)!important;
+    border-radius:14px!important;
+  }
+}
+</style>
+
+
+<style id="ultimate-vmc-fit-4sides">
+/* Ultimate fix: Vision, Mission and Commitments use the exact same image-box design and all images fill all four sides cleanly. */
+.about-page .vision-card,
+.about-page .mission-card,
+.about-page .commitments-card{
+  display:grid!important;
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)!important;
+  min-height:410px!important;
+  border-radius:24px!important;
+  overflow:hidden!important;
+  background:linear-gradient(145deg,rgba(227,238,255,.96),rgba(255,232,211,.95))!important;
+  border:1px solid rgba(52,91,170,.20)!important;
+  box-shadow:0 24px 58px rgba(11,32,96,.12),0 8px 24px rgba(245,130,31,.08)!important;
+}
+.about-page .vision-card > .about-card-image,
+.about-page .mission-card > .about-card-image,
+.about-page .commitments-card > .about-card-image{
+  order:1!important;
+  position:relative!important;
+  display:block!important;
+  height:390px!important;
+  min-height:390px!important;
+  margin:10px!important;
+  padding:12px!important;
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:22px!important;
+  background:#ffffff!important;
+  box-shadow:0 16px 38px rgba(11,32,96,.10)!important;
+}
+.about-page .vision-card > .about-card-copy,
+.about-page .mission-card > .about-card-copy,
+.about-page .commitments-card > .about-card-copy{
+  order:2!important;
+  padding:44px 44px 40px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+.about-page .vision-card > .about-card-image::before,
+.about-page .vision-card > .about-card-image::after,
+.about-page .mission-card > .about-card-image::before,
+.about-page .mission-card > .about-card-image::after,
+.about-page .commitments-card > .about-card-image::before,
+.about-page .commitments-card > .about-card-image::after{
+  display:none!important;
+}
+.about-page .vision-card > .about-card-image > img,
+.about-page .mission-card > .about-card-image > img,
+.about-page .commitments-card > .about-card-image > img{
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:100%!important;
+  min-height:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:18px!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  background:#ffffff!important;
+  transform:scale(1.085)!important;
+  transform-origin:center center!important;
+  filter:none!important;
+  image-rendering:auto!important;
+  backface-visibility:hidden!important;
+  transition:transform .68s cubic-bezier(.2,.75,.2,1), filter .38s ease!important;
+}
+.about-page .vision-card:hover,
+.about-page .mission-card:hover,
+.about-page .commitments-card:hover{
+  box-shadow:0 31px 70px rgba(11,32,96,.17),0 12px 30px rgba(245,130,31,.13)!important;
+}
+.about-page .vision-card:hover > .about-card-image > img,
+.about-page .mission-card:hover > .about-card-image > img,
+.about-page .commitments-card:hover > .about-card-image > img{
+  transform:scale(1.11)!important;
+  filter:saturate(1.05) contrast(1.02)!important;
+}
+@media(max-width:1050px){
+  .about-page .vision-card,
+  .about-page .mission-card,
+  .about-page .commitments-card{grid-template-columns:1fr!important;}
+  .about-page .vision-card > .about-card-image,
+  .about-page .mission-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{height:330px!important;min-height:330px!important;}
+  .about-page .vision-card > .about-card-copy,
+  .about-page .mission-card > .about-card-copy,
+  .about-page .commitments-card > .about-card-copy{padding:30px 26px 32px!important;}
+}
+@media(max-width:640px){
+  .about-page .vision-card > .about-card-image,
+  .about-page .mission-card > .about-card-image,
+  .about-page .commitments-card > .about-card-image{height:250px!important;min-height:250px!important;margin:8px!important;padding:10px!important;border-radius:18px!important;}
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .mission-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{border-radius:14px!important;transform:scale(1.075)!important;}
+  .about-page .vision-card:hover > .about-card-image > img,
+  .about-page .mission-card:hover > .about-card-image > img,
+  .about-page .commitments-card:hover > .about-card-image > img{transform:scale(1.095)!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  .about-page .vision-card > .about-card-image > img,
+  .about-page .mission-card > .about-card-image > img,
+  .about-page .commitments-card > .about-card-image > img{transition:none!important;}
+}
+</style>
+
 </head>
 <body class="about-page">
 <nav class="site-nav">
@@ -207,7 +2046,7 @@
       <li><a href="news.html">News &amp; Updates</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <div class="nav-actions"><a class="btn btn-outline brochure-download-trigger" href="#" data-brochure-download>Download Brochure</a><a class="btn btn-primary" href="contact.html#enquiry">Request a Quote</a></div>
+    <div class="nav-actions"><a class="btn btn-primary brochure-download-trigger" href="#" data-brochure-download>Download Brochure</a></div>
   </div>
 </nav>
 
@@ -224,56 +2063,158 @@
     <div class="about-intro">
       <span class="eyebrow">About Therm-X</span>
       <h2>Built on Experience. Driven by <span>Precision.</span></h2>
-      <p>Each section below gives a clear overview. Select Read More to open the complete details without leaving this page.</p>
+      <p>Explore our company purpose, engineering capabilities, values, commitments, industries served, and the strengths that define Therm-X Innovations.</p>
     </div>
 
     <div class="about-card-list">
       <article class="about-story-card about-who-section" data-about-card>
-        <div class="about-card-image"><span class="about-card-number">01</span><img src="assets/images/about-facility.webp" alt="Therm-X environmental test chamber facility"></div>
-        <div class="about-card-copy">
-          <div class="about-card-kicker">Company Profile</div>
-          <h2>Who We Are</h2>
-          <p class="who-summary">Therm-X Innovations designs and manufactures dependable environmental test chambers for demanding industrial and research applications.</p>
-          <div class="who-brief-points" aria-label="Who we are highlights">
-            <div class="who-brief-item"><span>01</span><p><strong>Specialized Manufacturer</strong>Precision-engineered chambers for reliable product validation.</p></div>
-            <div class="who-brief-item"><span>02</span><p><strong>30+ Years of Expertise</strong>Experienced engineering in refrigeration, controls, and testing systems.</p></div>
-            <div class="who-brief-item"><span>03</span><p><strong>Quality-Focused</strong>Reliable construction, accurate performance, and customer-led design.</p></div>
-            <div class="who-brief-item"><span>04</span><p><strong>Responsive Support</strong>Practical assistance from design and installation through service.</p></div>
+        <div class="about-card-image">
+          <div class="about-image-slider" data-about-slider data-interval="1500" aria-label="Therm-X company highlights image slider">
+            <img class="about-image-slide active" src="assets/images/about/about-company-building.webp" alt="Therm-X Innovations company building exterior">
+            <img class="about-image-slide" src="assets/images/about/about-group-photo.webp" alt="Therm-X Innovations team group photo">
           </div>
-          <button class="about-read-more" data-about-open="who-we-are" type="button">Read More <span>→</span></button>
+        </div>
+        <div class="about-card-copy">
+          <div class="about-card-kicker">About Therm-X</div>
+          <h2>About Us & Our Purpose</h2>
+          <p class="who-summary">We are a specialized manufacturer of environmental test chambers, delivering reliable, precise, and application-focused solutions for product validation across diverse industries.</p>
+          <div class="who-brief-points" aria-label="Who we are highlights">
+            <div class="who-brief-item"><span>01</span><p><strong>Engineering-Led Startup</strong>Agility and innovation backed by mature engineering experience.</p></div>
+            <div class="who-brief-item"><span>02</span><p><strong>30+ Years Cumulative Experience</strong>Founding-team expertise across thermal systems, refrigeration, controls, and manufacturing.</p></div>
+            <div class="who-brief-item"><span>03</span><p><strong>Application-Focused Solutions</strong>Chambers designed around real product-validation requirements.</p></div>
+            <div class="who-brief-item"><span>04</span><p><strong>Concept to Commissioning</strong>Engineering integrity, practical design, and long-term serviceability.</p></div>
+          </div>
+          <div class="about-card-actions">
+            <a class="about-certification-button" href="assets/documents/therm-x-qms-certificate.pdf" target="_blank" rel="noopener" aria-label="Open Therm-X QMS certification PDF">Certification <span>↗</span></a>
+            <button class="about-read-more" data-about-open="who-we-are" type="button">Read More <span>→</span></button>
+          </div>
         </div>
       </article>
 
-      <article class="about-story-card reverse" data-about-card>
-        <div class="about-card-image"><span class="about-card-number">02</span><img src="assets/images/services-verticals.webp" alt="Therm-X vision for advanced environmental testing"></div>
+      <article class="about-story-card vision-card" data-about-card style="--section-image:url('assets/images/about/vision-global-environmental-testing.webp')">
+        <div class="about-card-image"><img src="assets/images/about/vision-global-environmental-testing.webp" alt="Therm-X vision for advanced environmental testing"></div>
         <div class="about-card-copy">
           <div class="about-card-kicker">Future Direction</div>
           <h2>Our Vision</h2>
-          <p>To become a trusted global partner in environmental testing by delivering dependable technology, responsive service, and measurable value.</p>
-          <ul class="about-points"><li>Trusted global partnership</li><li>Precision-led innovation</li><li>Reliable testing outcomes</li><li>Long-term customer value</li></ul>
+          <p>To become a trusted global partner in environmental testing solutions, known for engineering excellence, reliability, and innovation—enabling customers to build safer, better, and more durable products.</p>
+          <ul class="about-points"><li>Trusted global partnership</li><li>Engineering excellence</li><li>Reliable testing outcomes</li><li>Innovation with purpose</li></ul>
           <button class="about-read-more" data-about-open="vision" type="button">Read More <span>→</span></button>
         </div>
       </article>
 
-      <article class="about-story-card" data-about-card>
-        <div class="about-card-image"><span class="about-card-number">03</span><img src="assets/images/service-maintenance.webp" alt="Therm-X engineering mission and technical support"></div>
+      <article class="about-story-card mission-card" data-about-card style="--section-image:url('assets/images/about/mission-environmental-engineering.webp')">
+        <div class="about-card-image"><img src="assets/images/about/mission-environmental-engineering.webp" alt="Therm-X mission for dependable environmental test systems"></div>
         <div class="about-card-copy">
           <div class="about-card-kicker">What We Deliver</div>
           <h2>Our Mission</h2>
-          <p>We engineer high-performance systems quickly and responsibly, tailor solutions to the application, and support customers throughout the equipment lifecycle.</p>
-          <ul class="about-points"><li>High-performance chamber systems</li><li>Customized client solutions</li><li>Efficient engineering execution</li><li>Lifecycle technical support</li></ul>
+          <p>To design and manufacture high-performance environmental test chambers that meet demanding technical and regulatory requirements, while delivering customer-centric solutions and long-term technical support.</p>
+          <ul class="about-points"><li>High-performance chamber systems</li><li>Tailored testing solutions</li><li>Continuous technology improvement</li><li>Long-term customer partnerships</li></ul>
           <button class="about-read-more" data-about-open="mission" type="button">Read More <span>→</span></button>
         </div>
       </article>
 
-      <article class="about-story-card reverse" data-about-card>
-        <div class="about-card-image"><span class="about-card-number">04</span><img src="assets/images/service-refurbishment.webp" alt="Therm-X commitment to quality, safety and service"></div>
+      <article class="about-story-card commitments-card" data-about-card style="--section-image:url('assets/images/about/commitments-trust-support.webp')">
+        <div class="about-card-image"><img src="assets/images/about/commitments-trust-support.webp" alt="Therm-X commitments to reliable products, support and continuous improvement"></div>
         <div class="about-card-copy">
           <div class="about-card-kicker">Our Promise</div>
           <h2>Our Commitments</h2>
-          <p>Every relationship and every chamber is supported by clear commitments to engineering integrity, safety, quality, transparency, and dependable service.</p>
-          <ul class="about-points"><li>Quality and reliability</li><li>Safety-first engineering</li><li>Transparent communication</li><li>Responsive after-sales support</li></ul>
+          <p>We are committed to building long-term trust through reliable products, support beyond installation, and continuous improvement in our systems and processes.</p>
+          <ul class="about-points"><li>Reliable and dependable products</li><li>Support beyond installation</li><li>Continuous improvement</li><li>Confidence in testing</li></ul>
           <button class="about-read-more" data-about-open="commitments" type="button">Read More <span>→</span></button>
+        </div>
+      </article>
+
+      <article class="about-story-card values-showcase-card" data-about-card>
+        <div class="values-showcase-head">
+          <div class="about-card-kicker">How We Work</div>
+          <h2>Our Values</h2>
+          <p>Our values guide every engineering decision, customer interaction, manufacturing process, and service commitment.</p>
+        </div>
+        <div class="values-card-grid">
+          <article class="value-detail-card">
+            <img src="assets/images/about/value-engineering-excellence.webp" alt="Engineering excellence through precise environmental chamber design">
+            <div class="value-detail-copy"><h3>Engineering Excellence</h3><p>We believe strong fundamentals, accurate calculations, and disciplined execution are the backbone of reliable test systems.</p></div>
+          </article>
+          <article class="value-detail-card">
+            <img src="assets/images/about/value-integrity-transparency.webp" alt="Integrity and transparency represented by a professional partnership">
+            <div class="value-detail-copy"><h3>Integrity &amp; Transparency</h3><p>We commit to honest communication, realistic specifications, and ethical business practices.</p></div>
+          </article>
+          <article class="value-detail-card">
+            <img src="assets/images/about/value-customer-commitment.webp" alt="Customer commitment through collaborative technical consultation">
+            <div class="value-detail-copy"><h3>Customer Commitment</h3><p>Every project is treated as a partnership. We listen carefully, understand real testing needs, and deliver useful solutions.</p></div>
+          </article>
+          <article class="value-detail-card">
+            <img src="assets/images/about/value-innovation-purpose.webp" alt="Innovation with purpose in advanced industrial engineering">
+            <div class="value-detail-copy"><h3>Innovation with Purpose</h3><p>Innovation is meaningful only when it improves performance, reliability, safety, or efficiency for our customers.</p></div>
+          </article>
+          <article class="value-detail-card">
+            <img src="assets/images/about/value-quality-reliability.webp" alt="Quality and reliability through careful equipment inspection">
+            <div class="value-detail-copy"><h3>Quality &amp; Reliability</h3><p>We design for long service life, ease of maintenance, and consistent performance under demanding conditions.</p></div>
+          </article>
+          <article class="value-detail-card">
+            <img src="assets/images/about/value-teamwork-responsibility.webp" alt="Teamwork and responsibility in an engineering team">
+            <div class="value-detail-copy"><h3>Teamwork &amp; Responsibility</h3><p>We foster collaboration, accountability, and continuous learning across engineering, manufacturing, and service teams.</p></div>
+          </article>
+        </div>
+      </article>
+
+
+
+
+      <article class="about-story-card why-showcase-card" data-about-card>
+        <div class="why-showcase-head">
+          <div class="about-card-kicker">Why Therm-X</div>
+          <h2>Why Choose Us</h2>
+          <p>Practical engineering, robust design, safety focus, and responsive lifecycle support for every customer requirement.</p>
+        </div>
+        <div class="why-card-grid">
+          <article class="why-detail-card text-only">
+            <div class="why-detail-copy"><h3>In-house Engineering</h3><p>Refrigeration, electrical, controls, and mechanical engineering under one roof.</p></div>
+          </article>
+          <article class="why-detail-card text-only">
+            <div class="why-detail-copy"><h3>Robust Design, Safety &amp; Compliance</h3><p>Durable construction, safe operation, dependable performance, and standards-focused design.</p></div>
+          </article>
+          <article class="why-detail-card text-only">
+            <div class="why-detail-copy"><h3>Responsive Support</h3><p>Customer-focused lifecycle support from commissioning through long-term service.</p></div>
+          </article>
+          <article class="why-detail-card text-only">
+            <div class="why-detail-copy"><h3>Strong Engineering Expertise</h3><p>Specialized thermal, hot-and-cold, refrigeration, and custom test-system knowledge.</p></div>
+          </article>
+          <article class="why-detail-card text-only">
+            <div class="why-detail-copy"><h3>30+ Years Cumulative Experience</h3><p>Founding-team experience across environmental testing systems and industrial applications.</p></div>
+          </article>
+        </div>
+      </article>
+
+      <article class="about-story-card industries-card" data-about-card>
+        <div class="about-card-image"><img src="assets/images/about/customer-commitment.webp" alt="Industries served by Therm-X Innovations"></div>
+        <div class="about-card-copy">
+          <div class="about-card-kicker">Application Sectors</div>
+          <h2>Industries We Serve</h2>
+          <p>Therm-X systems support reliable product validation across advanced manufacturing, mobility, defence, healthcare, research, and technology sectors.</p>
+          <div class="industry-train-wrap" aria-label="Industries we serve moving cards from left to right">
+            <div class="industry-train-track">
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-electronics.webp" alt="Electronics industry"></div><h3>Electronics</h3></article>
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-automotive.webp" alt="Automotive industry"></div><h3>Automotive</h3></article>
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-aerospace.webp" alt="Aerospace industry"></div><h3>Aerospace</h3></article>
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-defence.webp" alt="Defence industry"></div><h3>Defence</h3></article>
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-semiconductors.webp" alt="Semiconductors industry"></div><h3>Semiconductors</h3></article>
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-battery-testing.webp" alt="Battery testing industry"></div><h3>Battery Testing</h3></article>
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-ev-components.webp" alt="EV components industry"></div><h3>EV Components</h3></article>
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-pharmaceuticals.webp" alt="Pharmaceuticals industry"></div><h3>Pharmaceuticals</h3></article>
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-rnd-laboratories.webp" alt="R&amp;D laboratories"></div><h3>R&amp;D Laboratories</h3></article>
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-electronics.webp" alt="Electronics industry"></div><h3>Electronics</h3></article>
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-automotive.webp" alt="Automotive industry"></div><h3>Automotive</h3></article>
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-aerospace.webp" alt="Aerospace industry"></div><h3>Aerospace</h3></article>
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-defence.webp" alt="Defence industry"></div><h3>Defence</h3></article>
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-semiconductors.webp" alt="Semiconductors industry"></div><h3>Semiconductors</h3></article>
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-battery-testing.webp" alt="Battery testing industry"></div><h3>Battery Testing</h3></article>
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-ev-components.webp" alt="EV components industry"></div><h3>EV Components</h3></article>
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-pharmaceuticals.webp" alt="Pharmaceuticals industry"></div><h3>Pharmaceuticals</h3></article>
+              <article class="industry-serve-card"><div class="industry-serve-image"><img src="assets/images/about/industry-rnd-laboratories.webp" alt="R&amp;D laboratories"></div><h3>R&amp;D Laboratories</h3></article>
+            </div>
+          </div>
+          <button class="about-read-more" data-about-open="industries" type="button">Read More <span>→</span></button>
         </div>
       </article>
     </div>
@@ -298,15 +2239,61 @@
   </div>
 </div>
 
-<footer>
+<footer class="site-footer">
   <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand"><img class="footer-logo" src="assets/images/logo.webp" alt="Therm-X Innovations"><p>Specialized manufacturer of environmental test chambers delivering reliable, precise, and application-focused product validation solutions.</p></div>
-      <div class="footer-col"><h3>Products</h3><ul><li><a href="products/environmental-test-chambers.html">Environmental Test Chambers</a></li><li><a href="products/thermal-shock-series.html">Thermal Shock Series</a></li><li><a href="products/altitude-series.html">Altitude Series</a></li><li><a href="products/battery-test-chamber.html">Battery Test Chamber</a></li><li><a href="products/rain-chambers.html">Rain Chambers</a></li></ul></div>
-      <div class="footer-col"><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="news.html">News &amp; Updates</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div class="footer-col"><h3>Contact</h3><ul><li><a href="tel:+919916904077">+91 99169 04077</a></li><li><a href="tel:+918029904629">+91 080 29904629</a></li><li><a href="mailto:sales@thermxinnovations.com">sales@thermxinnovations.com</a></li><li>#41A/11, 2nd Cross, 2nd Phase, Peenya Industrial Area, Bengaluru – 560058</li></ul></div>
+    <div class="footer-grid footer-grid-modern">
+      <div class="footer-brand">
+        <a class="footer-logo-link" href="index.html" aria-label="Therm-X Innovations home">
+          <img class="footer-logo" src="assets/images/logo.webp" alt="Therm-X Innovations">
+        </a>
+        <p class="footer-intro">Precision environmental testing systems engineered for reliable, repeatable, and standards-compliant performance.</p>
+        <div class="footer-contact-list">
+          <a class="footer-contact-item" href="tel:+919980728238">
+            <span class="footer-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.46 15.46 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.37 11.37 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.37 11.37 0 0 0 .57 3.56 1 1 0 0 1-.25 1.02l-2.2 2.21Z"/></svg></span>
+            <span><small>Call</small><strong>9980728238</strong></span>
+          </a>
+          <a class="footer-contact-item" href="https://wa.me/918073261027" target="_blank" rel="noopener">
+            <span class="footer-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.84 9.84 0 0 0-8.42 14.93L2 22l5.2-1.57A9.97 9.97 0 1 0 12.04 2Zm0 17.95a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.08.93.95-3-.2-.31a7.93 7.93 0 1 1 6.76 3.69Zm4.45-5.93c-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.53.06-.24-.12-1.03-.38-1.96-1.21a7.32 7.32 0 0 1-1.36-1.69c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.75-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.65.3-.22.24-.85.83-.85 2.03s.87 2.36.99 2.52c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg></span>
+            <span><small>WhatsApp</small><strong>+91 80732 61027</strong></span>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="products/environmental-test-chambers.html">Environmental Test Chambers</a></li>
+          <li><a href="products/thermal-shock-series.html">Thermal Shock Series</a></li>
+          <li><a href="products/battery-test-chamber.html">Battery Test Chamber</a></li>
+          <li><a href="products/xwt-walkin-series.html">XWT Walk-in Series</a></li>
+          <li><a href="products/industrial-ovens.html">Industrial Ovens</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="news.html">News &amp; Updates</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-reach">
+        <h3>Reach Us</h3>
+        <p class="footer-address-text">#41A/11, 2nd Cross, 2nd Phase,<br>Peenya Industrial Area, Opp. ABB Ltd,<br>Bengaluru – 560058</p>
+        <h3 class="footer-social-title">Follow Us</h3>
+        <div class="footer-socials">
+          <a class="footer-social facebook" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-9h3l.45-3.5H13.5V7.26c0-1.01.28-1.7 1.73-1.7H17V2.43A23.7 23.7 0 0 0 14.39 2C11.81 2 10 3.57 10 6.46V9.5H7V13h3v9h3.5Z"/></svg></a>
+          <a class="footer-social youtube" href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2 31.58 31.58 0 0 0 0 12a31.58 31.58 0 0 0 .5 5.8 3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14A31.58 31.58 0 0 0 24 12a31.58 31.58 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg></a>
+          <a class="footer-social whatsapp" href="https://wa.me/918073261027" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.84 9.84 0 0 0-8.42 14.93L2 22l5.2-1.57A9.97 9.97 0 1 0 12.04 2Zm0 17.95a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.08.93.95-3-.2-.31a7.93 7.93 0 1 1 6.76 3.69Zm4.45-5.93c-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.53.06-.24-.12-1.03-.38-1.96-1.21a7.32 7.32 0 0 1-1.36-1.69c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.75-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.65.3-.22.24-.85.83-.85 2.03s.87 2.36.99 2.52c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg></a>
+          <a class="footer-social instagram" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm10.5 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg></a>
+        </div>
+      </div>
     </div>
-    <div class="footer-bottom"><p>© 2026 Therm-X Innovations Pvt. Ltd. All rights reserved.</p><p>CIN: U28990KA2024PTC191086</p></div>
+    <div class="footer-bottom">
+      <p>© 2026 Therm-X Innovations Pvt. Ltd. All rights reserved.</p>
+      <p>CIN: U28990KA2024PTC191086</p>
+    </div>
   </div>
 </footer>
 
@@ -315,51 +2302,69 @@
 (() => {
   const data = {
     'who-we-are': {
-      kicker: 'Company Profile',
-      title: 'Who We Are',
+      kicker: 'About Therm-X',
+      title: 'About Us & Our Purpose',
       image: 'assets/images/about-facility.webp',
       alt: 'Therm-X environmental test chamber facility',
       paragraphs: [
-        'Therm-X Innovations is a Technology-driven manufacturer of Environmental Test Chambers providing innovative testing solutions for industries including electronics, automotive, aerospace, EV, solar, pharmaceuticals, health care and industrial manufacturing. Our focus is on delivering dependable systems backed by responsive service support and customer commitment.',
-        'Setting the standard in environmental testing solution with engineering precision and robust reliability. Precision-engineered environmental chambers simulate extreme conditions, ensuring your products perform reliably in real-world environments.'
+        'Therm-X Innovations was founded by a team of seasoned professionals with decades of hands-on industry experience. We bring together deep domain knowledge in environmental testing, refrigeration, controls, and industrial engineering.',
+        'While we are a young organization, our engineering DNA is mature—shaped by years of delivering complex test systems, solving field challenges, and supporting mission-critical applications.',
+        'Our purpose is to deliver reliable, precise, and application-focused environmental test solutions that help customers validate product performance, reliability, and compliance.'
       ],
-      points: ['Specialized Manufacturer: Engineering-driven solutions for reliability testing with 30+ years of cumulative founding team experience.','Quality Focus: Committed to precision, reliability, and customer-centric design in every chamber we build.','Proven Expertise: Our team combines decades of refrigeration and control system expertise with responsive support.','Customer centric design: Unwavering focus on precision, reliability, and tailored client needs.']
+      points: ['Environmental test chamber design and manufacturing','Advanced refrigeration systems, including low-temperature and cascade/CO₂-based systems','Electrical and PLC-based control systems','Thermal, humidity, altitude, vacuum, and multi-zone test solutions','Compliance with international testing standards']
     },
     vision: {
       kicker: 'Future Direction',
       title: 'Our Vision',
-      image: 'assets/images/services-verticals.webp',
+      image: 'assets/images/about/vision-global-environmental-testing.webp',
       alt: 'Therm-X vision for advanced environmental testing',
       paragraphs: [
-        'Our vision is to become a trusted global partner in environmental testing solutions by consistently delivering the precision, reliability, and responsive support our customers expect.',
-        'We aim to build a strong technology-led organization known for practical innovation, disciplined engineering, dependable equipment, and lasting customer relationships.',
-        'As industries adopt more advanced products and stricter validation standards, Therm-X intends to grow alongside customers with scalable systems and future-ready testing capability.'
+        'To become a trusted global partner in environmental testing solutions, known for engineering excellence, reliability, and innovation—enabling customers to build safer, better, and more durable products.'
       ],
-      points: ['Establish Therm-X as a dependable global testing partner','Create recognized benchmarks in chamber precision and reliability','Advance technology without compromising serviceability','Grow through long-term customer trust and measurable value']
+      points: ['Trusted global environmental-testing partner','Engineering excellence and dependable performance','Reliable, innovative, and application-focused solutions','Enabling safer, better, and more durable products']
     },
     mission: {
       kicker: 'What We Deliver',
       title: 'Our Mission',
-      image: 'assets/images/service-maintenance.webp',
-      alt: 'Therm-X engineering mission and technical support',
+      image: 'assets/images/about/mission-environmental-engineering.webp',
+      alt: 'Therm-X mission for dependable environmental test systems',
       paragraphs: [
-        'Our mission is to design and manufacture high-performance environmental test chambers with speed, efficiency, and strong engineering discipline.',
-        'We develop customized solutions for unique test requirements, collaborate closely with customer teams, and translate standards and application needs into dependable equipment.',
-        'We also commit to supporting every delivered system through installation, operator training, calibration, preventive maintenance, upgrades, and responsive technical assistance.'
+        'Our mission is to design, manufacture, and support dependable environmental test systems that meet demanding technical and regulatory requirements while delivering long-term customer value.'
       ],
-      points: ['Develop high-performance chamber systems efficiently','Provide customized solutions for unique applications','Build collaborative and long-term customer partnerships','Continuously improve technology, controls, safety and service']
+      points: ['To design and manufacture high-performance environmental test chambers that meet demanding technical and regulatory requirements','To deliver customer-centric solutions tailored to specific testing needs rather than one-size-fits-all products','To continuously innovate in thermal systems, controls, safety, and energy-efficient designs','To build long-term partnerships through responsive service, transparency, and technical support','To grow responsibly as an Indian engineering company operating to global standards']
     },
     commitments: {
       kicker: 'Our Promise',
       title: 'Our Commitments',
-      image: 'assets/images/service-refurbishment.webp',
-      alt: 'Therm-X commitment to quality, safety and service',
+      image: 'assets/images/about/commitments-trust-support.webp',
+      alt: 'Therm-X commitments to reliable products, support and continuous improvement',
       paragraphs: [
-        'Our commitments define how we engineer, communicate, manufacture, and support every Therm-X system. They are the standards we use to evaluate our decisions and customer relationships.',
-        'We prioritize robust design, dependable performance, user safety, honest technical communication, and durable equipment that can be maintained effectively throughout its operating life.',
-        'Beyond delivery, we remain committed to responsive support, transparent coordination, continuous improvement, and practical solutions that protect the customer’s testing investment.'
+        'As a growing organization, we are committed to building long-term trust by delivering more reliable and dependable products, supporting customers beyond installation, and continuously improving our systems and processes.',
+        'Our goal is not just to manufacture equipment—but to enable confidence in testing.'
       ],
-      points: ['Engineering excellence and dependable performance','Safety-first system architecture and validation','Integrity and transparency in technical communication','Responsive after-sales service and lifecycle support','Continuous improvement in products and processes','Customer commitment beyond equipment installation']
+      points: ['Reliable and dependable products','Support beyond installation','Continuous improvement in systems and processes','Confidence in testing']
+    },
+    values: {
+      kicker: 'How We Work',
+      title: 'Our Values',
+      image: 'assets/images/about/innovation-purpose.webp',
+      alt: 'Therm-X engineering values and lifecycle responsibility',
+      paragraphs: [
+        'Our values guide every engineering decision, customer interaction, manufacturing process, and service commitment.',
+        'They shape how we work, collaborate, innovate, and deliver dependable environmental testing solutions.'
+      ],
+      points: ['Engineering Excellence: We believe strong fundamentals, accurate calculations, and disciplined execution are the backbone of reliable test systems.','Integrity & Transparency: We commit to honest communication, realistic specifications, and ethical business practices.','Customer Commitment: Every project is treated as a partnership. We listen carefully, understand real testing needs, and deliver solutions that add value.','Innovation with Purpose: Innovation is meaningful only when it improves performance, reliability, safety, or efficiency for our customers.','Quality & Reliability: We design for long service life, ease of maintenance, and consistent performance under demanding conditions.','Teamwork & Responsibility: We foster a culture of collaboration, accountability, and continuous learning across engineering, manufacturing, and service teams.']
+    },
+    industries: {
+      kicker: 'Application Sectors',
+      title: 'Industries We Serve',
+      image: 'assets/images/about/customer-commitment.webp',
+      alt: 'Industries served by Therm-X Innovations',
+      paragraphs: [
+        'Our environmental test chambers and integrated testing solutions support product validation across a wide range of technology, mobility, industrial, healthcare, and research sectors.',
+        'We work with customers to match chamber configuration, control strategy, safety provisions, and performance range to the needs of each application.'
+      ],
+      points: ['Electronics','Automotive','Aerospace','Defence','Semiconductors','Battery testing','EV components','Pharmaceuticals','R&D laboratories']
     }
   };
 
@@ -413,7 +2418,489 @@
     card.style.transitionDelay = `${index * 90}ms`;
     observer.observe(card);
   });
+
+  document.querySelectorAll('[data-about-slider]').forEach((slider) => {
+    const slides = Array.from(slider.querySelectorAll('.about-image-slide'));
+    if (slides.length < 2) return;
+    const interval = Number(slider.dataset.interval || 1500);
+    let current = 0;
+
+    const showSlide = (nextIndex) => {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active', 'exit-left');
+        if (index === current) slide.classList.add('exit-left');
+        if (index === nextIndex) slide.classList.add('active');
+      });
+      current = nextIndex;
+    };
+
+    setInterval(() => {
+      const nextIndex = (current + 1) % slides.length;
+      showSlide(nextIndex);
+    }, interval);
+  });
 })();
 </script>
+
+
+<script>
+(() => {
+  document.querySelectorAll('.industry-train-wrap').forEach((wrap) => {
+    const track = wrap.querySelector('.industry-train-track');
+    const prev = wrap.querySelector('.industry-slide-prev');
+    const next = wrap.querySelector('.industry-slide-next');
+    if (!track) return;
+
+    const originalCards = Array.from(track.querySelectorAll('.industry-serve-card'));
+    if (!originalCards.length) return;
+
+    // Keep one clean duplicate set for circular flow.
+    if (!track.dataset.circularReady) {
+      originalCards.forEach(card => track.appendChild(card.cloneNode(true)));
+      track.dataset.circularReady = 'true';
+    }
+
+    let index = 0;
+    let autoTimer = null;
+    let isAnimating = false;
+
+    const cards = () => Array.from(track.querySelectorAll('.industry-serve-card'));
+    const cardStep = () => {
+      const first = track.querySelector('.industry-serve-card');
+      if (!first) return 0;
+      const style = window.getComputedStyle(track);
+      const gap = parseFloat(style.columnGap || style.gap || 0) || 0;
+      return first.getBoundingClientRect().width + gap;
+    };
+
+    const setPosition = (withTransition = true) => {
+      track.style.transition = withTransition ? 'transform .55s cubic-bezier(.22,.8,.2,1)' : 'none';
+      track.style.transform = `translate3d(${-index * cardStep()}px,0,0)`;
+    };
+
+    const normalize = () => {
+      const total = originalCards.length;
+      if (index >= total) {
+        index = 0;
+        setPosition(false);
+      }
+      if (index < 0) {
+        index = total - 1;
+        setPosition(false);
+      }
+    };
+
+    const move = (direction = 1, manual = false) => {
+      if (isAnimating) return;
+      isAnimating = true;
+      index += direction;
+      setPosition(true);
+      window.setTimeout(() => {
+        normalize();
+        isAnimating = false;
+      }, 570);
+
+      if (manual) restartAuto();
+    };
+
+    const restartAuto = () => {
+      if (autoTimer) clearInterval(autoTimer);
+      autoTimer = setInterval(() => move(1, false), 2300);
+    };
+
+    if (next) next.addEventListener('click', () => move(1, true));
+    if (prev) prev.addEventListener('click', () => move(-1, true));
+
+    wrap.addEventListener('mouseenter', () => {
+      if (autoTimer) clearInterval(autoTimer);
+    });
+    wrap.addEventListener('mouseleave', restartAuto);
+
+    window.addEventListener('resize', () => setPosition(false));
+
+    setPosition(false);
+    restartAuto();
+  });
+})();
+</script>
+
+
+<style id="vmc-final-cover-fit-bottom">
+/* FINAL override: make Vision, Mission, Commitments image areas identical and fully fit inside curved cards */
+.about-page article.about-story-card.vision-card,
+.about-page article.about-story-card.mission-card,
+.about-page article.about-story-card.commitments-card{
+  display:grid !important;
+  grid-template-columns:minmax(0,0.95fr) minmax(0,1.05fr) !important;
+  align-items:stretch !important;
+  gap:0 !important;
+  overflow:hidden !important;
+}
+.about-page article.about-story-card.vision-card > .about-card-image,
+.about-page article.about-story-card.mission-card > .about-card-image,
+.about-page article.about-story-card.commitments-card > .about-card-image{
+  position:relative !important;
+  display:block !important;
+  overflow:hidden !important;
+  margin:14px !important;
+  padding:0 !important;
+  min-height:430px !important;
+  height:430px !important;
+  border-radius:22px !important;
+  background:#ffffff !important;
+  box-shadow:0 14px 34px rgba(12,34,99,.10) !important;
+  isolation:isolate !important;
+}
+.about-page article.about-story-card.vision-card > .about-card-image::before,
+.about-page article.about-story-card.vision-card > .about-card-image::after,
+.about-page article.about-story-card.mission-card > .about-card-image::before,
+.about-page article.about-story-card.mission-card > .about-card-image::after,
+.about-page article.about-story-card.commitments-card > .about-card-image::before,
+.about-page article.about-story-card.commitments-card > .about-card-image::after{
+  display:none !important;
+  content:none !important;
+}
+.about-page article.about-story-card.vision-card > .about-card-image > img,
+.about-page article.about-story-card.mission-card > .about-card-image > img,
+.about-page article.about-story-card.commitments-card > .about-card-image > img{
+  position:absolute !important;
+  inset:0 !important;
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  min-width:100% !important;
+  min-height:100% !important;
+  max-width:none !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:none !important;
+  border-radius:22px !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  background:#ffffff !important;
+  transform:scale(1.07) !important;
+  transition:transform .55s ease, filter .35s ease !important;
+}
+.about-page article.about-story-card.vision-card:hover > .about-card-image > img,
+.about-page article.about-story-card.mission-card:hover > .about-card-image > img,
+.about-page article.about-story-card.commitments-card:hover > .about-card-image > img{
+  transform:scale(1.11) !important;
+  filter:saturate(1.02) contrast(1.02) !important;
+}
+.about-page article.about-story-card.vision-card > .about-card-copy,
+.about-page article.about-story-card.mission-card > .about-card-copy,
+.about-page article.about-story-card.commitments-card > .about-card-copy{
+  padding:38px 42px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+}
+@media (max-width: 1100px){
+  .about-page article.about-story-card.vision-card,
+  .about-page article.about-story-card.mission-card,
+  .about-page article.about-story-card.commitments-card{
+    grid-template-columns:1fr !important;
+  }
+  .about-page article.about-story-card.vision-card > .about-card-image,
+  .about-page article.about-story-card.mission-card > .about-card-image,
+  .about-page article.about-story-card.commitments-card > .about-card-image{
+    min-height:340px !important; height:340px !important; margin:12px !important;
+  }
+  .about-page article.about-story-card.vision-card > .about-card-copy,
+  .about-page article.about-story-card.mission-card > .about-card-copy,
+  .about-page article.about-story-card.commitments-card > .about-card-copy{
+    padding:28px 24px 34px !important;
+  }
+}
+@media (max-width: 640px){
+  .about-page article.about-story-card.vision-card > .about-card-image,
+  .about-page article.about-story-card.mission-card > .about-card-image,
+  .about-page article.about-story-card.commitments-card > .about-card-image{
+    min-height:255px !important; height:255px !important; margin:10px !important;
+  }
+  .about-page article.about-story-card.vision-card > .about-card-image > img,
+  .about-page article.about-story-card.mission-card > .about-card-image > img,
+  .about-page article.about-story-card.commitments-card > .about-card-image > img{
+    transform:scale(1.08) !important;
+  }
+}
+</style>
+
+
+<style id="vmc-final-zoom-curved-tweak">
+/* Final tweak: slightly more zoom and stronger curved corners for Vision, Mission, Commitments */
+.about-page article.about-story-card.vision-card > .about-card-image,
+.about-page article.about-story-card.mission-card > .about-card-image,
+.about-page article.about-story-card.commitments-card > .about-card-image{
+  border-radius:24px !important;
+  overflow:hidden !important;
+}
+.about-page article.about-story-card.vision-card > .about-card-image > img,
+.about-page article.about-story-card.mission-card > .about-card-image > img,
+.about-page article.about-story-card.commitments-card > .about-card-image > img{
+  border-radius:24px !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  transform:scale(1.12) !important;
+}
+.about-page article.about-story-card.vision-card:hover > .about-card-image > img,
+.about-page article.about-story-card.mission-card:hover > .about-card-image > img,
+.about-page article.about-story-card.commitments-card:hover > .about-card-image > img{
+  transform:scale(1.16) !important;
+}
+@media (max-width: 640px){
+  .about-page article.about-story-card.vision-card > .about-card-image,
+  .about-page article.about-story-card.mission-card > .about-card-image,
+  .about-page article.about-story-card.commitments-card > .about-card-image,
+  .about-page article.about-story-card.vision-card > .about-card-image > img,
+  .about-page article.about-story-card.mission-card > .about-card-image > img,
+  .about-page article.about-story-card.commitments-card > .about-card-image > img{
+    border-radius:18px !important;
+  }
+  .about-page article.about-story-card.vision-card > .about-card-image > img,
+  .about-page article.about-story-card.mission-card > .about-card-image > img,
+  .about-page article.about-story-card.commitments-card > .about-card-image > img{
+    transform:scale(1.13) !important;
+  }
+  .about-page article.about-story-card.vision-card:hover > .about-card-image > img,
+  .about-page article.about-story-card.mission-card:hover > .about-card-image > img,
+  .about-page article.about-story-card.commitments-card:hover > .about-card-image > img{
+    transform:scale(1.16) !important;
+  }
+}
+</style>
+
+
+<style id="vmc-extra-zoom-final">
+/* Extra zoom for Vision, Mission and Commitments images only */
+.about-page article.about-story-card.vision-card > .about-card-image > img,
+.about-page article.about-story-card.mission-card > .about-card-image > img,
+.about-page article.about-story-card.commitments-card > .about-card-image > img{
+  transform:scale(1.18) !important;
+  transform-origin:center center !important;
+}
+.about-page article.about-story-card.vision-card:hover > .about-card-image > img,
+.about-page article.about-story-card.mission-card:hover > .about-card-image > img,
+.about-page article.about-story-card.commitments-card:hover > .about-card-image > img{
+  transform:scale(1.22) !important;
+}
+@media (max-width:640px){
+  .about-page article.about-story-card.vision-card > .about-card-image > img,
+  .about-page article.about-story-card.mission-card > .about-card-image > img,
+  .about-page article.about-story-card.commitments-card > .about-card-image > img{
+    transform:scale(1.17) !important;
+  }
+  .about-page article.about-story-card.vision-card:hover > .about-card-image > img,
+  .about-page article.about-story-card.mission-card:hover > .about-card-image > img,
+  .about-page article.about-story-card.commitments-card:hover > .about-card-image > img{
+    transform:scale(1.20) !important;
+  }
+}
+</style>
+
+
+<style id="vmc-curved-image-edges-final">
+/* Final curved image edges for Vision, Mission and Commitments */
+.about-page article.about-story-card.vision-card > .about-card-image,
+.about-page article.about-story-card.mission-card > .about-card-image,
+.about-page article.about-story-card.commitments-card > .about-card-image{
+  border-radius:26px !important;
+  overflow:hidden !important;
+  clip-path:inset(0 round 26px) !important;
+}
+.about-page article.about-story-card.vision-card > .about-card-image > img,
+.about-page article.about-story-card.mission-card > .about-card-image > img,
+.about-page article.about-story-card.commitments-card > .about-card-image > img{
+  border-radius:26px !important;
+  clip-path:inset(0 round 26px) !important;
+  overflow:hidden !important;
+}
+@media (max-width:640px){
+  .about-page article.about-story-card.vision-card > .about-card-image,
+  .about-page article.about-story-card.mission-card > .about-card-image,
+  .about-page article.about-story-card.commitments-card > .about-card-image,
+  .about-page article.about-story-card.vision-card > .about-card-image > img,
+  .about-page article.about-story-card.mission-card > .about-card-image > img,
+  .about-page article.about-story-card.commitments-card > .about-card-image > img{
+    border-radius:20px !important;
+    clip-path:inset(0 round 20px) !important;
+  }
+}
+</style>
+
+
+<style id="vmc-extra-curved-border-all3">
+/* Extra curved border styling for Vision, Mission, Commitments */
+.about-page article.about-story-card.vision-card,
+.about-page article.about-story-card.mission-card,
+.about-page article.about-story-card.commitments-card{
+  border-radius:30px !important;
+  overflow:hidden !important;
+}
+.about-page article.about-story-card.vision-card > .about-card-image,
+.about-page article.about-story-card.mission-card > .about-card-image,
+.about-page article.about-story-card.commitments-card > .about-card-image{
+  border-radius:30px !important;
+  padding:4px !important;
+  background:linear-gradient(145deg,#e6f0ff 0%,#fff2e6 100%) !important;
+  border:1px solid rgba(68,108,184,.18) !important;
+  box-shadow:0 16px 38px rgba(11,32,96,.12), inset 0 0 0 1px rgba(255,255,255,.65) !important;
+}
+.about-page article.about-story-card.vision-card > .about-card-image > img,
+.about-page article.about-story-card.mission-card > .about-card-image > img,
+.about-page article.about-story-card.commitments-card > .about-card-image > img{
+  border-radius:26px !important;
+}
+@media (max-width:640px){
+  .about-page article.about-story-card.vision-card,
+  .about-page article.about-story-card.mission-card,
+  .about-page article.about-story-card.commitments-card,
+  .about-page article.about-story-card.vision-card > .about-card-image,
+  .about-page article.about-story-card.mission-card > .about-card-image,
+  .about-page article.about-story-card.commitments-card > .about-card-image{
+    border-radius:22px !important;
+  }
+  .about-page article.about-story-card.vision-card > .about-card-image > img,
+  .about-page article.about-story-card.mission-card > .about-card-image > img,
+  .about-page article.about-story-card.commitments-card > .about-card-image > img{
+    border-radius:18px !important;
+  }
+}
+</style>
+
+
+<style id="vmc-more-curved-borders-final">
+/* More curved borders for Vision, Mission, Commitments image areas */
+.about-page article.about-story-card.vision-card,
+.about-page article.about-story-card.mission-card,
+.about-page article.about-story-card.commitments-card{
+  border-radius:38px !important;
+  overflow:hidden !important;
+}
+.about-page article.about-story-card.vision-card > .about-card-image,
+.about-page article.about-story-card.mission-card > .about-card-image,
+.about-page article.about-story-card.commitments-card > .about-card-image{
+  border-radius:38px !important;
+  padding:5px !important;
+  background:linear-gradient(145deg,#e8f1ff 0%,#fff1e3 100%) !important;
+  border:1px solid rgba(68,108,184,.18) !important;
+  box-shadow:0 18px 42px rgba(11,32,96,.12), inset 0 0 0 1px rgba(255,255,255,.72) !important;
+  overflow:hidden !important;
+}
+.about-page article.about-story-card.vision-card > .about-card-image > img,
+.about-page article.about-story-card.mission-card > .about-card-image > img,
+.about-page article.about-story-card.commitments-card > .about-card-image > img{
+  border-radius:33px !important;
+  overflow:hidden !important;
+}
+@media (max-width:640px){
+  .about-page article.about-story-card.vision-card,
+  .about-page article.about-story-card.mission-card,
+  .about-page article.about-story-card.commitments-card,
+  .about-page article.about-story-card.vision-card > .about-card-image,
+  .about-page article.about-story-card.mission-card > .about-card-image,
+  .about-page article.about-story-card.commitments-card > .about-card-image{
+    border-radius:28px !important;
+  }
+  .about-page article.about-story-card.vision-card > .about-card-image > img,
+  .about-page article.about-story-card.mission-card > .about-card-image > img,
+  .about-page article.about-story-card.commitments-card > .about-card-image > img{
+    border-radius:24px !important;
+  }
+}
+</style>
+
+
+<style id="vmc-circle-curved-borders-final">
+/* Full circle-like curved borders for Vision, Mission, Commitments image areas */
+.about-page article.about-story-card.vision-card,
+.about-page article.about-story-card.mission-card,
+.about-page article.about-story-card.commitments-card{
+  border-radius:46px !important;
+  overflow:hidden !important;
+}
+.about-page article.about-story-card.vision-card > .about-card-image,
+.about-page article.about-story-card.mission-card > .about-card-image,
+.about-page article.about-story-card.commitments-card > .about-card-image{
+  border-radius:999px !important;
+  padding:6px !important;
+  background:linear-gradient(145deg,#e8f1ff 0%,#fff1e3 100%) !important;
+  border:1px solid rgba(68,108,184,.18) !important;
+  box-shadow:0 18px 42px rgba(11,32,96,.12), inset 0 0 0 1px rgba(255,255,255,.72) !important;
+  overflow:hidden !important;
+}
+.about-page article.about-story-card.vision-card > .about-card-image > img,
+.about-page article.about-story-card.mission-card > .about-card-image > img,
+.about-page article.about-story-card.commitments-card > .about-card-image > img{
+  border-radius:999px !important;
+  overflow:hidden !important;
+}
+@media (max-width:640px){
+  .about-page article.about-story-card.vision-card,
+  .about-page article.about-story-card.mission-card,
+  .about-page article.about-story-card.commitments-card{
+    border-radius:32px !important;
+  }
+  .about-page article.about-story-card.vision-card > .about-card-image,
+  .about-page article.about-story-card.mission-card > .about-card-image,
+  .about-page article.about-story-card.commitments-card > .about-card-image,
+  .about-page article.about-story-card.vision-card > .about-card-image > img,
+  .about-page article.about-story-card.mission-card > .about-card-image > img,
+  .about-page article.about-story-card.commitments-card > .about-card-image > img{
+    border-radius:999px !important;
+  }
+}
+</style>
+
+
+<style id="vmc-four-corners-final">
+/* Vision, Mission and Commitments: strong rounded curves on all four corners */
+.about-page article.about-story-card.vision-card,
+.about-page article.about-story-card.mission-card,
+.about-page article.about-story-card.commitments-card{
+  border-radius:42px !important;
+  overflow:hidden !important;
+  clip-path:inset(0 round 42px) !important;
+}
+.about-page article.about-story-card.vision-card > .about-card-image,
+.about-page article.about-story-card.mission-card > .about-card-image,
+.about-page article.about-story-card.commitments-card > .about-card-image{
+  border-radius:42px !important;
+  clip-path:inset(0 round 42px) !important;
+  overflow:hidden !important;
+  padding:5px !important;
+  background:linear-gradient(145deg,#e8f1ff 0%,#fff1e3 100%) !important;
+  border:1px solid rgba(68,108,184,.18) !important;
+  box-shadow:0 18px 42px rgba(11,32,96,.12), inset 0 0 0 1px rgba(255,255,255,.72) !important;
+}
+.about-page article.about-story-card.vision-card > .about-card-image > img,
+.about-page article.about-story-card.mission-card > .about-card-image > img,
+.about-page article.about-story-card.commitments-card > .about-card-image > img{
+  border-radius:37px !important;
+  clip-path:inset(0 round 37px) !important;
+  overflow:hidden !important;
+}
+@media (max-width:640px){
+  .about-page article.about-story-card.vision-card,
+  .about-page article.about-story-card.mission-card,
+  .about-page article.about-story-card.commitments-card{
+    border-radius:30px !important;
+    clip-path:inset(0 round 30px) !important;
+  }
+  .about-page article.about-story-card.vision-card > .about-card-image,
+  .about-page article.about-story-card.mission-card > .about-card-image,
+  .about-page article.about-story-card.commitments-card > .about-card-image{
+    border-radius:30px !important;
+    clip-path:inset(0 round 30px) !important;
+  }
+  .about-page article.about-story-card.vision-card > .about-card-image > img,
+  .about-page article.about-story-card.mission-card > .about-card-image > img,
+  .about-page article.about-story-card.commitments-card > .about-card-image > img{
+    border-radius:26px !important;
+    clip-path:inset(0 round 26px) !important;
+  }
+}
+</style>
+
 </body>
 </html>

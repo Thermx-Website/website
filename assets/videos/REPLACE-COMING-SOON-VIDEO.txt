@@ -1,0 +1,14 @@
+COMING SOON HOVER VIDEO PLACEHOLDER
+
+Replace this file with your final video:
+assets/videos/coming-soon-hover.mp4
+
+Recommended settings:
+- MP4 format (H.264)
+- 16:9 landscape
+- 1280 x 720 or 1920 x 1080
+- Muted/no audio
+- 3 to 10 seconds
+- Keep the same filename so no code changes are required.
+
+The video automatically plays when the Coming Soon card is hovered or focused, and resets when the pointer leaves.

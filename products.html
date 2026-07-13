@@ -210,6 +210,7 @@
       transition:transform .34s cubic-bezier(.2,.8,.2,1),background .34s ease,box-shadow .34s ease;
       animation:serialNumberPulse 2.8s ease-in-out infinite;
     }
+    .product-model-wide{font-size:8px!important;letter-spacing:0!important;line-height:1!important;text-align:center}
     .product-serial-circle:before,.product-serial-circle:after{
       content:"";position:absolute;border-radius:50%;pointer-events:none
     }
@@ -625,21 +626,92 @@
 }
 </style>
 <link rel="stylesheet" href="assets/css/responsive.css">
+
+<style id="blank-product-slot-style">
+.products-page .product-dashboard-button.blank-product-slot{cursor:default;pointer-events:none;opacity:.58;background:linear-gradient(145deg,#edf2ff 0%,#f7f9ff 52%,#fff0e1 100%);border:1px dashed rgba(42,84,169,.28)}
+.products-page .product-dashboard-button.blank-product-slot:hover{transform:none;box-shadow:none;color:#0b2060}
+.products-page .product-dashboard-button.blank-product-slot .blank-slot-space{display:block;width:100%;min-height:24px}
+</style>
+
+<style id="products-extra-row-layout">
+/* Keep the original ten selectors in two columns, then place XWT and the blank slot together on a new sixth row. */
+.products-page .products-quick-nav{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  grid-template-rows:repeat(6,minmax(68px,auto))!important;
+  grid-auto-flow:row!important;
+}
+.products-page .products-quick-nav .product-dashboard-button:nth-child(1){grid-column:1;grid-row:1}
+.products-page .products-quick-nav .product-dashboard-button:nth-child(2){grid-column:1;grid-row:2}
+.products-page .products-quick-nav .product-dashboard-button:nth-child(3){grid-column:1;grid-row:3}
+.products-page .products-quick-nav .product-dashboard-button:nth-child(4){grid-column:1;grid-row:4}
+.products-page .products-quick-nav .product-dashboard-button:nth-child(5){grid-column:1;grid-row:5}
+.products-page .products-quick-nav .product-dashboard-button:nth-child(6){grid-column:2;grid-row:1}
+.products-page .products-quick-nav .product-dashboard-button:nth-child(7){grid-column:2;grid-row:2}
+.products-page .products-quick-nav .product-dashboard-button:nth-child(8){grid-column:2;grid-row:3}
+.products-page .products-quick-nav .product-dashboard-button:nth-child(9){grid-column:2;grid-row:4}
+.products-page .products-quick-nav .product-dashboard-button:nth-child(10){grid-column:2;grid-row:5}
+.products-page .products-quick-nav .product-dashboard-button:nth-child(11){grid-column:1;grid-row:6}
+.products-page .products-quick-nav .product-dashboard-button:nth-child(12){grid-column:2;grid-row:6}
+.products-page .product-dashboard-button.blank-product-slot{
+  opacity:1!important;
+  background:linear-gradient(145deg,#e4edff 0%,#f1f5ff 52%,#ffe4cc 100%)!important;
+  border:1px solid rgba(42,84,169,.24)!important;
+  box-shadow:none!important;
+}
+.products-page .product-dashboard-button.blank-product-slot .blank-serial,
+.products-page .product-dashboard-button.blank-product-slot .blank-name{visibility:hidden}
+@media(max-width:820px){
+  .products-page .products-quick-nav{grid-template-columns:1fr!important;grid-template-rows:none!important;grid-auto-flow:row!important}
+  .products-page .products-quick-nav .product-dashboard-button:nth-child(n){grid-column:auto!important;grid-row:auto!important}
+}
+</style>
+
+<style id="products-coming-soon-style">
+.products-page .product-dashboard-button.coming-soon-product-button .product-serial-circle{font-size:8px;letter-spacing:.05em}
+.products-page .product-detail-card.coming-soon-product-detail .product-detail-visual img{object-fit:contain;background:linear-gradient(145deg,#dce9ff 0%,#f3f7ff 54%,#ffe4ca 100%)}
+.products-page .product-detail-card.coming-soon-product-detail .product-index{letter-spacing:.08em}
+</style>
+
+<style id="product-visibility-theme-fix">
+.product-detail-visual{background:#ffffff!important;padding:26px!important}
+.product-detail-visual img{width:100%!important;height:100%!important;max-height:430px!important;object-fit:contain!important;object-position:center!important;filter:drop-shadow(0 12px 18px rgba(11,32,96,.10))}
+@media(max-width:720px){.product-detail-visual{padding:20px!important}.product-detail-visual img{max-height:330px!important}}
+</style>
+
+<style id="products-replacement-image-fix">
+#product-12 .product-detail-visual{padding:0!important;background:#fff!important;overflow:hidden!important}
+#product-12 .product-detail-visual img{width:100%!important;height:100%!important;max-height:none!important;object-fit:cover!important;object-position:center!important;filter:none!important;transform:none!important}
+#product-07 .product-detail-visual{background:#fff!important}
+#product-07 .product-detail-visual img{object-fit:contain!important;filter:none!important}
+</style>
+
+<style id="coming-soon-product-full-bleed-final">
+#product-12 .product-detail-visual{padding:0!important;margin:0!important;overflow:hidden!important;background:#fff!important}
+#product-12 .product-detail-visual img{display:block!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover!important;object-position:center!important;padding:0!important;margin:0!important;border:0!important;filter:none!important;transform:none!important}
+#product-12:hover .product-detail-visual img{transform:none!important}
+</style>
+
+<style id="coming-soon-product-padding-final">
+#product-12 .product-detail-visual{padding:26px!important;background:#fff!important;overflow:hidden!important;display:grid!important;place-items:center!important}
+#product-12 .product-detail-visual img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:430px!important;object-fit:contain!important;object-position:center!important;padding:0!important;margin:0!important;border:0!important;filter:drop-shadow(0 12px 18px rgba(11,32,96,.10))!important;transform:none!important}
+#product-12:hover .product-detail-visual img{transform:none!important}
+@media(max-width:720px){#product-12 .product-detail-visual{padding:20px!important}#product-12 .product-detail-visual img{max-height:330px!important}}
+</style>
 </head>
 <body class="products-page">
-<nav class="site-nav"><div class="container nav-inner"><a class="brand" href="index.html"><img alt="Therm-X Innovations" src="assets/images/logo.webp"/></a><button aria-expanded="false" aria-label="Open menu" class="menu-toggle">☰</button><ul class="nav-menu"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a class="active" href="products.html">Products</a></li><li><a href="services.html">Our Services</a></li><li><a href="news.html">News &amp; Updates</a></li><li><a href="contact.html">Contact</a></li></ul><div class="nav-actions"><a class="btn btn-outline brochure-download-trigger" href="#" data-brochure-download>Download Brochure</a><a class="btn btn-primary" href="contact.html#enquiry">Request a Quote</a></div></div></nav>
+<nav class="site-nav"><div class="container nav-inner"><a class="brand" href="index.html"><img alt="Therm-X Innovations" src="assets/images/logo.webp"/></a><button aria-expanded="false" aria-label="Open menu" class="menu-toggle">☰</button><ul class="nav-menu"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a class="active" href="products.html">Products</a></li><li><a href="services.html">Our Services</a></li><li><a href="news.html">News &amp; Updates</a></li><li><a href="contact.html">Contact</a></li></ul><div class="nav-actions"><a class="btn btn-primary brochure-download-trigger" href="#" data-brochure-download>Download Brochure</a></div></div></nav>
 <section class="products-hero"><div class="container"><div class="breadcrumbs"><a href="index.html">Home</a> / Products</div><h1>Our <span>Products</span></h1><p>Choose a product using its numbered selector. A short overview appears below, with complete technical information available through Full Specifications.</p></div></section>
 <main class="products-main"><div class="container">
 <div class="products-intro"><span class="eyebrow">Product Dashboard</span><h2>Choose a <span>Product</span></h2><p>Select any numbered product button. Its short overview opens below; use Full Specifications to reveal all technical details.</p></div>
-<section aria-label="Select a product" class="product-dashboard"><div aria-label="Product selection dashboard" class="products-quick-nav" role="tablist"><button aria-controls="product-01" aria-selected="true" class="product-dashboard-button active" data-product-target="product-01" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">01</span><span class="product-name-button">Environmental Test Chambers</span></button><button aria-controls="product-02" aria-selected="false" class="product-dashboard-button" data-product-target="product-02" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">02</span><span class="product-name-button">Thermal Shock Series</span></button><button aria-controls="product-03" aria-selected="false" class="product-dashboard-button" data-product-target="product-03" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">03</span><span class="product-name-button">Altitude Series</span></button><button aria-controls="product-04" aria-selected="false" class="product-dashboard-button" data-product-target="product-04" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">04</span><span class="product-name-button">Battery Test Chamber</span></button><button aria-controls="product-05" aria-selected="false" class="product-dashboard-button" data-product-target="product-05" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">05</span><span class="product-name-button">Rain Chambers</span></button><button aria-controls="product-06" aria-selected="false" class="product-dashboard-button" data-product-target="product-06" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">06</span><span class="product-name-button">Dust Chambers</span></button><button aria-controls="product-07" aria-selected="false" class="product-dashboard-button" data-product-target="product-07" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">07</span><span class="product-name-button">Vibration Shaker Integration Chamber</span></button><button aria-controls="product-08" aria-selected="false" class="product-dashboard-button" data-product-target="product-08" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">08</span><span class="product-name-button">UTM Integration Test Chamber</span></button><button aria-controls="product-09" aria-selected="false" class="product-dashboard-button" data-product-target="product-09" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">09</span><span class="product-name-button">Corrosion Test Chambers</span></button><button aria-controls="product-10" aria-selected="false" class="product-dashboard-button" data-product-target="product-10" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">10</span><span class="product-name-button">Industrial Ovens</span></button></div></section>
+<section aria-label="Select a product" class="product-dashboard"><div aria-label="Product selection dashboard" class="products-quick-nav" role="tablist"><button aria-controls="product-01" aria-selected="true" class="product-dashboard-button active" data-product-target="product-01" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle product-model-wide">XT</span><span class="product-name-button">Environmental Test Chambers</span></button><button aria-controls="product-02" aria-selected="false" class="product-dashboard-button" data-product-target="product-02" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">XTS</span><span class="product-name-button">Thermal Shock Series</span></button><button aria-controls="product-03" aria-selected="false" class="product-dashboard-button" data-product-target="product-03" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">XA</span><span class="product-name-button">Altitude Series</span></button><button aria-controls="product-04" aria-selected="false" class="product-dashboard-button" data-product-target="product-04" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">XTB</span><span class="product-name-button">Battery Test Chamber</span></button><button aria-controls="product-05" aria-selected="false" class="product-dashboard-button" data-product-target="product-05" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">XR</span><span class="product-name-button">Rain Chambers</span></button><button aria-controls="product-06" aria-selected="false" class="product-dashboard-button" data-product-target="product-06" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">XD</span><span class="product-name-button">Dust Chambers</span></button><button aria-controls="product-07" aria-selected="false" class="product-dashboard-button" data-product-target="product-07" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">XTV</span><span class="product-name-button">Vibration Shaker Integration Chamber</span></button><button aria-controls="product-08" aria-selected="false" class="product-dashboard-button" data-product-target="product-08" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">XTU</span><span class="product-name-button">UTM Integration Test Chamber</span></button><button aria-controls="product-09" aria-selected="false" class="product-dashboard-button" data-product-target="product-09" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">XSST</span><span class="product-name-button">Corrosion Test Chambers</span></button><button aria-controls="product-10" aria-selected="false" class="product-dashboard-button" data-product-target="product-10" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">XO</span><span class="product-name-button">Industrial Ovens</span></button><button aria-controls="product-11" aria-selected="false" class="product-dashboard-button" data-product-target="product-11" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">XWT</span><span class="product-name-button">XWT Walk-in Series</span></button><button aria-controls="product-12" aria-selected="false" class="product-dashboard-button coming-soon-product-button" data-product-target="product-12" role="tab" type="button"><span aria-hidden="true" class="product-serial-circle">SOON</span><span class="product-name-button">New Product Coming Soon</span></button></div></section>
 <div class="selected-product-caption" id="selected-product-details"><span>Selected Product</span><h2 id="selected-product-title">Environmental Test Chambers</h2></div><div class="product-detail-list">
 <article aria-live="polite" class="product-detail-card is-active visible" id="product-01" role="tabpanel">
 <div class="product-detail-visual">
-<span class="product-index">01</span>
+<span class="product-index product-model-wide">XT</span>
 <img alt="Environmental Test Chambers" src="assets/images/product-environmental.webp"/>
 </div>
 <div class="product-detail-content">
-<div class="product-code">01 — ENV</div>
+<div class="product-code">XT</div>
 <h2>Environmental Test Chambers</h2>
 <p class="product-overview">Environmental Test Chambers accurately simulate extreme temperature and humidity conditions, enabling precise evaluation of product performance, reliability, and durability. Designed for demanding industrial and laboratory environments, they support consistent, repeatable, and standards-focused testing.</p>
 <div aria-label="Product summary highlights" class="product-short-highlights"><div class="short-highlight"><span class="short-highlight-number">01</span><div><strong>Performance</strong><p>Temperature range: -40°C / -70°C to +180°C</p></div></div><div class="short-highlight"><span class="short-highlight-number">02</span><div><strong>Key Feature</strong><p>SS 304 stainless-steel inner chamber</p></div></div><div class="short-highlight"><span class="short-highlight-number">03</span><div><strong>Application</strong><p>IEC 60068-3-5 environmental testing guidance</p></div></div></div>
@@ -651,11 +723,11 @@
 </article>
 <article aria-live="polite" class="product-detail-card" hidden="" id="product-02" role="tabpanel">
 <div class="product-detail-visual">
-<span class="product-index">02</span>
+<span class="product-index">XTS</span>
 <img alt="Thermal Shock Series" src="assets/images/product-thermal-shock.webp"/>
 </div>
 <div class="product-detail-content">
-<div class="product-code">02 — TSC</div>
+<div class="product-code">XTS</div>
 <h2>Thermal Shock Series</h2>
 <p class="product-overview">Thermal Shock Chambers expose specimens to rapid and extreme temperature changes using dual or multi-zone configurations. They evaluate material integrity, thermal fatigue, and failure modes caused by sudden thermal stress.</p>
 <div aria-label="Product summary highlights" class="product-short-highlights"><div class="short-highlight"><span class="short-highlight-number">01</span><div><strong>Performance</strong><p>Hot-zone range: +70°C to +200°C</p></div></div><div class="short-highlight"><span class="short-highlight-number">02</span><div><strong>Key Feature</strong><p>Independent zone control</p></div></div><div class="short-highlight"><span class="short-highlight-number">03</span><div><strong>Application</strong><p>Electronics qualification</p></div></div></div>
@@ -667,11 +739,11 @@
 </article>
 <article aria-live="polite" class="product-detail-card" hidden="" id="product-03" role="tabpanel">
 <div class="product-detail-visual">
-<span class="product-index">03</span>
+<span class="product-index">XA</span>
 <img alt="Altitude Series" src="assets/images/product-altitude.webp"/>
 </div>
 <div class="product-detail-content">
-<div class="product-code">03 — ALT</div>
+<div class="product-code">XA</div>
 <h2>Altitude Series</h2>
 <p class="product-overview">Altitude Test Chambers simulate high-altitude and low-pressure environments to assess performance under reduced atmospheric conditions. Temperature and humidity can be combined with altitude simulation for comprehensive testing.</p>
 <div aria-label="Product summary highlights" class="product-short-highlights"><div class="short-highlight"><span class="short-highlight-number">01</span><div><strong>Performance</strong><p>Altitude simulation: ambient pressure down to 1 mbar</p></div></div><div class="short-highlight"><span class="short-highlight-number">02</span><div><strong>Key Feature</strong><p>Leak-tight heavy-duty door and locking system</p></div></div><div class="short-highlight"><span class="short-highlight-number">03</span><div><strong>Application</strong><p>Aerospace and aviation qualification</p></div></div></div>
@@ -683,11 +755,11 @@
 </article>
 <article aria-live="polite" class="product-detail-card" hidden="" id="product-04" role="tabpanel">
 <div class="product-detail-visual">
-<span class="product-index">04</span>
-<img alt="Battery Test Chamber" src="assets/images/product-battery.webp"/>
+<span class="product-index">XTB</span>
+<img alt="Battery Test Chamber" src="assets/images/product-battery-card.webp"/>
 </div>
 <div class="product-detail-content">
-<div class="product-code">04 — BAT</div>
+<div class="product-code">XTB</div>
 <h2>Battery Test Chamber</h2>
 <p class="product-overview">Battery Test Chambers support safe performance, life-cycle, and abuse testing of lithium-ion and other energy storage systems under controlled temperature and humidity conditions.</p>
 <div aria-label="Product summary highlights" class="product-short-highlights"><div class="short-highlight"><span class="short-highlight-number">01</span><div><strong>Performance</strong><p>Temperature range: -40°C / -70°C to +180°C</p></div></div><div class="short-highlight"><span class="short-highlight-number">02</span><div><strong>Key Feature</strong><p>SS 304 inner chamber and CRCA outer structure</p></div></div><div class="short-highlight"><span class="short-highlight-number">03</span><div><strong>Application</strong><p>Electric-vehicle battery validation</p></div></div></div>
@@ -699,11 +771,11 @@
 </article>
 <article aria-live="polite" class="product-detail-card" hidden="" id="product-05" role="tabpanel">
 <div class="product-detail-visual">
-<span class="product-index">05</span>
+<span class="product-index">XR</span>
 <img alt="Rain Chambers" src="assets/images/product-rain.webp"/>
 </div>
 <div class="product-detail-content">
-<div class="product-code">05 — XR</div>
+<div class="product-code">XR</div>
 <h2>Rain Chambers</h2>
 <p class="product-overview">XR Series Rain Chambers are designed for water-ingress testing to IEC, ISO, DIN, and MIL requirements, using corrosion-resistant construction and precision spray systems.</p>
 <div aria-label="Product summary highlights" class="product-short-highlights"><div class="short-highlight"><span class="short-highlight-number">01</span><div><strong>Performance</strong><p>IP test range: IPX1 to IPX9K</p></div></div><div class="short-highlight"><span class="short-highlight-number">02</span><div><strong>Key Feature</strong><p>SS 304 non-corrosive construction</p></div></div><div class="short-highlight"><span class="short-highlight-number">03</span><div><strong>Application</strong><p>IEC ingress-protection testing</p></div></div></div>
@@ -715,11 +787,11 @@
 </article>
 <article aria-live="polite" class="product-detail-card" hidden="" id="product-06" role="tabpanel">
 <div class="product-detail-visual">
-<span class="product-index">06</span>
+<span class="product-index">XD</span>
 <img alt="Dust Chambers" src="assets/images/product-dust.webp"/>
 </div>
 <div class="product-detail-content">
-<div class="product-code">06 — XD</div>
+<div class="product-code">XD</div>
 <h2>Dust Chambers</h2>
 <p class="product-overview">XD Series Dust Chambers are intended for IP5X and IP6X ingress testing with uniform dust circulation, controlled air extraction, and dust recovery.</p>
 <div aria-label="Product summary highlights" class="product-short-highlights"><div class="short-highlight"><span class="short-highlight-number">01</span><div><strong>Performance</strong><p>IP5X dust-protected testing</p></div></div><div class="short-highlight"><span class="short-highlight-number">02</span><div><strong>Key Feature</strong><p>CRCA powder-coated outer panels</p></div></div><div class="short-highlight"><span class="short-highlight-number">03</span><div><strong>Application</strong><p>IEC and ISO ingress testing</p></div></div></div>
@@ -731,11 +803,11 @@
 </article>
 <article aria-live="polite" class="product-detail-card" hidden="" id="product-07" role="tabpanel">
 <div class="product-detail-visual">
-<span class="product-index">07</span>
+<span class="product-index">XTV</span>
 <img alt="Vibration Shaker Integration Chamber" src="assets/images/product-vibration.webp"/>
 </div>
 <div class="product-detail-content">
-<div class="product-code">07 — VIB</div>
+<div class="product-code">XTV</div>
 <h2>Vibration Shaker Integration Chamber</h2>
 <p class="product-overview">Vibration Shaker Integration Chambers combine controlled temperature and humidity with mechanical vibration to reproduce real-life operational stresses.</p>
 <div aria-label="Product summary highlights" class="product-short-highlights"><div class="short-highlight"><span class="short-highlight-number">01</span><div><strong>Performance</strong><p>Temperature range: -40°C / -70°C to +180°C</p></div></div><div class="short-highlight"><span class="short-highlight-number">02</span><div><strong>Key Feature</strong><p>SS 304 inner chamber and CRCA outer structure</p></div></div><div class="short-highlight"><span class="short-highlight-number">03</span><div><strong>Application</strong><p>Aerospace reliability assessment</p></div></div></div>
@@ -747,11 +819,11 @@
 </article>
 <article aria-live="polite" class="product-detail-card" hidden="" id="product-08" role="tabpanel">
 <div class="product-detail-visual">
-<span class="product-index">08</span>
+<span class="product-index">XTU</span>
 <img alt="UTM Integration Test Chamber" src="assets/images/product-utm.webp"/>
 </div>
 <div class="product-detail-content">
-<div class="product-code">08 — UTM</div>
+<div class="product-code">XTU</div>
 <h2>UTM Integration Test Chamber</h2>
 <p class="product-overview">UTM Integration Test Chambers operate with Universal Testing Machines for tensile, compression, and fatigue testing under controlled elevated or sub-zero temperatures.</p>
 <div aria-label="Product summary highlights" class="product-short-highlights"><div class="short-highlight"><span class="short-highlight-number">01</span><div><strong>Performance</strong><p>-60°C to +180°C with mechanical cascade refrigeration</p></div></div><div class="short-highlight"><span class="short-highlight-number">02</span><div><strong>Key Feature</strong><p>SS 304 inner chamber</p></div></div><div class="short-highlight"><span class="short-highlight-number">03</span><div><strong>Application</strong><p>Tensile testing at controlled temperature</p></div></div></div>
@@ -763,11 +835,11 @@
 </article>
 <article aria-live="polite" class="product-detail-card" hidden="" id="product-09" role="tabpanel">
 <div class="product-detail-visual">
-<span class="product-index">09</span>
+<span class="product-index">XSST</span>
 <img alt="Corrosion Test Chambers" src="assets/images/product-corrosion.webp"/>
 </div>
 <div class="product-detail-content">
-<div class="product-code">09 — COR</div>
+<div class="product-code">XSST</div>
 <h2>Corrosion Test Chambers</h2>
 <p class="product-overview">Corrosion Test Chambers evaluate materials and coatings under accelerated corrosive environments with reliable, repeatable, and uniform exposure.</p>
 <div aria-label="Product summary highlights" class="product-short-highlights"><div class="short-highlight"><span class="short-highlight-number">01</span><div><strong>Performance</strong><p>Salt-spray range: 5°C above ambient to 50°C</p></div></div><div class="short-highlight"><span class="short-highlight-number">02</span><div><strong>Key Feature</strong><p>Non-corrosive FRP construction</p></div></div><div class="short-highlight"><span class="short-highlight-number">03</span><div><strong>Application</strong><p>Salt-spray corrosion testing</p></div></div></div>
@@ -779,11 +851,11 @@
 </article>
 <article aria-live="polite" class="product-detail-card" hidden="" id="product-10" role="tabpanel">
 <div class="product-detail-visual">
-<span class="product-index">10</span>
+<span class="product-index">XO</span>
 <img alt="Industrial Ovens" src="assets/images/product-oven.webp"/>
 </div>
 <div class="product-detail-content">
-<div class="product-code">10 — OVEN</div>
+<div class="product-code">XO</div>
 <h2>Industrial Ovens</h2>
 <p class="product-overview">Industrial Ovens deliver uniform heating for demanding production environments, with reliable round-the-clock performance and repeatable results across every batch.</p>
 <div aria-label="Product summary highlights" class="product-short-highlights"><div class="short-highlight"><span class="short-highlight-number">01</span><div><strong>Performance</strong><p>Temperature range: 50°C to 250°C</p></div></div><div class="short-highlight"><span class="short-highlight-number">02</span><div><strong>Key Feature</strong><p>SS 304 inner chamber</p></div></div><div class="short-highlight"><span class="short-highlight-number">03</span><div><strong>Application</strong><p>Curing and drying</p></div></div></div>
@@ -792,9 +864,95 @@
 <a class="btn btn-outline product-quote" href="contact.html#enquiry">Request a Quote</a>
 </div>
 </div>
+</article>
+<article aria-live="polite" class="product-detail-card" hidden="" id="product-11" role="tabpanel">
+<div class="product-detail-visual">
+<span class="product-index">XWT</span>
+<img alt="XWT Walk-in Series" src="assets/images/product-xwt-walkin.webp"/>
+</div>
+<div class="product-detail-content">
+<div class="product-code">XWT</div>
+<h2>XWT Walk-in Series</h2>
+<p class="product-overview">XWT Walk-in Environmental Test Chambers simulate extreme temperature and humidity conditions for large-scale product testing. Modular construction, uniform airflow, and advanced control systems support reliable and standards-focused validation.</p>
+<div aria-label="Product summary highlights" class="product-short-highlights"><div class="short-highlight"><span class="short-highlight-number">01</span><div><strong>Performance</strong><p>Temperature range: -70°C / -40°C / -20°C to +180°C</p></div></div><div class="short-highlight"><span class="short-highlight-number">02</span><div><strong>Key Feature</strong><p>Heavy-duty modular walk-in construction</p></div></div><div class="short-highlight"><span class="short-highlight-number">03</span><div><strong>Application</strong><p>Large-scale automotive, electronics, and industrial validation</p></div></div></div>
+<div class="product-actions">
+<a aria-label="Open full specifications for XWT Walk-in Series" class="btn btn-primary full-specification-link" href="products/xwt-walkin-series.html">Full Specifications <span aria-hidden="true">→</span></a>
+<a class="btn btn-outline product-quote" href="contact.html#enquiry">Request a Quote</a>
+</div>
+</div>
+</article><article aria-live="polite" class="product-detail-card coming-soon-product-detail" hidden="" id="product-12" role="tabpanel">
+<div class="product-detail-visual">
+<span class="product-index">SOON</span>
+<img alt="New Product Coming Soon" src="assets/images/product-coming-soon.webp"/>
+</div>
+<div class="product-detail-content">
+<div class="product-code">SOON</div>
+<h2>New Product Coming Soon</h2>
+<p class="product-overview">A new Therm-X product is coming soon. Stay tuned for the next smart chamber innovation, created to support future-ready industrial and laboratory testing.</p>
+<div aria-label="Coming soon highlights" class="product-short-highlights"><div class="short-highlight"><span class="short-highlight-number">01</span><div><strong>Launch</strong><p>Official product reveal coming soon</p></div></div><div class="short-highlight"><span class="short-highlight-number">02</span><div><strong>Innovation</strong><p>Designed as the next Therm-X testing solution</p></div></div><div class="short-highlight"><span class="short-highlight-number">03</span><div><strong>Updates</strong><p>Contact us to register your interest</p></div></div></div>
+<div class="product-actions">
+<a aria-label="Contact Therm-X about the new product coming soon" class="btn btn-primary full-specification-link" href="contact.html#enquiry">Contact Us <span aria-hidden="true">→</span></a>
+</div>
+</div>
 </article></div>
 </div></main>
-<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><img alt="Therm-X Innovations" class="footer-logo" src="assets/images/logo.webp"/><p>Specialized manufacturer of environmental test chambers delivering reliable, precise, and application-focused product validation solutions.</p></div><div class="footer-col"><h3>Products</h3><ul><li><a href="products.html">All Products</a></li><li><a href="products/environmental-test-chambers.html">Environmental Test Chambers</a></li><li><a href="products/thermal-shock-series.html">Thermal Shock Series</a></li><li><a href="products/altitude-series.html">Altitude Series</a></li><li><a href="products/battery-test-chamber.html">Battery Test Chamber</a></li></ul></div><div class="footer-col"><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="news.html">News &amp; Updates</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-col"><h3>Contact</h3><ul><li><a href="tel:+919916904077">+91 99169 04077</a></li><li><a href="tel:+918029904629">+91 080 29904629</a></li><li><a href="mailto:sales@thermxinnovations.com">sales@thermxinnovations.com</a></li><li>#41A/11, 2nd Cross, 2nd Phase, Peenya Industrial Area, Bengaluru – 560058</li></ul></div></div><div class="footer-bottom"><p>© 2026 Therm-X Innovations Pvt. Ltd. All rights reserved.</p><p>CIN: U28990KA2024PTC191086</p></div></div></footer>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid footer-grid-modern">
+      <div class="footer-brand">
+        <a class="footer-logo-link" href="index.html" aria-label="Therm-X Innovations home">
+          <img class="footer-logo" src="assets/images/logo.webp" alt="Therm-X Innovations">
+        </a>
+        <p class="footer-intro">Precision environmental testing systems engineered for reliable, repeatable, and standards-compliant performance.</p>
+        <div class="footer-contact-list">
+          <a class="footer-contact-item" href="tel:+919980728238">
+            <span class="footer-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.46 15.46 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.37 11.37 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.37 11.37 0 0 0 .57 3.56 1 1 0 0 1-.25 1.02l-2.2 2.21Z"/></svg></span>
+            <span><small>Call</small><strong>9980728238</strong></span>
+          </a>
+          <a class="footer-contact-item" href="https://wa.me/918073261027" target="_blank" rel="noopener">
+            <span class="footer-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.84 9.84 0 0 0-8.42 14.93L2 22l5.2-1.57A9.97 9.97 0 1 0 12.04 2Zm0 17.95a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.08.93.95-3-.2-.31a7.93 7.93 0 1 1 6.76 3.69Zm4.45-5.93c-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.53.06-.24-.12-1.03-.38-1.96-1.21a7.32 7.32 0 0 1-1.36-1.69c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.75-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.65.3-.22.24-.85.83-.85 2.03s.87 2.36.99 2.52c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg></span>
+            <span><small>WhatsApp</small><strong>+91 80732 61027</strong></span>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="products/environmental-test-chambers.html">Environmental Test Chambers</a></li>
+          <li><a href="products/thermal-shock-series.html">Thermal Shock Series</a></li>
+          <li><a href="products/battery-test-chamber.html">Battery Test Chamber</a></li>
+          <li><a href="products/xwt-walkin-series.html">XWT Walk-in Series</a></li>
+          <li><a href="products/industrial-ovens.html">Industrial Ovens</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="news.html">News &amp; Updates</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-reach">
+        <h3>Reach Us</h3>
+        <p class="footer-address-text">#41A/11, 2nd Cross, 2nd Phase,<br>Peenya Industrial Area, Opp. ABB Ltd,<br>Bengaluru – 560058</p>
+        <h3 class="footer-social-title">Follow Us</h3>
+        <div class="footer-socials">
+          <a class="footer-social facebook" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-9h3l.45-3.5H13.5V7.26c0-1.01.28-1.7 1.73-1.7H17V2.43A23.7 23.7 0 0 0 14.39 2C11.81 2 10 3.57 10 6.46V9.5H7V13h3v9h3.5Z"/></svg></a>
+          <a class="footer-social youtube" href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2 31.58 31.58 0 0 0 0 12a31.58 31.58 0 0 0 .5 5.8 3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14A31.58 31.58 0 0 0 24 12a31.58 31.58 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg></a>
+          <a class="footer-social whatsapp" href="https://wa.me/918073261027" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.84 9.84 0 0 0-8.42 14.93L2 22l5.2-1.57A9.97 9.97 0 1 0 12.04 2Zm0 17.95a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.08.93.95-3-.2-.31a7.93 7.93 0 1 1 6.76 3.69Zm4.45-5.93c-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.53.06-.24-.12-1.03-.38-1.96-1.21a7.32 7.32 0 0 1-1.36-1.69c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.75-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.65.3-.22.24-.85.83-.85 2.03s.87 2.36.99 2.52c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg></a>
+          <a class="footer-social instagram" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm10.5 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Therm-X Innovations Pvt. Ltd. All rights reserved.</p>
+      <p>CIN: U28990KA2024PTC191086</p>
+    </div>
+  </div>
+</footer>
 <script src="assets/js/main.js"></script>
 <script>
 (() => {
@@ -844,6 +1002,10 @@
 
 
 
-  showProduct(buttons[0].dataset.productTarget, false);
+  const hashTarget = window.location.hash ? window.location.hash.slice(1) : '';
+  const initialTarget = document.getElementById(hashTarget)?.classList.contains('product-detail-card')
+    ? hashTarget
+    : buttons[0].dataset.productTarget;
+  showProduct(initialTarget, Boolean(hashTarget));
 })();
 </script></body></html>
