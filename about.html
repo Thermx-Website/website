@@ -2078,6 +2078,178 @@
   .about-page .industries-card .industry-serve-card{animation:none!important}
 }
 </style>
+
+<style id="about-single-photo-animation">
+.about-page .about-who-section .about-image-slider.single-photo{
+  position:relative!important;
+}
+.about-page .about-who-section .about-image-slider.single-photo .about-image-slide{
+  opacity:1!important;
+  transform:scale(1.02)!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  animation:aboutSinglePhotoFloat 5.4s ease-in-out infinite!important;
+}
+.about-page .about-who-section:hover .about-image-slider.single-photo .about-image-slide{
+  transform:scale(1.05)!important;
+  filter:saturate(1.04)!important;
+}
+@keyframes aboutSinglePhotoFloat{
+  0%,100%{transform:scale(1.02) translateY(0)!important}
+  50%{transform:scale(1.04) translateY(-6px)!important}
+}
+</style>
+
+<style id="iso-certified-about-section-style">
+html{scroll-behavior:smooth}
+.about-page .iso-certified-card{
+  scroll-margin-top:110px!important;
+  grid-template-columns:minmax(0,.82fr) minmax(360px,1.18fr)!important;
+  background:linear-gradient(145deg,rgba(225,238,255,.98),rgba(255,236,219,.96))!important;
+}
+.about-page .iso-certified-card .iso-certified-copy{
+  padding:42px 40px!important;
+}
+.about-page .iso-certified-card .iso-certificate-view{
+  padding:18px!important;
+  background:linear-gradient(145deg,#eef5ff 0%,#fff8f1 100%)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.about-page .iso-certified-card .iso-certificate-view::after{display:none!important}
+.about-page .iso-certified-card .iso-certificate-view a{
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  border-radius:18px!important;
+  overflow:hidden!important;
+  background:#fff!important;
+  box-shadow:0 16px 34px rgba(11,32,96,.14)!important;
+}
+.about-page .iso-certified-card .iso-certificate-view img{
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  background:#fff!important;
+  padding:12px!important;
+  box-sizing:border-box!important;
+  transform:none!important;
+  filter:none!important;
+}
+.about-page .iso-certified-card:hover .iso-certificate-view img{
+  transform:scale(1.015)!important;
+  filter:none!important;
+}
+@media(max-width:1050px){
+  .about-page .iso-certified-card{grid-template-columns:1fr!important}
+  .about-page .iso-certified-card .iso-certificate-view{height:520px!important;min-height:520px!important}
+}
+@media(max-width:640px){
+  .about-page .iso-certified-card .iso-certified-copy{padding:30px 22px!important}
+  .about-page .iso-certified-card .iso-certificate-view{height:430px!important;min-height:430px!important;padding:12px!important}
+}
+</style>
+
+<style id="iso-certificate-full-view-scroll-fix">
+.about-page #iso-certificate-preview{
+  scroll-margin-top:120px!important;
+}
+.about-page .iso-certified-card .iso-certificate-view{
+  min-height:720px!important;
+  height:auto!important;
+}
+.about-page .iso-certified-card .iso-certificate-view a{
+  min-height:680px!important;
+  height:100%!important;
+}
+.about-page .iso-certified-card .iso-certificate-view img{
+  width:100%!important;
+  height:100%!important;
+  min-height:680px!important;
+  object-fit:contain!important;
+}
+@media(max-width:1050px){
+  .about-page .iso-certified-card .iso-certificate-view{min-height:650px!important}
+  .about-page .iso-certified-card .iso-certificate-view a,
+  .about-page .iso-certified-card .iso-certificate-view img{min-height:610px!important}
+}
+@media(max-width:640px){
+  .about-page .iso-certified-card .iso-certificate-view{min-height:500px!important}
+  .about-page .iso-certified-card .iso-certificate-view a,
+  .about-page .iso-certified-card .iso-certificate-view img{min-height:470px!important}
+}
+</style>
+
+<style id="iso-certificate-only-final">
+.about-page .iso-certified-card.certificate-only-card{
+  grid-template-columns:1fr!important;
+  padding:0!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+  scroll-margin-top:110px!important;
+}
+.about-page .iso-certified-card.certificate-only-card::before{
+  display:none!important;
+}
+.about-page .iso-certified-card.certificate-only-card .iso-certificate-view{
+  width:100%!important;
+  min-height:820px!important;
+  height:auto!important;
+  padding:18px!important;
+  margin:0!important;
+  background:linear-gradient(145deg,#eef5ff 0%,#fff8f1 100%)!important;
+  border-radius:24px!important;
+  border:1px solid rgba(45,87,173,.18)!important;
+  box-shadow:0 24px 58px rgba(11,32,96,.12),0 8px 24px rgba(245,130,31,.08)!important;
+  box-sizing:border-box!important;
+}
+.about-page .iso-certified-card.certificate-only-card .iso-certificate-view::after{
+  display:none!important;
+}
+.about-page .iso-certified-card.certificate-only-card .iso-certificate-view a{
+  display:block!important;
+  width:100%!important;
+  min-height:780px!important;
+  height:100%!important;
+  background:#fff!important;
+  border-radius:18px!important;
+  overflow:hidden!important;
+  box-shadow:0 16px 34px rgba(11,32,96,.14)!important;
+}
+.about-page .iso-certified-card.certificate-only-card .iso-certificate-view img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:780px!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  padding:14px!important;
+  margin:0!important;
+  background:#fff!important;
+  box-sizing:border-box!important;
+  transform:none!important;
+  filter:none!important;
+}
+.about-page .iso-certified-card.certificate-only-card:hover .iso-certificate-view img{
+  transform:none!important;
+  filter:none!important;
+}
+@media(max-width:1050px){
+  .about-page .iso-certified-card.certificate-only-card .iso-certificate-view{min-height:650px!important}
+  .about-page .iso-certified-card.certificate-only-card .iso-certificate-view a,
+  .about-page .iso-certified-card.certificate-only-card .iso-certificate-view img{min-height:610px!important}
+}
+@media(max-width:640px){
+  .about-page .iso-certified-card.certificate-only-card .iso-certificate-view{min-height:500px!important;padding:10px!important}
+  .about-page .iso-certified-card.certificate-only-card .iso-certificate-view a,
+  .about-page .iso-certified-card.certificate-only-card .iso-certificate-view img{min-height:470px!important}
+}
+</style>
 </head>
 <body class="about-page">
 <nav class="site-nav">
@@ -2115,9 +2287,9 @@
     <div class="about-card-list">
       <article class="about-story-card about-who-section" data-about-card>
         <div class="about-card-image">
-          <div class="about-image-slider" data-about-slider data-interval="1500" aria-label="Therm-X company highlights image slider">
-            <img class="about-image-slide active" src="assets/images/about/about-company-building.webp" alt="Therm-X Innovations company building exterior">
-            <img class="about-image-slide" src="assets/images/about/about-group-photo.webp" alt="Therm-X Innovations team group photo">
+          <div class="about-image-slider" data-about-slider data-interval="1000" aria-label="Therm-X company overview slider">
+            <img class="about-image-slide active" src="assets/images/about/about-company-combined-single.png" alt="Therm-X company building and team overview">
+            <img class="about-image-slide" src="assets/images/about/about-company-machines-second.png" alt="Therm-X environmental test chamber lineup">
           </div>
         </div>
         <div class="about-card-copy">
@@ -2131,7 +2303,7 @@
             <div class="who-brief-item"><span>04</span><p><strong>Concept to Commissioning</strong>Engineering integrity, practical design, and long-term serviceability.</p></div>
           </div>
           <div class="about-card-actions">
-            <a class="about-certification-button" href="assets/documents/therm-x-qms-certificate.pdf" target="_blank" rel="noopener" aria-label="Open Therm-X QMS certification PDF">Certification <span>↗</span></a>
+            <a class="about-certification-button" href="#iso-certified" aria-label="Scroll to ISO certified section">ISO Certified <span>↓</span></a>
             <button class="about-read-more" data-about-open="who-we-are" type="button">Read More <span>→</span></button>
           </div>
         </div>
@@ -2263,6 +2435,14 @@
           <button class="about-read-more" data-about-open="industries" type="button">Read More <span>→</span></button>
         </div>
       </article>
+
+      <article class="about-story-card iso-certified-card certificate-only-card" id="iso-certified" data-about-card>
+        <div class="about-card-image iso-certificate-view" id="iso-certificate-preview">
+          <a href="assets/documents/therm-x-qms-certificate.pdf" target="_blank" rel="noopener" aria-label="Open full ISO certificate PDF">
+            <img src="assets/images/iso-certified-certificate.png" alt="Therm-X ISO certification certificate preview">
+          </a>
+        </div>
+      </article>
     </div>
   </div>
 </main>
@@ -2337,7 +2517,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Therm-X Innovations Pvt. Ltd. All rights reserved.</p>
+      <p>© 2026 Therm-X Innovations Pvt. Ltd. All rights reserved. | ISO Certified Company</p>
       <p>CIN: U28990KA2024PTC191086</p>
     </div>
   </div>

@@ -1,61 +1,60 @@
-THERM-X CONTACT FORM — RESEND + SUPABASE EDGE FUNCTION
-======================================================
+THERM-X CONTACT FORM — VERCEL + RESEND SETUP
+=============================================
 
-WHAT IS ALREADY CONNECTED IN THIS ZIP
--------------------------------------
-1. contact.html now submits through Supabase.
-2. assets/js/contact-resend.js invokes the Edge Function named:
-   send-contact-email
-3. The Edge Function sends the enquiry through Resend.
-4. Attachments are supported: maximum 3 files, 3 MB each, 7 MB total.
-5. The visitor's email is used as Reply-To.
-6. The Resend secret key is NOT included in the website.
+WHAT IS UPDATED
+---------------
+1. The contact form now sends to /api/contact.
+2. api/contact.js is a secure Vercel Serverless Function.
+3. The Resend API key stays on the server and is never exposed in browser code.
+4. Visitor email is configured as Reply-To.
+5. Up to 3 attachments are supported (2 MB each, 3 MB total).
 
-FILES ADDED
------------
-supabase/functions/send-contact-email/index.ts
-supabase/config.toml
+FILES ADDED / UPDATED
+---------------------
+api/contact.js
 assets/js/contact-resend.js
+contact.html
+.env.example
 
-SUPABASE SECRETS REQUIRED
--------------------------
+ADD THESE ENVIRONMENT VARIABLES IN VERCEL
+-----------------------------------------
+Open:
+Vercel Dashboard > website project > Settings > Environment Variables
+
+Add all 3 values:
+
 RESEND_API_KEY
+Value: re_your_real_resend_api_key
+
 CONTACT_TO_EMAIL
+Value: sales@thermxinnovations.com
+(You may replace this with the inbox that must receive contact enquiries.)
+
 CONTACT_FROM_EMAIL
+Value: Therm-X Website <enquiries@thermxinnovations.com>
+(The sender address must use your verified Resend domain.)
 
-TEMPORARY TEST VALUES WITHOUT A DOMAIN
---------------------------------------
-CONTACT_FROM_EMAIL = Therm-X Website <onboarding@resend.dev>
-CONTACT_TO_EMAIL   = the exact email address used for your Resend account
+For each variable, enable Production, Preview, and Development if required.
+Then redeploy the latest deployment.
 
-After verifying a domain in Resend, change only CONTACT_FROM_EMAIL, for example:
-Therm-X Website <enquiries@yourdomain.com>
-
-DEPLOY USING SUPABASE CLI
--------------------------
-1. Install the Supabase CLI.
-2. Open a terminal inside the website folder.
-3. Run:
-
-   supabase login
-   supabase link --project-ref wnlvzucwmtsrvbqdwojw
-   supabase secrets set RESEND_API_KEY="re_your_real_key"
-   supabase secrets set CONTACT_TO_EMAIL="your-resend-account-email@example.com"
-   supabase secrets set CONTACT_FROM_EMAIL="Therm-X Website <onboarding@resend.dev>"
-   supabase functions deploy send-contact-email --no-verify-jwt
-
-OPTIONAL AFTER DOMAIN CONNECTION
+HOW TO CREATE THE RESEND API KEY
 --------------------------------
-Set the live website origins:
+1. Open Resend Dashboard.
+2. Open API Keys.
+3. Click Create API Key.
+4. Give it a name such as Therm-X Website.
+5. Copy the key once.
+6. Paste it only into the Vercel RESEND_API_KEY environment variable.
 
-   supabase secrets set CONTACT_ALLOWED_ORIGINS="https://yourdomain.com,https://www.yourdomain.com"
+IMPORTANT SECURITY RULE
+-----------------------
+Do not paste the Resend API key directly into contact.html or contact-resend.js.
+Frontend code is visible to everyone. The key belongs only in Vercel Environment Variables.
 
-Then update the sender:
-
-   supabase secrets set CONTACT_FROM_EMAIL="Therm-X Website <enquiries@yourdomain.com>"
-
-IMPORTANT
----------
-- Do not put RESEND_API_KEY in HTML, JavaScript, GitHub, or Vercel variables exposed to the browser.
-- The public Supabase publishable key in assets/js/supabase-config.js is expected and protected by Supabase policies.
-- Resend's onboarding@resend.dev test sender can normally send only to the Resend account owner's email.
+TEST
+----
+1. Redeploy the Vercel project after adding the variables.
+2. Open the contact page.
+3. Submit a test enquiry.
+4. Check CONTACT_TO_EMAIL inbox and spam folder.
+5. Reply to the received message; it will reply to the visitor's email address.

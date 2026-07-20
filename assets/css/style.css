@@ -1124,3 +1124,11 @@ iframe[src*="google.com/maps/embed"]{
 .scroll-to-top:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 16px 34px rgba(11,32,96,.34)}
 .scroll-to-top:focus-visible{outline:3px solid rgba(245,130,31,.42);outline-offset:3px}
 @media(max-width:640px){.scroll-to-top{right:16px;bottom:16px;width:44px;height:44px}}
+
+
+
+
+/* Footer ISO text follows the same design as the rights-reserved text. */
+.footer-bottom p{
+  font:inherit;
+}

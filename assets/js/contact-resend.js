@@ -15,8 +15,8 @@
   const formStatus = document.getElementById('contact-form-status');
 
   const MAX_FILES = 3;
-  const MAX_FILE_BYTES = 3 * 1024 * 1024;
-  const MAX_TOTAL_BYTES = 7 * 1024 * 1024;
+  const MAX_FILE_BYTES = 2 * 1024 * 1024;
+  const MAX_TOTAL_BYTES = 3 * 1024 * 1024;
   const ALLOWED_TYPES = new Set([
     'application/pdf','application/msword',
     'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
@@ -51,10 +51,10 @@
     let totalSize = 0;
     for (const file of files) {
       totalSize += file.size;
-      if (file.size > MAX_FILE_BYTES) throw new Error(`${file.name} exceeds the 3 MB file limit.`);
+      if (file.size > MAX_FILE_BYTES) throw new Error(`${file.name} exceeds the 2 MB file limit.`);
       if (file.type && !ALLOWED_TYPES.has(file.type)) throw new Error(`${file.name} is not an allowed file type.`);
     }
-    if (totalSize > MAX_TOTAL_BYTES) throw new Error('The total attachment size must be 7 MB or less.');
+    if (totalSize > MAX_TOTAL_BYTES) throw new Error('The total attachment size must be 3 MB or less.');
   }
 
   function syncInputFiles() {
@@ -197,12 +197,6 @@
     }
     if (!form.reportValidity()) return;
 
-    const client = window.thermxSupabase;
-    if (!client) {
-      setFormStatus('The enquiry service is not available. Please try again shortly.', 'error');
-      return;
-    }
-
     const formData = new FormData(form);
 
     try {
@@ -222,9 +216,15 @@
         attachments
       };
 
-      const { data, error } = await client.functions.invoke('send-contact-email', { body: payload });
-      if (error) throw error;
-      if (!data?.success) throw new Error(data?.error || 'Unable to send the enquiry.');
+      const apiResponse = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await apiResponse.json().catch(() => ({}));
+      if (!apiResponse.ok || !data?.success) {
+        throw new Error(data?.error || 'Unable to send the enquiry.');
+      }
 
       form.reset();
       selectedFiles = [];
