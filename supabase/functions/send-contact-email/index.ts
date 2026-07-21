@@ -191,27 +191,75 @@ serve(async (request: Request) => {
 
     const htmlRows = rows.map(([label, value]) => `
       <tr>
-        <td style="padding:10px 12px;border-bottom:1px solid #e6ebf3;font-weight:700;color:#0b2060;vertical-align:top;width:150px">${escapeHtml(label)}</td>
-        <td style="padding:10px 12px;border-bottom:1px solid #e6ebf3;color:#26344d;vertical-align:top">${escapeHtml(value)}</td>
+        <td style="padding:12px 14px;border-bottom:1px solid #e4eaf4;background:#f8faff;font-weight:800;color:#0b3d91;vertical-align:top;width:150px">${escapeHtml(label)}</td>
+        <td style="padding:12px 14px;border-bottom:1px solid #e4eaf4;color:#26344d;vertical-align:top">${escapeHtml(value)}</td>
       </tr>`).join("");
 
     const html = `<!doctype html>
-      <html><body style="margin:0;background:#f4f7fb;font-family:Arial,sans-serif;color:#1f2d45">
-        <div style="max-width:720px;margin:24px auto;padding:0 14px">
-          <div style="background:linear-gradient(135deg,#0b2060,#174da8 62%,#f5821f);padding:24px;border-radius:18px 18px 0 0;color:#fff">
-            <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.85">Therm-X Innovations</div>
-            <h1 style="margin:8px 0 0;font-size:25px">New website enquiry</h1>
-          </div>
-          <div style="background:#fff;padding:22px;border-radius:0 0 18px 18px;box-shadow:0 12px 34px rgba(12,35,88,.10)">
-            <table role="presentation" style="width:100%;border-collapse:collapse">${htmlRows}</table>
-            <div style="margin-top:22px">
-              <div style="font-weight:700;color:#0b2060;margin-bottom:8px">Description</div>
-              <div style="padding:16px;border-radius:12px;background:#f6f8fc;line-height:1.65;white-space:pre-wrap">${escapeHtml(description)}</div>
-            </div>
-            <p style="margin:20px 0 0;font-size:12px;color:#64748b">Reply to this email to respond directly to ${escapeHtml(name)}.</p>
-          </div>
-        </div>
-      </body></html>`;
+      <html>
+      <body style="margin:0;padding:0;background:#eef3fa;font-family:Arial,Helvetica,sans-serif;color:#16243d">
+        <div style="display:none;max-height:0;overflow:hidden;opacity:0">New Therm-X website enquiry from ${escapeHtml(name)}</div>
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#eef3fa;padding:28px 12px">
+          <tr>
+            <td align="center">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:720px;background:#ffffff;border-radius:20px;overflow:hidden;box-shadow:0 16px 42px rgba(11,32,96,.14)">
+                <tr>
+                  <td style="padding:0">
+                    <div style="height:7px;background:linear-gradient(90deg,#082b6f 0%,#1556b8 68%,#f5821f 68%,#f5821f 100%)"></div>
+                    <div style="background:linear-gradient(135deg,#071f55,#0f4baa 72%);padding:28px 30px;color:#ffffff">
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td>
+                            <div style="font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#f6a04b">THERM-X INNOVATIONS</div>
+                            <h1 style="margin:9px 0 6px;font-size:27px;line-height:1.2">New Website Enquiry</h1>
+                            <p style="margin:0;color:#dbe8ff;font-size:14px;line-height:1.6">Environmental Test Chambers • Technical Solutions • Service Support</p>
+                          </td>
+                          <td align="right" style="vertical-align:top">
+                            <div style="display:inline-block;padding:9px 13px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(255,255,255,.10);font-size:12px;font-weight:700">CONTACT REQUEST</div>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:26px 28px 10px">
+                    <div style="padding:16px 18px;border-left:4px solid #f5821f;background:#fff8f1;border-radius:10px;color:#263b61;font-size:14px;line-height:1.65">
+                      A new enquiry has been submitted through the Therm-X Innovations website. The required customer details are shown below.
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:14px 28px 0">
+                    <div style="font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0b3d91;margin-bottom:10px">Customer Details</div>
+                    <table role="presentation" style="width:100%;border-collapse:collapse;border:1px solid #dde6f4;border-radius:12px;overflow:hidden">${tableRows}</table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:22px 28px 0">
+                    <div style="font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0b3d91;margin-bottom:10px">Requirement Description</div>
+                    <div style="padding:18px;border-radius:12px;background:#f4f7fc;border:1px solid #e1e8f3;line-height:1.72;white-space:pre-wrap;color:#26344d">${escapeHtml(description)}</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:22px 28px 28px">
+                    <div style="padding:14px 16px;border-radius:10px;background:#0b2f75;color:#ffffff;font-size:13px;line-height:1.6">
+                      Reply directly to this email to contact <strong>${escapeHtml(name)}</strong> at ${escapeHtml(email)}.
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:17px 28px;background:#071f55;color:#bcd0f3;font-size:11px;line-height:1.6;text-align:center">
+                    Therm-X Innovations • Peenya Industrial Area, Bengaluru – 560058<br>
+                    This enquiry was generated from the official Therm-X Innovations website.
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </body>
+      </html>`;
 
     const plainText = [
       "THERM-X WEBSITE ENQUIRY",

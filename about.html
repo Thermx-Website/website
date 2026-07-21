@@ -2250,6 +2250,445 @@ html{scroll-behavior:smooth}
   .about-page .iso-certified-card.certificate-only-card .iso-certificate-view img{min-height:470px!important}
 }
 </style>
+
+<style id="iso-two-column-certificate-final">
+.about-page .iso-certified-card.iso-two-column-card{
+  scroll-margin-top:110px!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.08fr) minmax(330px,.92fr)!important;
+  gap:24px!important;
+  align-items:stretch!important;
+  padding:22px!important;
+  background:linear-gradient(145deg,rgba(235,243,255,.98),rgba(255,245,236,.96))!important;
+  border:1px solid rgba(45,87,173,.18)!important;
+  border-radius:26px!important;
+  box-shadow:0 24px 58px rgba(11,32,96,.12),0 8px 24px rgba(245,130,31,.08)!important;
+  overflow:hidden!important;
+}
+.about-page .iso-certified-card.iso-two-column-card::before,
+.about-page .iso-certified-card.iso-two-column-card::after{display:none!important;}
+.about-page .iso-certificate-left,
+.about-page .iso-certificate-right{
+  height:590px!important;
+  min-height:590px!important;
+}
+.about-page .iso-certificate-left{
+  padding:16px!important;
+  border-radius:22px!important;
+  background:#ffffff!important;
+  box-shadow:inset 0 0 0 1px rgba(11,32,96,.08),0 16px 34px rgba(11,32,96,.10)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+}
+.about-page .iso-certificate-left a{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:100%!important;
+  height:100%!important;
+  border-radius:16px!important;
+  overflow:hidden!important;
+  background:#fff!important;
+}
+.about-page .iso-certificate-left img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  padding:8px!important;
+  box-sizing:border-box!important;
+  background:#fff!important;
+  transform:none!important;
+  filter:none!important;
+}
+.about-page .iso-certificate-right{
+  display:grid!important;
+  grid-template-rows:repeat(2,minmax(0,1fr))!important;
+  gap:22px!important;
+  align-self:stretch!important;
+}
+.about-page .iso-info-box{
+  height:100%!important;
+  min-height:0!important;
+  box-sizing:border-box!important;
+  border-radius:22px!important;
+  background:rgba(255,255,255,.92)!important;
+  border:1px solid rgba(45,87,173,.14)!important;
+  box-shadow:0 14px 32px rgba(11,32,96,.10)!important;
+  padding:28px!important;
+  overflow:hidden!important;
+}
+.about-page .iso-animation-box{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:24px!important;
+  background:radial-gradient(circle at 25% 25%,rgba(42,112,215,.16),transparent 34%),radial-gradient(circle at 78% 76%,rgba(245,130,31,.20),transparent 38%),#fff!important;
+}
+.about-page .iso-certified-visual{
+  width:142px!important;
+  height:142px!important;
+  position:relative!important;
+  display:grid!important;
+  place-items:center!important;
+  flex:0 0 142px!important;
+}
+.about-page .iso-pulse-ring{
+  position:absolute!important;
+  inset:0!important;
+  border-radius:50%!important;
+  background:linear-gradient(135deg,rgba(10,64,153,.16),rgba(245,130,31,.18))!important;
+  animation:isoPulse 2.4s ease-in-out infinite!important;
+}
+.about-page .iso-badge-mark{
+  position:relative!important;
+  width:108px!important;
+  height:108px!important;
+  border-radius:32px!important;
+  background:linear-gradient(135deg,#0b3c91,#1d71d9)!important;
+  color:#fff!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  box-shadow:0 18px 34px rgba(11,32,96,.24)!important;
+  border:4px solid rgba(255,255,255,.74)!important;
+  transform:rotate(-4deg)!important;
+  animation:isoBadgeFloat 3.2s ease-in-out infinite!important;
+}
+.about-page .iso-badge-text{font-size:30px!important;line-height:1!important;font-weight:950!important;letter-spacing:.04em!important;}
+.about-page .iso-check-mark{
+  margin-top:8px!important;width:34px!important;height:34px!important;display:grid!important;place-items:center!important;border-radius:50%!important;color:#fff!important;background:#f5821f!important;font-size:22px!important;font-weight:900!important;
+}
+.about-page .iso-mini-label{
+  display:inline-flex!important;padding:7px 13px!important;border-radius:999px!important;background:rgba(245,130,31,.13)!important;color:#f5821f!important;font-weight:900!important;font-size:12px!important;letter-spacing:.08em!important;text-transform:uppercase!important;margin-bottom:10px!important;
+}
+.about-page .iso-animation-box h3{margin:0!important;color:#0b2060!important;font-size:clamp(22px,2.2vw,32px)!important;line-height:1.18!important;}
+.about-page .iso-content-box{display:flex!important;flex-direction:column!important;justify-content:center!important;}
+.about-page .iso-content-box h2{margin:0 0 12px!important;color:#0b2060!important;font-size:clamp(24px,2.5vw,36px)!important;line-height:1.16!important;}
+.about-page .iso-content-box p{margin:0 0 18px!important;color:#536782!important;font-size:15px!important;line-height:1.68!important;}
+.about-page .iso-content-points{list-style:none!important;margin:0!important;padding:0!important;display:grid!important;gap:10px!important;}
+.about-page .iso-content-points li{position:relative!important;padding:11px 14px 11px 40px!important;border-radius:14px!important;background:linear-gradient(135deg,rgba(12,63,148,.08),rgba(245,130,31,.08))!important;color:#243a5c!important;font-weight:800!important;font-size:13.5px!important;}
+.about-page .iso-content-points li::before{content:"✓"!important;position:absolute!important;left:13px!important;top:50%!important;transform:translateY(-50%)!important;width:20px!important;height:20px!important;border-radius:50%!important;display:grid!important;place-items:center!important;background:#f5821f!important;color:#fff!important;font-size:12px!important;font-weight:900!important;}
+@keyframes isoPulse{0%,100%{transform:scale(.92);opacity:.72}50%{transform:scale(1.08);opacity:1}}
+@keyframes isoBadgeFloat{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+@media(max-width:1050px){
+  .about-page .iso-certified-card.iso-two-column-card{grid-template-columns:1fr!important;}
+  .about-page .iso-certificate-left,.about-page .iso-certificate-right{height:auto!important;min-height:auto!important;}
+  .about-page .iso-certificate-left{height:560px!important;}
+  .about-page .iso-certificate-right{grid-template-rows:auto auto!important;}
+}
+@media(max-width:640px){
+  .about-page .iso-certified-card.iso-two-column-card{padding:12px!important;gap:14px!important;}
+  .about-page .iso-certificate-left{height:430px!important;padding:10px!important;}
+  .about-page .iso-info-box{padding:20px!important;height:auto!important;}
+  .about-page .iso-animation-box{flex-direction:column!important;text-align:center!important;}
+  .about-page .iso-certified-visual{width:118px!important;height:118px!important;flex-basis:118px!important;}
+  .about-page .iso-badge-mark{width:90px!important;height:90px!important;border-radius:26px!important;}
+  .about-page .iso-badge-text{font-size:25px!important;}
+}
+</style>
+
+
+<style id="iso-uploaded-right-cards-final">
+.about-page .iso-animation-box{
+  background:radial-gradient(circle at 50% 50%, rgba(233,242,255,.95) 0%, rgba(255,255,255,1) 68%)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  perspective:1200px!important;
+  overflow:hidden!important;
+}
+.about-page .iso-uploaded-logo-3d{
+  display:block!important;
+  width:min(84%,250px)!important;
+  aspect-ratio:1/1!important;
+  height:auto!important;
+  object-fit:contain!important;
+  border-radius:50%!important;
+  filter:drop-shadow(0 18px 26px rgba(11,32,96,.18)) drop-shadow(0 6px 10px rgba(0,0,0,.08))!important;
+  transform-style:preserve-3d!important;
+  animation:none!important;
+  background:transparent!important;
+}
+.about-page .iso-text-content-box{
+  background:linear-gradient(180deg,#ffffff 0%, #f8fbff 100%)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:28px!important;
+}
+.about-page .iso-text-stack{
+  width:100%!important;
+  text-align:left!important;
+}
+.about-page .iso-text-kicker{
+  display:inline-block!important;
+  margin-bottom:10px!important;
+  font-size:12px!important;
+  font-weight:800!important;
+  letter-spacing:.18em!important;
+  color:#f5821f!important;
+}
+.about-page .iso-text-stack h3{
+  margin:0 0 12px!important;
+  color:#0b2b73!important;
+  font-size:1.55rem!important;
+  line-height:1.18!important;
+}
+.about-page .iso-text-stack p{
+  margin:0 0 14px!important;
+  color:#4d628d!important;
+  font-size:1rem!important;
+  line-height:1.7!important;
+}
+.about-page .iso-text-points{
+  list-style:none!important;
+  margin:0!important;
+  padding:0!important;
+  display:grid!important;
+  gap:10px!important;
+}
+.about-page .iso-text-points li{
+  position:relative!important;
+  padding-left:24px!important;
+  color:#1d376f!important;
+  font-weight:600!important;
+  line-height:1.55!important;
+}
+.about-page .iso-text-points li::before{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;
+  top:.52em!important;
+  width:10px!important;
+  height:10px!important;
+  border-radius:50%!important;
+  background:linear-gradient(135deg,#0f4baa,#f5821f)!important;
+  transform:translateY(-50%)!important;
+  box-shadow:0 0 0 5px rgba(245,130,31,.10)!important;
+}
+@keyframes isoFixedHorizontalRotation{
+  0%{transform:rotateY(0deg)}
+  100%{transform:rotateY(360deg)}
+}
+  50%{transform:translateX(26px)}
+  100%{transform:translateX(-26px)}
+}
+  50%{translate:0 -8px}
+}
+@media(max-width:640px){
+  .about-page .iso-uploaded-logo-3d{
+    width:min(76%,190px)!important;
+  }
+  .about-page .iso-text-content-box{
+    padding:20px!important;
+  }
+  .about-page .iso-text-stack h3{
+    font-size:1.32rem!important;
+  }
+}
+</style>
+
+
+
+
+
+<style id="iso-two-sided-correct-rotation-final">
+.about-page .iso-animation-box{
+  perspective:1100px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+}
+
+.about-page .iso-logo-rotator{
+  position:relative!important;
+  width:min(84%,250px)!important;
+  aspect-ratio:1/1!important;
+  transform-style:preserve-3d!important;
+  transform-origin:50% 50%!important;
+  animation:isoTwoSidedRotation 8s linear infinite!important;
+}
+
+.about-page .iso-logo-face{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  border-radius:50%!important;
+  background:transparent!important;
+  backface-visibility:hidden!important;
+  -webkit-backface-visibility:hidden!important;
+  filter:drop-shadow(0 18px 26px rgba(11,32,96,.18)) drop-shadow(0 6px 10px rgba(0,0,0,.08))!important;
+}
+
+.about-page .iso-logo-front{
+  transform:rotateY(0deg)!important;
+}
+
+.about-page .iso-logo-back{
+  transform:rotateY(180deg)!important;
+}
+
+@keyframes isoTwoSidedRotation{
+  from{transform:rotateY(0deg)}
+  to{transform:rotateY(360deg)}
+}
+
+@media(max-width:640px){
+  .about-page .iso-logo-rotator{
+    width:min(76%,190px)!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .about-page .iso-logo-rotator{
+    animation:none!important;
+  }
+}
+</style>
+
+
+<style id="iso-logo-only-centered-final">
+.about-page .iso-animation-box{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:0!important;
+  text-align:center!important;
+}
+.about-page .iso-logo-rotator{
+  margin:auto!important;
+  flex:0 0 auto!important;
+}
+</style>
+
+
+<style id="about-slider-all-borders-visible-final">
+/* Keep the complete frame visible on all four sides */
+.about-page .about-image-card,
+.about-page .about-slider,
+.about-page .about-slideshow,
+.about-page .about-company-slider,
+.about-page .about-visual-card,
+.about-page .company-story-visual,
+.about-page .about-image-frame{
+  overflow:visible!important;
+  box-sizing:border-box!important;
+}
+
+/* Ensure the image remains inside the frame and never covers the border */
+.about-page .about-image-card img,
+.about-page .about-slider img,
+.about-page .about-slideshow img,
+.about-page .about-company-slider img,
+.about-page .about-visual-card img,
+.about-page .company-story-visual img,
+.about-page .about-image-frame img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  box-sizing:border-box!important;
+  border-radius:inherit!important;
+}
+
+/* Create a fixed complete border around the active slide */
+.about-page .about-image-card::after,
+.about-page .about-slider::after,
+.about-page .about-slideshow::after,
+.about-page .about-company-slider::after,
+.about-page .about-visual-card::after,
+.about-page .company-story-visual::after,
+.about-page .about-image-frame::after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  pointer-events:none!important;
+  border-radius:inherit!important;
+  box-sizing:border-box!important;
+  border:5px solid transparent!important;
+  background:
+    linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(90deg,#0b3f91 0 50%,#f5821f 50% 100%) border-box!important;
+  z-index:20!important;
+}
+
+/* Maintain safe spacing so none of the border is clipped */
+.about-page .about-image-card,
+.about-page .about-slider,
+.about-page .about-slideshow,
+.about-page .about-company-slider,
+.about-page .about-visual-card,
+.about-page .company-story-visual,
+.about-page .about-image-frame{
+  position:relative!important;
+  padding:6px!important;
+  border-radius:24px!important;
+}
+
+/* Disable clipping from immediate wrappers */
+.about-page .about-image-card-wrap,
+.about-page .about-visual-wrap,
+.about-page .about-slider-wrap,
+.about-page .about-media-wrap{
+  overflow:visible!important;
+}
+</style>
+
+
+<style id="border-no-overlay-fix">
+.about-page .about-image-card,
+.about-page .about-slider,
+.about-page .about-slideshow,
+.about-page .about-company-slider,
+.about-page .about-image-frame{
+position:relative!important;
+padding:14px!important;
+background:#fff!important;
+overflow:visible!important;
+}
+.about-page .about-image-card img,
+.about-page .about-slider img,
+.about-page .about-slideshow img,
+.about-page .about-company-slider img,
+.about-page .about-image-frame img{
+width:100%!important;
+height:100%!important;
+display:block!important;
+object-fit:contain!important;
+border-radius:18px!important;
+position:relative!important;
+z-index:2!important;
+}
+.about-page .about-image-card::before,
+.about-page .about-slider::before,
+.about-page .about-slideshow::before,
+.about-page .about-company-slider::before,
+.about-page .about-image-frame::before{
+content:"";
+position:absolute;
+inset:0;
+padding:4px;
+border-radius:24px;
+background:linear-gradient(90deg,#0b4aa8,#f5821f,#0b4aa8);
+-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+-webkit-mask-composite:xor;
+mask-composite:exclude;
+z-index:1;
+animation:borderMove 2s linear infinite;
+pointer-events:none;
+}
+@keyframes borderMove{
+to{filter:hue-rotate(360deg);}
+}
+</style>
 </head>
 <body class="about-page">
 <nav class="site-nav">
@@ -2436,11 +2875,33 @@ html{scroll-behavior:smooth}
         </div>
       </article>
 
-      <article class="about-story-card iso-certified-card certificate-only-card" id="iso-certified" data-about-card>
-        <div class="about-card-image iso-certificate-view" id="iso-certificate-preview">
+      <article class="about-story-card iso-certified-card iso-two-column-card" id="iso-certified" data-about-card>
+        <div class="iso-certificate-left" id="iso-certificate-preview">
           <a href="assets/documents/therm-x-qms-certificate.pdf" target="_blank" rel="noopener" aria-label="Open full ISO certificate PDF">
             <img src="assets/images/iso-certified-certificate.png" alt="Therm-X ISO certification certificate preview">
           </a>
+        </div>
+
+        <div class="iso-certificate-right">
+          <div class="iso-info-box iso-animation-box" aria-label="ISO certified logo animation">
+            <div class="iso-logo-rotator" aria-hidden="true">
+              <img class="iso-logo-face iso-logo-front" src="assets/images/iso-9001-certified-logo.png" alt="">
+              <img class="iso-logo-face iso-logo-back" src="assets/images/iso-9001-certified-logo.png" alt="">
+            </div>
+          </div>
+
+          <div class="iso-info-box iso-content-box iso-text-content-box">
+            <div class="iso-text-stack">
+              <span class="iso-text-kicker">QUALITY STANDARD</span>
+              <h3>ISO 9001:2015 Certified Company</h3>
+              <p>Committed to delivering quality products, innovative solutions, and complete customer satisfaction.</p>
+              <ul class="iso-text-points">
+                <li>Quality-focused systems and processes</li>
+                <li>Reliable product performance and service</li>
+                <li>Continuous improvement and customer confidence</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </article>
     </div>
@@ -2510,9 +2971,9 @@ html{scroll-behavior:smooth}
         <h3 class="footer-social-title">Follow Us</h3>
         <div class="footer-socials">
           <a class="footer-social facebook" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-9h3l.45-3.5H13.5V7.26c0-1.01.28-1.7 1.73-1.7H17V2.43A23.7 23.7 0 0 0 14.39 2C11.81 2 10 3.57 10 6.46V9.5H7V13h3v9h3.5Z"/></svg></a>
-          <a class="footer-social youtube" href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2 31.58 31.58 0 0 0 0 12a31.58 31.58 0 0 0 .5 5.8 3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14A31.58 31.58 0 0 0 24 12a31.58 31.58 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg></a>
+          <a class="footer-social linkedin" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 3.5A2.7 2.7 0 1 1 5.2 9a2.7 2.7 0 0 1 0-5.5ZM3 10.2h4.4V21H3V10.2Zm7.1 0h4.2v1.5h.1c.6-1.1 2-2.2 4.1-2.2 4.4 0 5.2 2.9 5.2 6.7V21h-4.4v-4.3c0-1 0-3.4-2.1-3.4s-2.5 1.6-2.5 3.3V21h-4.4V10.2Z"/></svg></a>
           <a class="footer-social whatsapp" href="https://wa.me/918073261027" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.84 9.84 0 0 0-8.42 14.93L2 22l5.2-1.57A9.97 9.97 0 1 0 12.04 2Zm0 17.95a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.08.93.95-3-.2-.31a7.93 7.93 0 1 1 6.76 3.69Zm4.45-5.93c-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.53.06-.24-.12-1.03-.38-1.96-1.21a7.32 7.32 0 0 1-1.36-1.69c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.75-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.65.3-.22.24-.85.83-.85 2.03s.87 2.36.99 2.52c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg></a>
-          <a class="footer-social instagram" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm10.5 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg></a>
+          <a class="footer-social instagram" href="https://www.instagram.com/thermxinnovations?igsh=MXcydzVnbGo2NHFuOA%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm10.5 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg></a>
         </div>
       </div>
     </div>

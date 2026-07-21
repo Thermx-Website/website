@@ -860,7 +860,7 @@ iframe[src*="google.com/maps/embed"]{
 .site-footer .footer-social svg{width:18px;height:18px;fill:currentColor}
 .site-footer .footer-social:hover{transform:translateY(-3px);border-color:transparent}
 .site-footer .footer-social.facebook:hover{background:#1877f2}
-.site-footer .footer-social.youtube:hover{background:#ff0000}
+.site-footer .footer-social.linkedin:hover{background:#0a66c2}
 .site-footer .footer-social.whatsapp:hover{background:#25d366}
 .site-footer .footer-social.instagram:hover{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)}
 .site-footer .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding-top:22px;border-top:1px solid rgba(255,255,255,.1)}
