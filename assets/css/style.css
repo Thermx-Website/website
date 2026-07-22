@@ -1132,3 +1132,15 @@ iframe[src*="google.com/maps/embed"]{
 .footer-bottom p{
   font:inherit;
 }
+
+
+/* Brochure lead form */
+.brochure-confirm-card{width:min(460px,100%)}
+.brochure-lead-form{display:grid;gap:13px;margin-top:20px;text-align:left}
+.brochure-lead-form label{display:grid;gap:6px}
+.brochure-lead-form label span{color:#19335f;font-size:12px;font-weight:800}
+.brochure-lead-form input{width:100%;box-sizing:border-box;border:1px solid #cfdaea;border-radius:12px;padding:12px 13px;background:#f8fbff;color:#132a50;font:inherit;font-size:13px;outline:none;transition:.2s}
+.brochure-lead-form input:focus{border-color:#3978e0;background:#fff;box-shadow:0 0 0 3px rgba(57,120,224,.12)}
+.brochure-form-error{min-height:17px;color:#c53c2e;font-size:12px;font-weight:700}
+.brochure-confirm-download:disabled{cursor:not-allowed;opacity:.45;box-shadow:none;transform:none!important}
+.brochure-confirm-download:not(:disabled){cursor:pointer}

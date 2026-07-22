@@ -151,8 +151,8 @@
 })();
 
 
-// Brochure download confirmation. Add the final PDF at:
-// assets/docs/Therm-X-Innovations-Brochure.pdf
+// Brochure lead form and download.
+// Replace assets/docs/Therm-X-Innovations-Brochure.pdf later with the final brochure.
 (() => {
   const triggers=[...document.querySelectorAll('[data-brochure-download],.brochure-download-trigger')];
   if(!triggers.length)return;
@@ -163,23 +163,87 @@
   backdrop.innerHTML=`
     <div class="brochure-confirm-card" role="dialog" aria-modal="true" aria-labelledby="brochure-confirm-title">
       <div class="brochure-confirm-icon">↓</div>
-      <h3 id="brochure-confirm-title">Download Brochure?</h3>
-      <p>Confirm to download the Therm-X Innovations brochure PDF.</p>
-      <div class="brochure-confirm-actions">
-        <button class="brochure-confirm-cancel" type="button">Cancel</button>
-        <button class="brochure-confirm-download" type="button">Download PDF</button>
-      </div>
+      <h3 id="brochure-confirm-title">Download Brochure</h3>
+      <p>Please enter your details to enable the brochure download.</p>
+
+      <form class="brochure-lead-form" novalidate>
+        <label>
+          <span>Name</span>
+          <input class="brochure-lead-name" type="text" name="name" placeholder="Enter your name" autocomplete="name" required>
+        </label>
+        <label>
+          <span>Contact Number</span>
+          <input class="brochure-lead-phone" type="tel" name="phone" placeholder="Enter contact number" autocomplete="tel" inputmode="numeric" maxlength="15" required>
+        </label>
+        <label>
+          <span>Email</span>
+          <input class="brochure-lead-email" type="email" name="email" placeholder="Enter email address" autocomplete="email" required>
+        </label>
+        <div class="brochure-form-error" aria-live="polite"></div>
+
+        <div class="brochure-confirm-actions">
+          <button class="brochure-confirm-cancel" type="button">Cancel</button>
+          <button class="brochure-confirm-download" type="submit" disabled>Download PDF</button>
+        </div>
+      </form>
     </div>`;
   document.body.appendChild(backdrop);
 
-  const close=()=>{backdrop.classList.remove('is-open');backdrop.setAttribute('aria-hidden','true')};
-  const open=()=>{backdrop.classList.add('is-open');backdrop.setAttribute('aria-hidden','false');backdrop.querySelector('.brochure-confirm-download')?.focus()};
+  const form=backdrop.querySelector('.brochure-lead-form');
+  const nameInput=backdrop.querySelector('.brochure-lead-name');
+  const phoneInput=backdrop.querySelector('.brochure-lead-phone');
+  const emailInput=backdrop.querySelector('.brochure-lead-email');
+  const errorBox=backdrop.querySelector('.brochure-form-error');
+  const downloadButton=backdrop.querySelector('.brochure-confirm-download');
 
-  triggers.forEach(trigger=>trigger.addEventListener('click',event=>{event.preventDefault();open()}));
+  const validName=()=>nameInput.value.trim().length>=2;
+  const validPhone=()=>/^[0-9+\-\s()]{7,15}$/.test(phoneInput.value.trim());
+  const validEmail=()=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
+  const isValid=()=>validName()&&validPhone()&&validEmail();
+
+  const updateState=()=>{
+    downloadButton.disabled=!isValid();
+    errorBox.textContent='';
+  };
+
+  const close=()=>{
+    backdrop.classList.remove('is-open');
+    backdrop.setAttribute('aria-hidden','true');
+  };
+
+  const open=()=>{
+    backdrop.classList.add('is-open');
+    backdrop.setAttribute('aria-hidden','false');
+    form.reset();
+    updateState();
+    setTimeout(()=>nameInput.focus(),50);
+  };
+
+  [nameInput,phoneInput,emailInput].forEach(input=>{
+    input.addEventListener('input',updateState);
+    input.addEventListener('blur',updateState);
+  });
+
+  triggers.forEach(trigger=>trigger.addEventListener('click',event=>{
+    event.preventDefault();
+    open();
+  }));
+
   backdrop.querySelector('.brochure-confirm-cancel')?.addEventListener('click',close);
   backdrop.addEventListener('click',event=>{if(event.target===backdrop)close()});
-  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&backdrop.classList.contains('is-open'))close()});
-  backdrop.querySelector('.brochure-confirm-download')?.addEventListener('click',()=>{
+  document.addEventListener('keydown',event=>{
+    if(event.key==='Escape'&&backdrop.classList.contains('is-open'))close();
+  });
+
+  form.addEventListener('submit',event=>{
+    event.preventDefault();
+
+    if(!isValid()){
+      errorBox.textContent='Please enter a valid name, contact number and email address.';
+      updateState();
+      return;
+    }
+
     const inProductFolder=window.location.pathname.includes('/products/');
     const pdfPath=inProductFolder?'../assets/docs/Therm-X-Innovations-Brochure.pdf':'assets/docs/Therm-X-Innovations-Brochure.pdf';
     const link=document.createElement('a');
